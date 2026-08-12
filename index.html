@@ -17,6 +17,7 @@
   <script defer src="js/app.js?v=20260813b"></script>
   <script defer src="js/weather.js?v=20260813b"></script>
   <script defer src="js/market.js?v=20260813b"></script>
+  <script defer src="js/housing.js?v=20260813c"></script>
   <script defer src="js/comments.js?v=20260813b"></script>
 </head>
 <body>
@@ -165,13 +166,14 @@
       </section>
 
       <section class="info-card life-card" id="life-info" aria-labelledby="life-title">
-        <div class="info-card-head"><div><span class="info-eyebrow">LIFE GUIDE</span><h2 id="life-title">생활·청약 정보</h2></div><span class="life-badge">공식</span></div>
-        <div class="life-links">
-          <a href="https://www.applyhome.co.kr/" target="_blank" rel="noopener noreferrer"><span>청약</span><div><strong>청약홈 모집공고 확인</strong><small>APT·무순위·오피스텔 일정</small></div><b>↗</b></a>
+        <div class="info-card-head"><div><span class="info-eyebrow">APPLY HOME</span><h2 id="life-title">이번 주 청약 일정</h2></div><span class="life-badge">공식 API</span></div>
+        <div class="housing-list" id="housing-list" aria-live="polite"><p>청약 일정을 불러오는 중입니다.</p></div>
+        <a class="housing-more" href="https://www.applyhome.co.kr/" target="_blank" rel="noopener noreferrer">청약홈에서 전체 공고 보기 ↗</a>
+        <div class="life-links support-links">
           <a href="https://www.gov.kr/portal/rcvfvrSvc/main/nonLogin" target="_blank" rel="noopener noreferrer"><span>지원</span><div><strong>보조금24 혜택 찾기</strong><small>내가 받을 수 있는 정부 지원</small></div><b>↗</b></a>
           <a href="https://www.bokjiro.go.kr/" target="_blank" rel="noopener noreferrer"><span>복지</span><div><strong>복지로 서비스 찾기</strong><small>생애주기별 복지 정보</small></div><b>↗</b></a>
         </div>
-        <p class="housing-note">실시간 청약 일정은 공식 API 키 발급 후 이 카드에 자동 표시할 수 있습니다.</p>
+        <p class="housing-note" id="housing-updated">한국부동산원 청약홈 공식 데이터</p>
       </section>
       </aside>
     </div>
