@@ -1,2 +1,1 @@
-# Google AdSense 승인 및 게시자 ID 확인 후 추가합니다.
-
+google.com, pub-6532882266109488, DIRECT, f08c47fec0942fa0
