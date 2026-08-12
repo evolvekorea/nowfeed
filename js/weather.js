@@ -35,17 +35,46 @@
     if (high) high.textContent = `${Math.round(daily.temperature_2m_max[0])}°`;
     if (low) low.textContent = `${Math.round(daily.temperature_2m_min[0])}°`;
     if (humidity) humidity.textContent = `${current.relative_humidity_2m}%`;
-    if (updated) updated.textContent = `Open-Meteo 제공 · ${current.time.slice(11, 16)} 기준`;
+    if (updated) updated.textContent = `Open-Meteo·CAMS 제공 · ${current.time.slice(11, 16)} 기준`;
+  };
+
+  const gradePm10 = (value) => value <= 30 ? ['좋음', 'good'] : value <= 80 ? ['보통', 'normal'] : value <= 150 ? ['나쁨', 'bad'] : ['매우 나쁨', 'very-bad'];
+  const gradePm25 = (value) => value <= 15 ? ['좋음', 'good'] : value <= 35 ? ['보통', 'normal'] : value <= 75 ? ['나쁨', 'bad'] : ['매우 나쁨', 'very-bad'];
+  const gradeUv = (value) => value < 3 ? ['낮음', 'good'] : value < 6 ? ['보통', 'normal'] : value < 8 ? ['높음', 'bad'] : ['매우 높음', 'very-bad'];
+
+  const setAirQuality = (current) => {
+    const fields = [
+      ['#air-pm10', '#air-pm10-grade', current.pm10, gradePm10],
+      ['#air-pm25', '#air-pm25-grade', current.pm2_5, gradePm25],
+      ['#air-uv', '#air-uv-grade', current.uv_index, gradeUv]
+    ];
+    fields.forEach(([valueSelector, gradeSelector, rawValue, grader]) => {
+      const valueNode = document.querySelector(valueSelector);
+      const gradeNode = document.querySelector(gradeSelector);
+      if (!valueNode || !gradeNode || !Number.isFinite(rawValue)) return;
+      const [label, className] = grader(rawValue);
+      valueNode.textContent = Number(rawValue).toFixed(valueSelector === '#air-uv' ? 1 : 0);
+      gradeNode.textContent = label;
+      gradeNode.className = className;
+    });
   };
 
   const loadWeather = async () => {
     try {
       const url = 'https://api.open-meteo.com/v1/forecast?latitude=37.5665&longitude=126.9780&current=temperature_2m,relative_humidity_2m,apparent_temperature,is_day,weather_code&daily=temperature_2m_max,temperature_2m_min&forecast_days=1&timezone=Asia%2FSeoul';
-      const response = await fetch(url, { headers: { Accept: 'application/json' } });
-      if (!response.ok) throw new Error(`Weather request failed: ${response.status}`);
-      const data = await response.json();
+      const airUrl = 'https://air-quality-api.open-meteo.com/v1/air-quality?latitude=37.5665&longitude=126.9780&current=pm10,pm2_5,uv_index&timezone=Asia%2FSeoul';
+      const [weatherResponse, airResponse] = await Promise.all([
+        fetch(url, { headers: { Accept: 'application/json' } }),
+        fetch(airUrl, { headers: { Accept: 'application/json' } })
+      ]);
+      if (!weatherResponse.ok) throw new Error(`Weather request failed: ${weatherResponse.status}`);
+      const data = await weatherResponse.json();
       if (!data.current || !data.daily) throw new Error('Weather data is missing');
       setWeather(data.current, data.daily);
+      if (airResponse.ok) {
+        const airData = await airResponse.json();
+        if (airData.current) setAirQuality(airData.current);
+      }
     } catch {
       statusNode.textContent = '날씨를 불러올 수 없음';
       tempNode.textContent = '--°';
