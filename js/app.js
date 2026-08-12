@@ -1,39 +1,36 @@
 (() => {
-  const dateNode = document.querySelector('#current-date');
-  const timeNode = document.querySelector('#current-time');
+  const menu = document.querySelector('#main-nav');
   const menuButton = document.querySelector('#menu-toggle');
-  const nav = document.querySelector('#main-nav');
-  const themeButton = document.querySelector('#theme-toggle');
+  const toast = document.querySelector('#toast');
 
-  const updateClock = () => {
-    const now = new Date();
-    if (dateNode) {
-      dateNode.textContent = new Intl.DateTimeFormat('ko-KR', {
-        year: 'numeric', month: 'long', day: 'numeric', weekday: 'long'
-      }).format(now);
-    }
-    if (timeNode) {
-      timeNode.textContent = new Intl.DateTimeFormat('ko-KR', {
-        hour: '2-digit', minute: '2-digit', hour12: false
-      }).format(now);
-    }
+  const showToast = (message) => {
+    if (!toast) return;
+    toast.textContent = message;
+    toast.classList.add('show');
+    window.setTimeout(() => toast.classList.remove('show'), 2200);
   };
 
-  updateClock();
-  window.setInterval(updateClock, 60000);
+  window.nowfeedToast = showToast;
 
   menuButton?.addEventListener('click', () => {
-    const open = nav.classList.toggle('open');
-    menuButton.setAttribute('aria-expanded', String(open));
+    const isOpen = menu?.classList.toggle('open');
+    menuButton.setAttribute('aria-expanded', String(Boolean(isOpen)));
   });
 
-  const storedTheme = localStorage.getItem('nowfeed-theme');
-  if (storedTheme === 'dark') document.body.classList.add('dark');
+  document.querySelectorAll('[data-scroll-comments]').forEach((button) => {
+    button.addEventListener('click', () => document.querySelector('#comments')?.scrollIntoView());
+  });
 
-  themeButton?.addEventListener('click', () => {
-    const dark = document.body.classList.toggle('dark');
-    localStorage.setItem('nowfeed-theme', dark ? 'dark' : 'light');
-    themeButton.setAttribute('aria-label', dark ? '밝은 화면으로 전환' : '어두운 화면으로 전환');
+  document.querySelector('#share-button')?.addEventListener('click', async () => {
+    const shareData = { title: document.title, text: '이 사연에 당신의 선택을 남겨보세요.', url: window.location.href };
+    try {
+      if (navigator.share) await navigator.share(shareData);
+      else {
+        await navigator.clipboard.writeText(window.location.href);
+        showToast('링크를 복사했어요.');
+      }
+    } catch (error) {
+      if (error.name !== 'AbortError') showToast('링크를 복사하지 못했어요.');
+    }
   });
 })();
-
