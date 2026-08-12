@@ -1,0 +1,13 @@
+{
+  "status": "sample",
+  "location": "서울",
+  "temperature": 29,
+  "feelsLike": 31,
+  "precipitationProbability": 20,
+  "airQuality": "보통",
+  "humidity": 62,
+  "windSpeed": 2.1,
+  "observedAt": "2026-08-12T14:00:00+09:00",
+  "source": "디자인 검토용 샘플 데이터"
+}
+

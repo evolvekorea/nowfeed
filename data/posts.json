@@ -1,0 +1,30 @@
+[
+  {
+    "id": "nowfeed-preview",
+    "title": "뉴스를 넘기듯, 지금 필요한 정보만 한눈에",
+    "summary": "Nowfeed의 새로운 콘텐츠 경험을 소개하는 샘플 글입니다.",
+    "category": "기획",
+    "publishedAt": "2026-08-12T14:30:00+09:00",
+    "updatedAt": "2026-08-12T14:30:00+09:00",
+    "url": "articles/2026/08/nowfeed-preview/"
+  },
+  {
+    "id": "economy-preview",
+    "title": "오늘 확인해야 할 경제 일정, 세 가지로 정리",
+    "summary": "주요 발표와 시장 일정을 보여주는 데이터 카드 예시입니다.",
+    "category": "경제",
+    "publishedAt": "2026-08-12T13:40:00+09:00",
+    "updatedAt": "2026-08-12T13:40:00+09:00",
+    "url": "category/economy/"
+  },
+  {
+    "id": "tech-preview",
+    "title": "생활 속 기술 변화, 어려운 말 없이 빠르게 읽기",
+    "summary": "독자적인 문장으로 기술 흐름을 요약하는 예시입니다.",
+    "category": "IT·과학",
+    "publishedAt": "2026-08-12T12:15:00+09:00",
+    "updatedAt": "2026-08-12T12:15:00+09:00",
+    "url": "category/tech/"
+  }
+]
+
