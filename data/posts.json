@@ -25,6 +25,23 @@
     "publishedAt": "2026-08-12T12:15:00+09:00",
     "updatedAt": "2026-08-12T12:15:00+09:00",
     "url": "category/tech/"
+  },
+  {
+    "id": "life-supplements",
+    "title": "영양제 정보, 성분과 섭취 기준부터 차근차근",
+    "summary": "비타민과 건강기능식품의 근거, 섭취량, 상호작용과 주의사항을 정리하는 생활정보 게시판입니다.",
+    "category": "생활·영양제",
+    "publishedAt": "2026-08-13T01:30:00+09:00",
+    "updatedAt": "2026-08-13T01:30:00+09:00",
+    "url": "category/life/#supplements"
+  },
+  {
+    "id": "life-diet",
+    "title": "오래 유지할 수 있는 다이어트 식단과 운동 정보",
+    "summary": "극단적인 감량법보다 영양 균형, 활동량, 수면과 지속 가능한 습관을 살펴봅니다.",
+    "category": "생활·다이어트",
+    "publishedAt": "2026-08-13T01:30:00+09:00",
+    "updatedAt": "2026-08-13T01:30:00+09:00",
+    "url": "category/life/#diet"
   }
 ]
-
