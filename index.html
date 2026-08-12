@@ -14,9 +14,10 @@
   <meta name="theme-color" content="#ff5b45">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/portal.css">
-  <script defer src="js/app.js"></script>
-  <script defer src="js/weather.js"></script>
-  <script defer src="js/comments.js"></script>
+  <script defer src="js/app.js?v=20260813b"></script>
+  <script defer src="js/weather.js?v=20260813b"></script>
+  <script defer src="js/market.js?v=20260813b"></script>
+  <script defer src="js/comments.js?v=20260813b"></script>
 </head>
 <body>
   <a class="skip-link" href="#main-content">본문 바로가기</a>
@@ -45,6 +46,7 @@
         <a href="#comments">댓글 토론</a>
         <a href="#more">인기 사연</a>
         <a href="category/life/">생활</a>
+        <a href="#life-info">생활·청약</a>
         <a href="category/society/">사회</a>
         <a href="about/">Nowfeed 소개</a>
       </div>
@@ -96,7 +98,8 @@
         </div>
       </article>
 
-      <aside class="vote-panel" aria-labelledby="vote-title">
+      <aside class="right-rail" aria-label="투표와 생활 정보">
+      <section class="vote-panel" aria-labelledby="vote-title">
         <span class="vote-label">NOW VOTE</span>
         <h2 id="vote-title">이 결혼,<br>계속해야 할까요?</h2>
         <p class="vote-prompt">투표하면 현재 결과를 바로 볼 수 있어요.</p>
@@ -129,6 +132,47 @@
           <span>한 사람당 한 표</span>
           <span>익명 참여</span>
         </div>
+      </section>
+
+      <section class="info-card weather-detail" aria-labelledby="weather-title">
+        <div class="info-card-head"><div><span class="info-eyebrow">WEATHER</span><h2 id="weather-title">오늘의 서울</h2></div><span id="weather-card-icon" class="weather-card-icon" aria-hidden="true">☁</span></div>
+        <div class="weather-card-main"><strong id="weather-card-temp">--°</strong><div><b id="weather-card-label">날씨 확인 중</b><span id="weather-card-feels">체감 --°</span></div></div>
+        <div class="weather-card-stats"><span><b>최고</b><em id="weather-high">--°</em></span><span><b>최저</b><em id="weather-low">--°</em></span><span><b>습도</b><em id="weather-humidity">--%</em></span></div>
+        <small id="weather-updated">Open-Meteo 제공 · 불러오는 중</small>
+      </section>
+
+      <section class="info-card market-card" aria-labelledby="market-title">
+        <div class="info-card-head"><div><span class="info-eyebrow">MARKET</span><h2 id="market-title">시장 한눈에</h2></div><span class="market-state" id="market-state">확인 중</span></div>
+        <ul class="market-list">
+          <li><span>코스피</span><strong id="kospi-price">--</strong><em id="kospi-change">--</em></li>
+          <li><span>코스닥</span><strong id="kosdaq-price">--</strong><em id="kosdaq-change">--</em></li>
+          <li><span>원/달러</span><strong id="usdkrw-price">--</strong><em id="usdkrw-change">USD</em></li>
+        </ul>
+        <small id="market-updated">시세 데이터를 불러오는 중입니다.</small>
+        <p class="data-source">지수: NAVER 금융 · 환율: Coinbase<br>정보 제공용이며 투자 판단용이 아닙니다.</p>
+      </section>
+
+      <section class="info-card fortune-card" aria-labelledby="fortune-title">
+        <div class="info-card-head"><div><span class="info-eyebrow">DAILY FORTUNE</span><h2 id="fortune-title">오늘의 사주 운세</h2></div><span class="fortune-symbol" aria-hidden="true">福</span></div>
+        <p class="fortune-intro">가볍게 읽어보는 오늘의 기운입니다.</p>
+        <div class="fortune-result fortune-today">
+          <span>오늘의 키워드 · 차분한 선택</span>
+          <strong>서두르지 않을수록 좋아요</strong>
+          <p>중요한 결정은 한 번 더 확인하고, 가까운 사람의 이야기에 귀를 기울여 보세요.</p>
+          <div><b>행운색</b> 짙은 파랑 · <b>좋은 시간</b> 오후 2–4시</div>
+        </div>
+        <small>생년월일 기반 오락 콘텐츠이며 전문적인 만세력 해석이 아닙니다.</small>
+      </section>
+
+      <section class="info-card life-card" id="life-info" aria-labelledby="life-title">
+        <div class="info-card-head"><div><span class="info-eyebrow">LIFE GUIDE</span><h2 id="life-title">생활·청약 정보</h2></div><span class="life-badge">공식</span></div>
+        <div class="life-links">
+          <a href="https://www.applyhome.co.kr/" target="_blank" rel="noopener noreferrer"><span>청약</span><div><strong>청약홈 모집공고 확인</strong><small>APT·무순위·오피스텔 일정</small></div><b>↗</b></a>
+          <a href="https://www.gov.kr/portal/rcvfvrSvc/main/nonLogin" target="_blank" rel="noopener noreferrer"><span>지원</span><div><strong>보조금24 혜택 찾기</strong><small>내가 받을 수 있는 정부 지원</small></div><b>↗</b></a>
+          <a href="https://www.bokjiro.go.kr/" target="_blank" rel="noopener noreferrer"><span>복지</span><div><strong>복지로 서비스 찾기</strong><small>생애주기별 복지 정보</small></div><b>↗</b></a>
+        </div>
+        <p class="housing-note">실시간 청약 일정은 공식 API 키 발급 후 이 카드에 자동 표시할 수 있습니다.</p>
+      </section>
       </aside>
     </div>
 

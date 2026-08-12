@@ -1,12 +1,22 @@
 {
-  "status": "sample-delayed",
-  "observedAt": "2026-08-12T14:00:00+09:00",
-  "source": "디자인 검토용 샘플 데이터",
-  "disclaimer": "본 정보는 투자 권유가 아닙니다.",
-  "items": [
-    {"name": "코스피", "value": "2,584.32", "change": "+0.42%"},
-    {"name": "코스닥", "value": "731.18", "change": "-0.18%"},
-    {"name": "원/달러", "value": "1,372.40", "change": "+2.10"}
-  ]
+  "updatedAt": "2026-08-12T15:46:39.582Z",
+  "displayTime": "2026.08.12 18:59",
+  "marketStatus": "CLOSE",
+  "kospi": {
+    "price": "6,579.04",
+    "change": "233.51",
+    "changePercent": "3.68",
+    "direction": "RISING"
+  },
+  "kosdaq": {
+    "price": "858.91",
+    "change": "1.07",
+    "changePercent": "0.12",
+    "direction": "RISING"
+  },
+  "usdkrw": {
+    "price": 1417.438699,
+    "base": "USD",
+    "quote": "KRW"
+  }
 }
-
