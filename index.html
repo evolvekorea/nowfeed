@@ -25,7 +25,7 @@
   <script defer src="js/app.js?v=20260814b"></script>
   <script defer src="js/weather.js?v=20260813d"></script>
   <script defer src="js/market.js?v=20260813b"></script>
-  <script defer src="js/housing.js?v=20260813c"></script>
+  <script defer src="js/housing.js?v=20260814d"></script>
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -116,19 +116,9 @@
         </ul>
         <small id="market-updated">시세 데이터를 불러오는 중입니다.</small>
         <p class="data-source">지수: NAVER 금융 · 환율: Coinbase<br>정보 제공용이며 투자 판단용이 아닙니다.</p>
-      </section><section class="info-card fortune-card" aria-labelledby="fortune-title">
-        <div class="info-card-head"><div><span class="info-eyebrow">DAILY FORTUNE</span><h2 id="fortune-title">오늘의 사주 운세</h2></div><span class="fortune-symbol" aria-hidden="true">福</span></div>
-        <p class="fortune-intro">가볍게 읽어보는 오늘의 기운입니다.</p>
-        <div class="fortune-result fortune-today">
-          <span>오늘의 키워드 · 차분한 선택</span>
-          <strong>서두르지 않을수록 좋아요</strong>
-          <p>중요한 결정은 한 번 더 확인하고, 가까운 사람의 이야기에 귀를 기울여 보세요.</p>
-          <div><b>행운색</b> 짙은 파랑 · <b>좋은 시간</b> 오후 2–4시</div>
-        </div>
-        <small>생년월일 기반 오락 콘텐츠이며 전문적인 만세력 해석이 아닙니다.</small>
       </section><section class="info-card life-card" id="life-info" aria-labelledby="life-title">
         <div class="info-card-head"><div><span class="info-eyebrow">APPLY HOME</span><h2 id="life-title">이번 주 청약 일정</h2></div><span class="life-badge">공식 API</span></div>
-        <div class="housing-list" id="housing-list" aria-live="polite"><p>청약 일정을 불러오는 중입니다.</p></div>
+        <div class="housing-list" id="housing-list" data-limit="3" aria-live="polite"><p>청약 일정을 불러오는 중입니다.</p></div>
         <a class="housing-more" href="https://www.applyhome.co.kr/" target="_blank" rel="noopener noreferrer">청약홈에서 전체 공고 보기 ↗</a>
         <div class="life-links support-links">
           <a href="https://www.gov.kr/portal/rcvfvrSvc/main/nonLogin" target="_blank" rel="noopener noreferrer"><span>지원</span><div><strong>보조금24 혜택 찾기</strong><small>내가 받을 수 있는 정부 지원</small></div><b>↗</b></a>

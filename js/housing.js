@@ -2,6 +2,7 @@
   const list = document.querySelector('#housing-list');
   const updated = document.querySelector('#housing-updated');
   if (!list || !updated) return;
+  const itemLimit = Math.max(1, Number(list.dataset.limit || 5));
 
   const formatDate = (date) => {
     const [, month, day] = date.split('-');
@@ -44,7 +45,7 @@
       const response = await fetch(`data/housing.json?v=${Date.now()}`, { cache: 'no-store' });
       if (!response.ok) throw new Error(`Housing request failed: ${response.status}`);
       const data = await response.json();
-      list.replaceChildren(...data.items.slice(0, 5).map(renderItem));
+      list.replaceChildren(...data.items.slice(0, itemLimit).map(renderItem));
       if (!data.items.length) list.innerHTML = '<p>현재 접수 예정인 APT 공고가 없습니다.</p>';
       updated.textContent = `한국부동산원 청약홈 · ${data.displayTime} 갱신`;
     } catch {
