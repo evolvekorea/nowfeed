@@ -21,6 +21,22 @@
     button.addEventListener('click', () => document.querySelector('#comments')?.scrollIntoView());
   });
 
+  const moveRail = (railId, direction) => {
+    const rail = document.querySelector(`#${railId}`);
+    if (!rail) return;
+    const card = rail.firstElementChild;
+    const distance = (card?.getBoundingClientRect().width || rail.clientWidth * 0.8) + 18;
+    rail.scrollBy({ left: distance * direction, behavior: 'smooth' });
+  };
+
+  document.querySelectorAll('[data-rail-prev]').forEach((button) => {
+    button.addEventListener('click', () => moveRail(button.dataset.railPrev, -1));
+  });
+
+  document.querySelectorAll('[data-rail-next]').forEach((button) => {
+    button.addEventListener('click', () => moveRail(button.dataset.railNext, 1));
+  });
+
   document.querySelector('#share-button')?.addEventListener('click', async () => {
     const shareData = { title: document.title, text: '이 사연에 당신의 선택을 남겨보세요.', url: window.location.href };
     try {

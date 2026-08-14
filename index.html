@@ -21,12 +21,11 @@
   <!-- Google AdSense -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6532882266109488" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/portal.css">
-  <script defer src="js/app.js?v=20260813b"></script>
+  <link rel="stylesheet" href="css/portal.css?v=20260814b">
+  <script defer src="js/app.js?v=20260814b"></script>
   <script defer src="js/weather.js?v=20260813d"></script>
   <script defer src="js/market.js?v=20260813b"></script>
   <script defer src="js/housing.js?v=20260813c"></script>
-  <script defer src="js/comments.js?v=20260814a"></script>
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -40,7 +39,7 @@
   }
   </script>
 </head>
-<body data-story-id="husband-001">
+<body class="home-page">
   <a class="skip-link" href="#main-content">본문 바로가기</a>
 
   <header class="site-header">
@@ -58,14 +57,13 @@
         <span><b>서울</b><small id="weather-status">날씨 확인 중</small></span>
         <strong id="weather-temp">--°</strong>
       </div>
-      <button class="story-submit" type="button" data-scroll-comments>의견 남기기</button>
+      <a class="story-submit" href="#hot">인기 사연 보기</a>
       <button class="menu-toggle" id="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav">메뉴</button>
     </div>
     <nav class="main-nav" id="main-nav" aria-label="주요 메뉴">
       <div class="container nav-scroll">
-        <a class="active" href="#today">오늘의 선택</a>
-        <a href="#comments">댓글 토론</a>
-        <a href="#more">인기 사연</a>
+        <a class="active" href="#hot">인기 사연</a>
+        <a href="#daily">오늘의 생활</a>
         <a href="category/life/">생활정보</a>
         <a href="#life-info">생활·청약</a>
         <a href="category/society/">사회</a>
@@ -75,126 +73,30 @@
   </header>
 
   <main id="main-content">
-    <section class="intro" id="today">
+    <section class="intro home-intro" id="hot">
       <div class="container intro-inner">
         <div>
-          <span class="kicker"><i></i> TODAY'S CHOICE</span>
-          <h1>오늘 가장 뜨거운 사연</h1>
+          <span class="kicker"><i></i> NOW TRENDING</span>
+          <h1>지금 뜨거운 이야기,<br><em>한눈에 골라보세요.</em></h1>
         </div>
-        <p>사연을 읽고 솔직한 한 표를 남겨주세요.<br>투표 후 사람들의 선택을 바로 확인할 수 있습니다.</p>
+        <p>관심 가는 사연을 열어 읽고,<br>두 가지 관점 중 하나를 선택해보세요.</p>
+      </div>
+    </section>
+    <section class="home-section hot-section" aria-labelledby="hot-title">
+      <div class="container">
+        <div class="section-head compact-head"><div><span class="kicker">HOT STORIES</span><h2 id="hot-title">지금 많이 보는 사연</h2></div><div class="rail-controls"><button type="button" data-rail-prev="hot-rail" aria-label="이전 사연">←</button><button type="button" data-rail-next="hot-rail" aria-label="다음 사연">→</button></div></div>
+        <div class="hot-rail scroll-rail" id="hot-rail">
+          <article class="hot-card"><a href="articles/2026/08/liver-donation-in-laws-debate/"><img src="images/og-liver-donation-in-laws-debate.png" alt="" loading="eager"><div class="hot-card-copy"><span>결혼 · 가족</span><h3>시어머니에게 간을 공여했는데, 남편은 “계산적”이라 했습니다</h3><p>생명을 나눈 헌신을 가족이 당연하게 여겨도 될까요?</p><b>사연 읽고 투표하기 →</b></div></a></article>
+          <article class="hot-card"><a href="articles/2026/08/mother-in-law-visit-divorce/"><img src="images/og-mother-in-law-visit-divorce.png" alt="" loading="eager"><div class="hot-card-copy"><span>결혼 · 가족</span><h3>시어머니 방문을 미루자 했더니 남편은 이혼을 말했습니다</h3><p>가족 방문의 기준과 부부 사이의 공평함을 묻습니다.</p><b>사연 읽고 투표하기 →</b></div></a></article>
+          <article class="hot-card"><a href="articles/2026/08/long-term-jeonse-expiration-debate/"><img src="images/og-long-term-jeonse-expiration-debate.png" alt="" loading="eager"><div class="hot-card-copy"><span>사회 · 주거</span><h3>20년 장기전세 만기, 계약대로 퇴거해야 할까요?</h3><p>계약 원칙과 장기 거주자의 주거 안정이 충돌했습니다.</p><b>이슈 읽고 투표하기 →</b></div></a></article>
+        </div>
       </div>
     </section>
 
-    <div class="container content-grid">
-      <div class="story-flow">
-      <article class="story-card" aria-labelledby="story-title">
-        <div class="story-meta">
-          <span class="category">결혼 · 가족</span>
-          <span>재구성 사연</span>
-          <span>읽는 시간 3분</span>
-        </div>
-        <h2 id="story-title">상의 없이 매번 자기 뜻대로 하는 남편,<br>이 결혼 계속해야 할까요?</h2>
-        <p class="story-summary">결혼 6년 차입니다. 남편은 가족의 중요한 일을 늘 혼자 결정합니다. 이번에는 저와 상의도 없이 시부모님 근처로 이사할 집을 계약하겠다고 통보했습니다.</p>
-
-        <div class="story-body">
-          <p>처음에는 추진력이 강한 사람이라고 생각했습니다. 식당 예약이나 여행지를 정할 때도 빠르게 결정하는 모습이 든든해 보였어요. 하지만 결혼하고 나니 작은 선택부터 큰일까지 제 의견을 묻지 않는 일이 반복됐습니다.</p>
-          <p>지난주에는 더 큰 일이 생겼습니다. 남편이 갑자기 “우리 다음 달에 이사하자”며 집 사진을 보여줬습니다. 시부모님 댁에서 걸어서 10분 거리였고, 이미 가계약까지 했다고 했습니다. 제 직장에서는 지금보다 40분이 더 걸리는 곳입니다.</p>
-
-          <blockquote>
-            <p>“가족을 위한 결정인데 왜 매번 허락을 받아야 해?”</p>
-            <cite>— 남편이 제게 한 말</cite>
-          </blockquote>
-
-          <p>저는 허락을 받으라는 게 아니라 함께 결정하고 싶다고 말했습니다. 하지만 남편은 제가 사소한 일로 싸움을 키운다며 대화를 피합니다. 예전에도 비슷한 문제로 여러 번 다퉜고, 바뀌겠다는 약속도 받았지만 오래가지 않았습니다.</p>
-          <p>아직 아이는 없습니다. 지금이라도 관계를 정리해야 하는지, 부부 상담을 마지막으로 한 번 더 받아봐야 하는지 마음이 복잡합니다. 제가 너무 예민한 걸까요?</p>
-        </div>
-
-        <div class="editor-note">
-          <strong>Nowfeed 안내</strong>
-          <p>서비스 화면 검증을 위해 만든 가상의 재구성 사연입니다. 실제 인물이나 특정 게시글과 관련이 없습니다.</p>
-        </div>
-
-        <div class="story-footer">
-          <span>게시 2026.08.13</span>
-          <button id="share-button" type="button">링크 공유</button>
-        </div>
-      </article>
-
-      <section class="comments-section story-comments" id="comments">
-        <div class="comments-heading">
-          <span class="kicker">REAL TALK</span>
-          <h2>당신의 생각은<br>어떤가요?</h2>
-          <p>다른 의견을 존중하며 이야기해 주세요. 비방과 개인정보 노출은 삼가주세요.</p>
-        </div>
-
-        <div class="comments-content">
-          <form class="comment-form" id="comment-form">
-            <label for="comment-input">댓글 남기기</label>
-            <textarea id="comment-input" maxlength="300" placeholder="이 사연에 대한 생각을 남겨주세요." required></textarea>
-            <div class="comment-form-bottom">
-              <span><b id="comment-count">0</b>/300 · 작성한 댓글은 이 기기에 저장됩니다.</span>
-              <button type="submit">댓글 등록</button>
-            </div>
-          </form>
-
-          <div class="comment-toolbar">
-            <h3>댓글 <span id="comments-total">3</span></h3>
-            <span>공감순</span>
-          </div>
-          <div class="comment-list" id="comment-list" aria-live="polite">
-            <article class="comment" data-seed="true">
-              <div class="avatar coral">솔</div>
-              <div><div class="comment-head"><strong>솔직한마음</strong><time>12분 전</time></div><p>이사의 문제가 아니라 중요한 결정을 배우자와 상의하지 않는 태도가 문제인 것 같아요. 상담을 제안하되 거부한다면 진지하게 관계를 고민할 것 같습니다.</p><button class="like-button" type="button">공감 <span>128</span></button></div>
-            </article>
-            <article class="comment" data-seed="true">
-              <div class="avatar blue">한</div>
-              <div><div class="comment-head"><strong>한번더대화</strong><time>31분 전</time></div><p>아이가 없을 때 결론을 내야 한다는 말에는 동의하지만, 바로 이혼보다 부부 상담에서 서로의 기준을 확인해보는 과정은 필요해 보여요.</p><button class="like-button" type="button">공감 <span>76</span></button></div>
-            </article>
-            <article class="comment" data-seed="true">
-              <div class="avatar lime">경</div>
-              <div><div class="comment-head"><strong>경계가필요해</strong><time>1시간 전</time></div><p>가계약까지 해놓고 통보한 건 선을 넘었죠. 취소하고 다시 논의하는 것이 최소한의 출발점이라고 생각합니다.</p><button class="like-button" type="button">공감 <span>54</span></button></div>
-            </article>
-          </div>
-        </div>
-      </section>
-      </div>
-
-      <aside class="right-rail" aria-label="투표와 생활 정보">
-      <section class="vote-panel" aria-labelledby="vote-title">
-        <span class="vote-label">NOW VOTE</span>
-        <h2 id="vote-title">이 결혼,<br>계속해야 할까요?</h2>
-        <p class="vote-prompt">투표하면 현재 결과를 바로 볼 수 있어요.</p>
-
-        <div class="vote-actions" id="vote-actions">
-          <button class="vote-button leave" type="button" data-vote="leave" data-label="이혼을 고민한다" data-base="1842">
-            <span class="vote-icon">A</span>
-            <span><strong>이혼을 고민한다</strong><small>신뢰가 무너진 관계예요</small></span>
-          </button>
-          <button class="vote-button stay" type="button" data-vote="stay" data-label="한 번 더 노력한다" data-base="1136">
-            <span class="vote-icon">B</span>
-            <span><strong>한 번 더 노력한다</strong><small>상담과 대화가 먼저예요</small></span>
-          </button>
-        </div>
-
-        <div class="vote-results" id="vote-results" hidden aria-live="polite">
-          <div class="result-row">
-            <div><strong>이혼을 고민한다</strong><span id="leave-percent" data-vote-percent="leave">62%</span></div>
-            <div class="result-track"><i id="leave-bar" data-vote-bar="leave"></i></div>
-          </div>
-          <div class="result-row">
-            <div><strong>한 번 더 노력한다</strong><span id="stay-percent" data-vote-percent="stay">38%</span></div>
-            <div class="result-track"><i id="stay-bar" data-vote-bar="stay"></i></div>
-          </div>
-          <p><strong id="total-votes">2,978</strong>명이 참여했어요 <span id="my-vote"></span></p>
-          <button class="change-vote" id="change-vote" type="button">선택 바꾸기</button>
-        </div>
-
-        <div class="vote-rule">
-          <span>한 사람당 한 표</span>
-          <span>익명 참여</span>
-        </div>
-      </section>
-
+    <section class="home-section daily-section" id="daily" aria-labelledby="daily-title">
+      <div class="container">
+        <div class="section-head compact-head"><div><span class="kicker">DAILY BRIEF</span><h2 id="daily-title">오늘 필요한 생활 정보</h2></div><div class="rail-controls"><button type="button" data-rail-prev="daily-rail" aria-label="이전 정보">←</button><button type="button" data-rail-next="daily-rail" aria-label="다음 정보">→</button></div></div>
+        <div class="daily-rail scroll-rail" id="daily-rail">
       <section class="info-card weather-detail" aria-labelledby="weather-title">
         <div class="info-card-head"><div><span class="info-eyebrow">WEATHER</span><h2 id="weather-title">오늘의 서울</h2></div><span id="weather-card-icon" class="weather-card-icon" aria-hidden="true">☁</span></div>
         <div class="weather-card-main"><strong id="weather-card-temp">--°</strong><div><b id="weather-card-label">날씨 확인 중</b><span id="weather-card-feels">체감 --°</span></div></div>
@@ -205,9 +107,7 @@
           <div><span>자외선 <small>UV</small></span><strong id="air-uv">--</strong><em id="air-uv-grade">확인 중</em></div>
         </div>
         <small id="weather-updated">Open-Meteo·CAMS 제공 · 불러오는 중</small>
-      </section>
-
-      <section class="info-card market-card" aria-labelledby="market-title">
+      </section><section class="info-card market-card" aria-labelledby="market-title">
         <div class="info-card-head"><div><span class="info-eyebrow">MARKET</span><h2 id="market-title">시장 한눈에</h2></div><span class="market-state" id="market-state">확인 중</span></div>
         <ul class="market-list">
           <li><span>코스피</span><strong id="kospi-price">--</strong><em id="kospi-change">--</em></li>
@@ -216,9 +116,7 @@
         </ul>
         <small id="market-updated">시세 데이터를 불러오는 중입니다.</small>
         <p class="data-source">지수: NAVER 금융 · 환율: Coinbase<br>정보 제공용이며 투자 판단용이 아닙니다.</p>
-      </section>
-
-      <section class="info-card fortune-card" aria-labelledby="fortune-title">
+      </section><section class="info-card fortune-card" aria-labelledby="fortune-title">
         <div class="info-card-head"><div><span class="info-eyebrow">DAILY FORTUNE</span><h2 id="fortune-title">오늘의 사주 운세</h2></div><span class="fortune-symbol" aria-hidden="true">福</span></div>
         <p class="fortune-intro">가볍게 읽어보는 오늘의 기운입니다.</p>
         <div class="fortune-result fortune-today">
@@ -228,9 +126,7 @@
           <div><b>행운색</b> 짙은 파랑 · <b>좋은 시간</b> 오후 2–4시</div>
         </div>
         <small>생년월일 기반 오락 콘텐츠이며 전문적인 만세력 해석이 아닙니다.</small>
-      </section>
-
-      <section class="info-card life-card" id="life-info" aria-labelledby="life-title">
+      </section><section class="info-card life-card" id="life-info" aria-labelledby="life-title">
         <div class="info-card-head"><div><span class="info-eyebrow">APPLY HOME</span><h2 id="life-title">이번 주 청약 일정</h2></div><span class="life-badge">공식 API</span></div>
         <div class="housing-list" id="housing-list" aria-live="polite"><p>청약 일정을 불러오는 중입니다.</p></div>
         <a class="housing-more" href="https://www.applyhome.co.kr/" target="_blank" rel="noopener noreferrer">청약홈에서 전체 공고 보기 ↗</a>
@@ -240,16 +136,6 @@
         </div>
         <p class="housing-note" id="housing-updated">한국부동산원 청약홈 공식 데이터</p>
       </section>
-      </aside>
-    </div>
-
-    <section class="more-section" id="more">
-      <div class="container">
-        <div class="section-head"><div><span class="kicker">MORE STORIES</span><h2>다른 사람들의 선택</h2></div><span>곧 더 많은 사연이 공개됩니다</span></div>
-        <div class="more-grid">
-          <article><span class="more-category">결혼 · 가족</span><h3><a href="articles/2026/08/mother-in-law-visit-divorce/">시어머니 방문을 미루자 했더니 남편은 이혼을 말했습니다</a></h3><div><b>새 사연</b><span>투표·REAL TALK</span></div></article>
-          <article><span class="more-category">사회 · 주거</span><h3><a href="articles/2026/08/long-term-jeonse-expiration-debate/">20년 장기전세 만기, 계약대로 퇴거해야 할까요?</a></h3><div><b>새 이슈</b><span>투표·REAL TALK</span></div></article>
-          <article><span class="more-category">결혼 · 가족</span><h3><a href="articles/2026/08/liver-donation-in-laws-debate/">시어머니에게 간을 공여했는데, 남편은 “계산적”이라 했습니다</a></h3><div><b>새 사연</b><span>투표·REAL TALK</span></div></article>
         </div>
       </div>
     </section>
