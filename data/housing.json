@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-08-14T13:36:25.983Z",
-  "displayTime": "2026.08.14 22:36",
+  "updatedAt": "2026-08-14T19:10:26.142Z",
+  "displayTime": "2026.08.15 04:10",
   "items": [
     {
       "id": "2026820006-2026820006",
@@ -94,43 +94,69 @@
       "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000382&pblancNo=2026000382"
     },
     {
-      "id": "2026000377-2026000377",
-      "name": "의왕역 한신더휴",
-      "region": "경기",
+      "id": "2026000383-2026000383",
+      "name": "포레나힐스테이트 진주",
+      "region": "경남",
       "type": "민영",
-      "address": "경기도 의왕시 삼동 244-1번지 일원",
-      "households": 108,
-      "publishedDate": "2026-08-13",
-      "startDate": "2026-08-24",
-      "endDate": "2026-08-27",
-      "status": "접수 예정",
-      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000377&pblancNo=2026000377"
-    },
-    {
-      "id": "2026000365-2026000365",
-      "name": "오남역 서희스타힐스 여의재 1단지",
-      "region": "경기",
-      "type": "민영",
-      "address": "경기도 남양주시 오남읍 양지리 101번지 일원",
-      "households": 180,
-      "publishedDate": "2026-08-13",
+      "address": "경상남도 진주시 이현동 10-1번지 외 13필지",
+      "households": 398,
+      "publishedDate": "2026-08-14",
       "startDate": "2026-08-24",
       "endDate": "2026-08-26",
       "status": "접수 예정",
-      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000365&pblancNo=2026000365"
+      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000383&pblancNo=2026000383"
     },
     {
-      "id": "2026820008-2026820008",
-      "name": "성남복정2 A1블록 신혼희망타운(공공분양)(본청약)",
-      "region": "경기",
-      "type": "국민",
-      "address": "경기도 성남시 수정구 신흥동 81-8",
-      "households": 594,
-      "publishedDate": "2026-08-10",
-      "startDate": "2026-08-31",
-      "endDate": "2026-09-08",
+      "id": "2026000372-2026000372",
+      "name": "쌍용 더 플래티넘 서대문",
+      "region": "서울",
+      "type": "민영",
+      "address": "서울특별시 서대문구 홍은동 355번지 일원",
+      "households": 62,
+      "publishedDate": "2026-08-14",
+      "startDate": "2026-08-24",
+      "endDate": "2026-08-27",
       "status": "접수 예정",
-      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026820008&pblancNo=2026820008"
+      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000372&pblancNo=2026000372"
+    },
+    {
+      "id": "2026000368-2026000368",
+      "name": "아르티엠 라 테라스",
+      "region": "전북",
+      "type": "민영",
+      "address": "전북특별자치도 전주시 덕진구 우아동3가 752-41 일원",
+      "households": 300,
+      "publishedDate": "2026-08-14",
+      "startDate": "2026-08-24",
+      "endDate": "2026-08-26",
+      "status": "접수 예정",
+      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000368&pblancNo=2026000368"
+    },
+    {
+      "id": "2026000354-2026000354",
+      "name": "상동역 롯데캐슬 시그니처",
+      "region": "경기",
+      "type": "민영",
+      "address": "경기도 부천시 원미구 상동 540-1번지",
+      "households": 1859,
+      "publishedDate": "2026-08-14",
+      "startDate": "2026-08-24",
+      "endDate": "2026-08-26",
+      "status": "접수 예정",
+      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000354&pblancNo=2026000354"
+    },
+    {
+      "id": "2026000342-2026000342",
+      "name": "제일풍경채 첨단3지구(A6BL)",
+      "region": "광주",
+      "type": "민영",
+      "address": "광주연구개발특구 첨단3지구 A6블록(전남광주통합특별시 북구 월출동) ",
+      "households": 638,
+      "publishedDate": "2026-08-14",
+      "startDate": "2026-08-24",
+      "endDate": "2026-08-26",
+      "status": "접수 예정",
+      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000342&pblancNo=2026000342"
     }
   ]
 }
