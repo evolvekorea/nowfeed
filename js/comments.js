@@ -1,59 +1,72 @@
 (() => {
-  const VOTE_KEY = 'nowfeed-vote-husband-001';
-  const COMMENT_KEY = 'nowfeed-comments-husband-001';
-  const baseVotes = { leave: 1842, stay: 1136 };
+  const storyId = document.body.dataset.storyId || 'husband-001';
+  const voteKey = `nowfeed-vote-${storyId}`;
+  const commentKey = `nowfeed-comments-${storyId}`;
   const actions = document.querySelector('#vote-actions');
   const results = document.querySelector('#vote-results');
+  const voteButtons = [...document.querySelectorAll('[data-vote]')];
+
+  const voteOptions = voteButtons.map((button) => ({
+    id: button.dataset.vote,
+    label: button.dataset.label || button.querySelector('strong')?.textContent?.trim() || button.dataset.vote,
+    base: Number(button.dataset.base || 0)
+  }));
 
   const renderVote = (choice) => {
-    if (!actions || !results) return;
-    if (!choice) {
+    if (!actions || !results || !voteOptions.length) return;
+    if (!choice || !voteOptions.some((option) => option.id === choice)) {
       actions.hidden = false;
       results.hidden = true;
       return;
     }
 
-    const votes = { ...baseVotes, [choice]: baseVotes[choice] + 1 };
-    const total = votes.leave + votes.stay;
-    const leavePercent = Math.round((votes.leave / total) * 100);
-    const stayPercent = 100 - leavePercent;
+    const votes = Object.fromEntries(voteOptions.map((option) => [option.id, option.base + (option.id === choice ? 1 : 0)]));
+    const total = Object.values(votes).reduce((sum, value) => sum + value, 0);
+    let allocated = 0;
+
+    voteOptions.forEach((option, index) => {
+      const isLast = index === voteOptions.length - 1;
+      const percent = isLast ? 100 - allocated : Math.round((votes[option.id] / total) * 100);
+      allocated += percent;
+      const percentNode = document.querySelector(`[data-vote-percent="${option.id}"]`);
+      const barNode = document.querySelector(`[data-vote-bar="${option.id}"]`);
+      if (percentNode) percentNode.textContent = `${percent}%`;
+      if (barNode) window.requestAnimationFrame(() => { barNode.style.width = `${percent}%`; });
+    });
 
     actions.hidden = true;
     results.hidden = false;
-    document.querySelector('#leave-percent').textContent = `${leavePercent}%`;
-    document.querySelector('#stay-percent').textContent = `${stayPercent}%`;
-    document.querySelector('#total-votes').textContent = total.toLocaleString('ko-KR');
-    document.querySelector('#my-vote').textContent = choice === 'leave' ? '나의 선택: 이혼을 고민한다' : '나의 선택: 한 번 더 노력한다';
-    window.requestAnimationFrame(() => {
-      document.querySelector('#leave-bar').style.width = `${leavePercent}%`;
-      document.querySelector('#stay-bar').style.width = `${stayPercent}%`;
-    });
+    const totalNode = document.querySelector('#total-votes');
+    const myVoteNode = document.querySelector('#my-vote');
+    if (totalNode) totalNode.textContent = total.toLocaleString('ko-KR');
+    if (myVoteNode) myVoteNode.textContent = `나의 선택: ${voteOptions.find((option) => option.id === choice).label}`;
   };
 
-  document.querySelectorAll('[data-vote]').forEach((button) => {
+  voteButtons.forEach((button) => {
     button.addEventListener('click', () => {
       const choice = button.dataset.vote;
-      localStorage.setItem(VOTE_KEY, choice);
+      localStorage.setItem(voteKey, choice);
       renderVote(choice);
       window.nowfeedToast?.('투표가 반영됐어요.');
     });
   });
 
   document.querySelector('#change-vote')?.addEventListener('click', () => {
-    localStorage.removeItem(VOTE_KEY);
+    localStorage.removeItem(voteKey);
     renderVote(null);
   });
 
-  renderVote(localStorage.getItem(VOTE_KEY));
+  renderVote(localStorage.getItem(voteKey));
 
   const form = document.querySelector('#comment-form');
   const input = document.querySelector('#comment-input');
   const count = document.querySelector('#comment-count');
   const list = document.querySelector('#comment-list');
   const totalNode = document.querySelector('#comments-total');
+  const seedCount = list?.querySelectorAll('[data-seed="true"]').length || 0;
 
   const readComments = () => {
-    try { return JSON.parse(localStorage.getItem(COMMENT_KEY)) || []; }
+    try { return JSON.parse(localStorage.getItem(commentKey)) || []; }
     catch { return []; }
   };
 
@@ -70,7 +83,7 @@
       article.innerHTML = `<div class="avatar user">나</div><div><div class="comment-head"><strong>익명의 독자</strong><time>${escapeText(comment.time)}</time></div><p>${escapeText(comment.text)}</p><button class="like-button" type="button">공감 <span>0</span></button></div>`;
       list.prepend(article);
     });
-    if (totalNode) totalNode.textContent = String(3 + comments.length);
+    if (totalNode) totalNode.textContent = String(seedCount + comments.length);
   };
 
   input?.addEventListener('input', () => { if (count) count.textContent = String(input.value.length); });
@@ -81,7 +94,7 @@
     if (!text) return;
     const comments = readComments();
     comments.push({ text, time: '방금 전' });
-    localStorage.setItem(COMMENT_KEY, JSON.stringify(comments));
+    localStorage.setItem(commentKey, JSON.stringify(comments));
     input.value = '';
     if (count) count.textContent = '0';
     renderComments();

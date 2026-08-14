@@ -26,7 +26,7 @@
   <script defer src="js/weather.js?v=20260813d"></script>
   <script defer src="js/market.js?v=20260813b"></script>
   <script defer src="js/housing.js?v=20260813c"></script>
-  <script defer src="js/comments.js?v=20260813b"></script>
+  <script defer src="js/comments.js?v=20260814a"></script>
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -40,7 +40,7 @@
   }
   </script>
 </head>
-<body>
+<body data-story-id="husband-001">
   <a class="skip-link" href="#main-content">본문 바로가기</a>
 
   <header class="site-header">
@@ -166,11 +166,11 @@
         <p class="vote-prompt">투표하면 현재 결과를 바로 볼 수 있어요.</p>
 
         <div class="vote-actions" id="vote-actions">
-          <button class="vote-button leave" type="button" data-vote="leave">
+          <button class="vote-button leave" type="button" data-vote="leave" data-label="이혼을 고민한다" data-base="1842">
             <span class="vote-icon">A</span>
             <span><strong>이혼을 고민한다</strong><small>신뢰가 무너진 관계예요</small></span>
           </button>
-          <button class="vote-button stay" type="button" data-vote="stay">
+          <button class="vote-button stay" type="button" data-vote="stay" data-label="한 번 더 노력한다" data-base="1136">
             <span class="vote-icon">B</span>
             <span><strong>한 번 더 노력한다</strong><small>상담과 대화가 먼저예요</small></span>
           </button>
@@ -178,12 +178,12 @@
 
         <div class="vote-results" id="vote-results" hidden aria-live="polite">
           <div class="result-row">
-            <div><strong>이혼을 고민한다</strong><span id="leave-percent">62%</span></div>
-            <div class="result-track"><i id="leave-bar"></i></div>
+            <div><strong>이혼을 고민한다</strong><span id="leave-percent" data-vote-percent="leave">62%</span></div>
+            <div class="result-track"><i id="leave-bar" data-vote-bar="leave"></i></div>
           </div>
           <div class="result-row">
-            <div><strong>한 번 더 노력한다</strong><span id="stay-percent">38%</span></div>
-            <div class="result-track"><i id="stay-bar"></i></div>
+            <div><strong>한 번 더 노력한다</strong><span id="stay-percent" data-vote-percent="stay">38%</span></div>
+            <div class="result-track"><i id="stay-bar" data-vote-bar="stay"></i></div>
           </div>
           <p><strong id="total-votes">2,978</strong>명이 참여했어요 <span id="my-vote"></span></p>
           <button class="change-vote" id="change-vote" type="button">선택 바꾸기</button>
@@ -247,9 +247,9 @@
       <div class="container">
         <div class="section-head"><div><span class="kicker">MORE STORIES</span><h2>다른 사람들의 선택</h2></div><span>곧 더 많은 사연이 공개됩니다</span></div>
         <div class="more-grid">
-          <article><span class="more-category">연애</span><h3>결혼식 비용을 모두 반반 내자는 예비 배우자, 어떻게 생각하세요?</h3><div><b>3,421명 참여</b><span>결혼 재고 41%</span></div></article>
-          <article><span class="more-category">직장</span><h3>퇴근 후 연락을 당연하게 여기는 팀장, 단체방에서 말해도 될까요?</h3><div><b>2,105명 참여</b><span>말한다 78%</span></div></article>
-          <article><span class="more-category">가족</span><h3>명절마다 한쪽 집에만 가자는 배우자, 이번에는 거절해도 될까요?</h3><div><b>1,856명 참여</b><span>거절한다 69%</span></div></article>
+          <article><span class="more-category">결혼 · 가족</span><h3><a href="articles/2026/08/mother-in-law-visit-divorce/">시어머니 방문을 미루자 했더니 남편은 이혼을 말했습니다</a></h3><div><b>새 사연</b><span>투표·REAL TALK</span></div></article>
+          <article><span class="more-category">사회 · 주거</span><h3><a href="articles/2026/08/long-term-jeonse-expiration-debate/">20년 장기전세 만기, 계약대로 퇴거해야 할까요?</a></h3><div><b>새 이슈</b><span>투표·REAL TALK</span></div></article>
+          <article><span class="more-category">결혼 · 가족</span><h3><a href="articles/2026/08/liver-donation-in-laws-debate/">시어머니에게 간을 공여했는데, 남편은 “계산적”이라 했습니다</a></h3><div><b>새 사연</b><span>투표·REAL TALK</span></div></article>
         </div>
       </div>
     </section>
