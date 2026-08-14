@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-08-13T13:41:26.487Z",
-  "displayTime": "2026.08.13 22:41",
+  "updatedAt": "2026-08-14T02:42:03.263Z",
+  "displayTime": "2026.08.14 11:42",
   "items": [
     {
       "id": "2026820006-2026820006",
@@ -92,6 +92,32 @@
       "endDate": "2026-08-21",
       "status": "접수 예정",
       "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000382&pblancNo=2026000382"
+    },
+    {
+      "id": "2026000377-2026000377",
+      "name": "의왕역 한신더휴",
+      "region": "경기",
+      "type": "민영",
+      "address": "경기도 의왕시 삼동 244-1번지 일원",
+      "households": 108,
+      "publishedDate": "2026-08-13",
+      "startDate": "2026-08-24",
+      "endDate": "2026-08-27",
+      "status": "접수 예정",
+      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000377&pblancNo=2026000377"
+    },
+    {
+      "id": "2026000365-2026000365",
+      "name": "오남역 서희스타힐스 여의재 1단지",
+      "region": "경기",
+      "type": "민영",
+      "address": "경기도 남양주시 오남읍 양지리 101번지 일원",
+      "households": 180,
+      "publishedDate": "2026-08-13",
+      "startDate": "2026-08-24",
+      "endDate": "2026-08-26",
+      "status": "접수 예정",
+      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000365&pblancNo=2026000365"
     },
     {
       "id": "2026820008-2026820008",
