@@ -1,7 +1,6 @@
 (() => {
   const storyId = document.body.dataset.storyId || 'husband-001';
   const voteKey = `nowfeed-vote-${storyId}`;
-  const commentKey = `nowfeed-comments-${storyId}`;
   const actions = document.querySelector('#vote-actions');
   const results = document.querySelector('#vote-results');
   const voteButtons = [...document.querySelectorAll('[data-vote]')];
@@ -68,21 +67,100 @@
   const seedCount = list?.querySelectorAll('[data-seed="true"]').length || 0;
   let remoteComments = [];
   let firestoreApi = null;
+  let profileApi = null;
+  let authApi = null;
+  let currentUser = null;
+  let currentProfile = null;
+  let commentsConnected = false;
 
-  const readLocalComments = () => {
-    try {
-      const comments = JSON.parse(localStorage.getItem(commentKey));
-      return Array.isArray(comments) ? comments : [];
-    } catch {
-      return [];
-    }
+  const createAuthPanel = () => {
+    if (!form?.parentNode) return {};
+    const panel = document.createElement('div');
+    panel.className = 'comment-auth';
+
+    const prompt = document.createElement('div');
+    prompt.className = 'comment-auth-prompt';
+    const promptCopy = document.createElement('div');
+    const promptTitle = document.createElement('strong');
+    promptTitle.textContent = 'Google 로그인 후 댓글을 남길 수 있어요.';
+    const promptText = document.createElement('span');
+    promptText.textContent = '처음 로그인하면 댓글에 사용할 닉네임을 설정합니다.';
+    promptCopy.append(promptTitle, promptText);
+    const loginButton = document.createElement('button');
+    loginButton.type = 'button';
+    loginButton.className = 'google-login-button';
+    loginButton.disabled = true;
+    const googleMark = document.createElement('b');
+    googleMark.textContent = 'G';
+    loginButton.append(googleMark, ' Google로 로그인');
+    prompt.append(promptCopy, loginButton);
+
+    const account = document.createElement('div');
+    account.className = 'comment-auth-account';
+    account.hidden = true;
+    const accountCopy = document.createElement('div');
+    const accountTitle = document.createElement('strong');
+    const accountText = document.createElement('span');
+    accountText.textContent = '닉네임이 바뀌어도 식별자는 유지됩니다.';
+    accountCopy.append(accountTitle, accountText);
+    const accountActions = document.createElement('div');
+    accountActions.className = 'comment-auth-actions';
+    const nicknameButton = document.createElement('button');
+    nicknameButton.type = 'button';
+    nicknameButton.className = 'google-logout-button';
+    nicknameButton.textContent = '닉네임 변경';
+    const logoutButton = document.createElement('button');
+    logoutButton.type = 'button';
+    logoutButton.className = 'google-logout-button';
+    logoutButton.textContent = '로그아웃';
+    accountActions.append(nicknameButton, logoutButton);
+    account.append(accountCopy, accountActions);
+
+    const profileEditor = document.createElement('form');
+    profileEditor.className = 'comment-profile-editor';
+    profileEditor.hidden = true;
+    const profileCopy = document.createElement('div');
+    const profileTitle = document.createElement('strong');
+    profileTitle.textContent = '댓글 닉네임 설정';
+    const profileText = document.createElement('span');
+    profileText.textContent = '2~12자의 한글·영문·숫자·밑줄만 사용할 수 있습니다.';
+    profileCopy.append(profileTitle, profileText);
+    const profileControls = document.createElement('div');
+    profileControls.className = 'comment-profile-controls';
+    const nicknameInput = document.createElement('input');
+    nicknameInput.type = 'text';
+    nicknameInput.maxLength = 12;
+    nicknameInput.autocomplete = 'off';
+    nicknameInput.placeholder = '닉네임 입력';
+    nicknameInput.required = true;
+    nicknameInput.setAttribute('aria-label', '댓글 닉네임');
+    const profileSaveButton = document.createElement('button');
+    profileSaveButton.type = 'submit';
+    profileSaveButton.textContent = '저장';
+    const profileCancelButton = document.createElement('button');
+    profileCancelButton.type = 'button';
+    profileCancelButton.className = 'profile-cancel-button';
+    profileCancelButton.textContent = '취소';
+    profileControls.append(nicknameInput, profileSaveButton, profileCancelButton);
+    profileEditor.append(profileCopy, profileControls);
+
+    panel.append(prompt, account, profileEditor);
+    form.before(panel);
+    return {
+      prompt,
+      loginButton,
+      account,
+      accountTitle,
+      nicknameButton,
+      logoutButton,
+      profileEditor,
+      nicknameInput,
+      profileSaveButton,
+      profileCancelButton
+    };
   };
 
-  const writeLocalComment = (text) => {
-    const comments = readLocalComments();
-    comments.push({ text, time: new Date().toISOString() });
-    localStorage.setItem(commentKey, JSON.stringify(comments));
-  };
+  const authUi = createAuthPanel();
 
   const formatTime = (value) => {
     const date = value?.toDate ? value.toDate() : new Date(value || Date.now());
@@ -95,20 +173,22 @@
     return new Intl.DateTimeFormat('ko-KR', { dateStyle: 'medium' }).format(date);
   };
 
-  const createCommentNode = ({ text, createdAt, localOnly = false }) => {
+  const visibleAuthorId = (uid) => `#${String(uid || '------').slice(0, 6).toUpperCase()}`;
+
+  const createCommentNode = ({ text, createdAt, authorUid, authorNickname }) => {
     const article = document.createElement('article');
     article.className = 'comment';
     article.dataset.dynamic = 'true';
 
     const avatar = document.createElement('div');
     avatar.className = 'avatar user';
-    avatar.textContent = '익';
+    avatar.textContent = 'G';
 
     const body = document.createElement('div');
     const head = document.createElement('div');
     head.className = 'comment-head';
     const author = document.createElement('strong');
-    author.textContent = localOnly ? '익명의 독자 · 기기 저장' : '익명의 독자';
+    author.textContent = `${authorNickname || 'Google 사용자'} ${visibleAuthorId(authorUid)}`;
     const time = document.createElement('time');
     time.textContent = formatTime(createdAt);
     head.append(author, time);
@@ -131,13 +211,9 @@
   const renderComments = () => {
     if (!list) return;
     list.querySelectorAll('[data-dynamic="true"]').forEach((node) => node.remove());
-    const comments = [
-      ...remoteComments.map((comment) => ({ ...comment, localOnly: false })),
-      ...readLocalComments().map((comment) => ({ text: comment.text, createdAt: comment.time, localOnly: true })).reverse()
-    ];
     const firstSeed = list.querySelector('[data-seed="true"]');
-    comments.forEach((comment) => list.insertBefore(createCommentNode(comment), firstSeed));
-    if (totalNode) totalNode.textContent = String(seedCount + comments.length);
+    remoteComments.forEach((comment) => list.insertBefore(createCommentNode(comment), firstSeed));
+    if (totalNode) totalNode.textContent = String(seedCount + remoteComments.length);
   };
 
   const setStorageStatus = (message, state) => {
@@ -146,43 +222,170 @@
     storageStatus.dataset.state = state;
   };
 
+  const updateAuthUi = (user, profile = currentProfile, editing = false) => {
+    currentUser = user;
+    const hasProfile = Boolean(user && profile?.nickname);
+    if (form) form.hidden = !hasProfile || editing;
+    if (authUi.prompt) authUi.prompt.hidden = Boolean(user);
+    if (authUi.account) authUi.account.hidden = !hasProfile || editing;
+    if (authUi.profileEditor) authUi.profileEditor.hidden = !user || (hasProfile && !editing);
+    if (authUi.profileCancelButton) authUi.profileCancelButton.hidden = !hasProfile;
+    if (hasProfile) {
+      authUi.accountTitle.textContent = `${profile.nickname} ${visibleAuthorId(user.uid)}`;
+      authUi.nicknameInput.value = profile.nickname;
+      setStorageStatus(commentsConnected ? '공용 댓글 연결됨' : '댓글 서버 연결 중', commentsConnected ? 'connected' : 'connecting');
+    } else if (user) {
+      setStorageStatus('닉네임 설정 필요', 'login');
+    } else {
+      setStorageStatus('Google 로그인 필요', 'login');
+    }
+  };
+
   const connectFirebase = async () => {
     const config = window.NOWFEED_FIREBASE_CONFIG;
     if (!config) throw new Error('Firebase configuration is missing.');
 
     const version = '12.17.1';
-    const [{ initializeApp, getApp, getApps }, { getAuth, signInAnonymously }, firestore] = await Promise.all([
+    const [{ initializeApp, getApp, getApps }, authModule, firestore] = await Promise.all([
       import(`https://www.gstatic.com/firebasejs/${version}/firebase-app.js`),
       import(`https://www.gstatic.com/firebasejs/${version}/firebase-auth.js`),
       import(`https://www.gstatic.com/firebasejs/${version}/firebase-firestore.js`)
     ]);
 
     const app = getApps().length ? getApp() : initializeApp(config);
-    const auth = getAuth(app);
-    const credential = auth.currentUser ? { user: auth.currentUser } : await signInAnonymously(auth);
+    const auth = authModule.getAuth(app);
+    await authModule.setPersistence(auth, authModule.browserLocalPersistence);
+    const provider = new authModule.GoogleAuthProvider();
     const db = firestore.getFirestore(app);
     const commentsRef = firestore.collection(db, 'stories', storyId, 'comments');
     const commentsQuery = firestore.query(commentsRef, firestore.orderBy('createdAt', 'desc'), firestore.limit(100));
 
+    authApi = {
+      login: () => authModule.signInWithPopup(auth, provider),
+      logout: () => authModule.signOut(auth)
+    };
+    profileApi = {
+      load: async (uid) => {
+        const profileRef = firestore.doc(db, 'users', uid);
+        const snapshot = await firestore.getDoc(profileRef);
+        return snapshot.exists() ? snapshot.data() : null;
+      },
+      save: async (uid, nickname) => {
+        const profileRef = firestore.doc(db, 'users', uid);
+        const snapshot = await firestore.getDoc(profileRef);
+        if (snapshot.exists()) {
+          await firestore.updateDoc(profileRef, { nickname, updatedAt: firestore.serverTimestamp() });
+        } else {
+          await firestore.setDoc(profileRef, {
+            nickname,
+            createdAt: firestore.serverTimestamp(),
+            updatedAt: firestore.serverTimestamp()
+          });
+        }
+        return { nickname };
+      }
+    };
+    if (authUi.loginButton) authUi.loginButton.disabled = false;
+    authModule.onAuthStateChanged(auth, async (user) => {
+      currentUser = user;
+      currentProfile = null;
+      if (!user) {
+        updateAuthUi(null, null);
+        return;
+      }
+      updateAuthUi(user, null);
+      try {
+        currentProfile = await profileApi.load(user.uid);
+        updateAuthUi(user, currentProfile);
+      } catch {
+        setStorageStatus('프로필을 불러오지 못했습니다', 'offline');
+      }
+    });
+
     firestore.onSnapshot(commentsQuery, (snapshot) => {
       remoteComments = snapshot.docs.map((document) => {
         const data = document.data();
-        return { id: document.id, text: data.body, createdAt: data.createdAt };
+        return {
+          id: document.id,
+          text: data.body,
+          createdAt: data.createdAt,
+          authorUid: data.authorUid,
+          authorNickname: data.authorNickname
+        };
       });
+      commentsConnected = true;
       renderComments();
-      setStorageStatus('공용 댓글 연결됨', 'connected');
+      updateAuthUi(currentUser);
     }, () => {
-      setStorageStatus('연결 오류 · 이 기기에 임시 저장', 'offline');
+      commentsConnected = false;
+      setStorageStatus('댓글 서버 연결 오류', 'offline');
     });
 
     firestoreApi = {
-      add: (text) => firestore.addDoc(commentsRef, {
+      add: (text, user, profile) => firestore.addDoc(commentsRef, {
         body: text,
-        authorUid: credential.user.uid,
+        authorUid: user.uid,
+        authorNickname: profile.nickname,
         createdAt: firestore.serverTimestamp()
       })
     };
+
   };
+
+  authUi.loginButton?.addEventListener('click', async () => {
+    if (!authApi) return;
+    authUi.loginButton.disabled = true;
+    try {
+      await authApi.login();
+      window.nowfeedToast?.('Google 로그인이 완료됐어요.');
+    } catch (error) {
+      if (error?.code === 'auth/unauthorized-domain') {
+        window.nowfeedToast?.('Firebase 승인된 도메인에 nowfeed.co.kr를 추가해주세요.');
+      } else if (error?.code !== 'auth/popup-closed-by-user') {
+        window.nowfeedToast?.('Google 로그인에 실패했습니다. 잠시 후 다시 시도해주세요.');
+      }
+    } finally {
+      authUi.loginButton.disabled = false;
+    }
+  });
+
+  authUi.logoutButton?.addEventListener('click', async () => {
+    try {
+      await authApi?.logout();
+      window.nowfeedToast?.('로그아웃됐어요.');
+    } catch {
+      window.nowfeedToast?.('로그아웃에 실패했습니다.');
+    }
+  });
+
+  authUi.nicknameButton?.addEventListener('click', () => {
+    updateAuthUi(currentUser, currentProfile, true);
+    authUi.nicknameInput?.focus();
+  });
+
+  authUi.profileCancelButton?.addEventListener('click', () => {
+    updateAuthUi(currentUser, currentProfile, false);
+  });
+
+  authUi.profileEditor?.addEventListener('submit', async (event) => {
+    event.preventDefault();
+    const nickname = authUi.nicknameInput.value.trim();
+    if (!/^[가-힣a-zA-Z0-9_]{2,12}$/u.test(nickname)) {
+      window.nowfeedToast?.('닉네임은 2~12자의 한글·영문·숫자·밑줄만 사용할 수 있어요.');
+      return;
+    }
+    if (!currentUser || !profileApi) return;
+    authUi.profileSaveButton.disabled = true;
+    try {
+      currentProfile = await profileApi.save(currentUser.uid, nickname);
+      updateAuthUi(currentUser, currentProfile);
+      window.nowfeedToast?.('닉네임이 저장됐어요.');
+    } catch {
+      window.nowfeedToast?.('닉네임 저장에 실패했습니다. 잠시 후 다시 시도해주세요.');
+    } finally {
+      authUi.profileSaveButton.disabled = false;
+    }
+  });
 
   input?.addEventListener('input', () => {
     if (count) count.textContent = String(input.value.length);
@@ -191,27 +394,16 @@
   form?.addEventListener('submit', async (event) => {
     event.preventDefault();
     const text = input.value.trim();
-    if (!text) return;
+    if (!text || !currentUser || !currentProfile || !firestoreApi) return;
     if (submitButton) submitButton.disabled = true;
 
     try {
-      if (firestoreApi) {
-        await firestoreApi.add(text);
-        window.nowfeedToast?.('댓글이 등록됐어요.');
-      } else {
-        writeLocalComment(text);
-        renderComments();
-        window.nowfeedToast?.('서버 연결 전이라 이 기기에 임시 저장했어요.');
-      }
+      await firestoreApi.add(text, currentUser, currentProfile);
       input.value = '';
       if (count) count.textContent = '0';
+      window.nowfeedToast?.('댓글이 등록됐어요.');
     } catch {
-      writeLocalComment(text);
-      renderComments();
-      setStorageStatus('연결 오류 · 이 기기에 임시 저장', 'offline');
-      input.value = '';
-      if (count) count.textContent = '0';
-      window.nowfeedToast?.('연결 오류로 이 기기에 임시 저장했어요.');
+      window.nowfeedToast?.('댓글 등록에 실패했습니다. 잠시 후 다시 시도해주세요.');
     } finally {
       if (submitButton) submitButton.disabled = false;
     }
@@ -226,8 +418,9 @@
   });
 
   renderComments();
-  setStorageStatus('댓글 서버 연결 중', 'connecting');
+  updateAuthUi(null);
   connectFirebase().catch(() => {
-    setStorageStatus('설정 필요 · 이 기기에 임시 저장', 'offline');
+    if (authUi.loginButton) authUi.loginButton.disabled = true;
+    setStorageStatus('댓글 서비스 연결 오류', 'offline');
   });
 })();

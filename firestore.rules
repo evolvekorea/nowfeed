@@ -2,13 +2,48 @@ rules_version = '2';
 
 service cloud.firestore {
   match /databases/{database}/documents {
+    function googleUser() {
+      return request.auth != null
+        && request.auth.token.firebase.sign_in_provider == 'google.com';
+    }
+
+    match /users/{userId} {
+      allow read: if googleUser() && request.auth.uid == userId;
+
+      allow create: if googleUser()
+        && request.auth.uid == userId
+        && request.resource.data.keys().hasAll(['nickname', 'createdAt', 'updatedAt'])
+        && request.resource.data.keys().hasOnly(['nickname', 'createdAt', 'updatedAt'])
+        && request.resource.data.nickname is string
+        && request.resource.data.nickname.size() >= 2
+        && request.resource.data.nickname.size() <= 12
+        && request.resource.data.nickname.matches('^[가-힣A-Za-z0-9_]+$')
+        && request.resource.data.createdAt == request.time
+        && request.resource.data.updatedAt == request.time;
+
+      allow update: if googleUser()
+        && request.auth.uid == userId
+        && request.resource.data.keys().hasAll(['nickname', 'createdAt', 'updatedAt'])
+        && request.resource.data.keys().hasOnly(['nickname', 'createdAt', 'updatedAt'])
+        && request.resource.data.nickname is string
+        && request.resource.data.nickname.size() >= 2
+        && request.resource.data.nickname.size() <= 12
+        && request.resource.data.nickname.matches('^[가-힣A-Za-z0-9_]+$')
+        && request.resource.data.createdAt == resource.data.createdAt
+        && request.resource.data.updatedAt == request.time;
+
+      allow delete: if false;
+    }
+
     match /stories/{storyId}/comments/{commentId} {
       allow read: if true;
 
-      allow create: if request.auth != null
-        && request.resource.data.keys().hasAll(['body', 'authorUid', 'createdAt'])
-        && request.resource.data.keys().hasOnly(['body', 'authorUid', 'createdAt'])
+      allow create: if googleUser()
+        && request.resource.data.keys().hasAll(['body', 'authorUid', 'authorNickname', 'createdAt'])
+        && request.resource.data.keys().hasOnly(['body', 'authorUid', 'authorNickname', 'createdAt'])
         && request.resource.data.authorUid == request.auth.uid
+        && request.resource.data.authorNickname is string
+        && request.resource.data.authorNickname == get(/databases/$(database)/documents/users/$(request.auth.uid)).data.nickname
         && request.resource.data.body is string
         && request.resource.data.body.size() >= 1
         && request.resource.data.body.size() <= 300
