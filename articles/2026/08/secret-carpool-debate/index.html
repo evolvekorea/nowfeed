@@ -27,7 +27,8 @@
   <link rel="stylesheet" href="../../../../css/portal.css?v=20260814b">
   <link rel="stylesheet" href="../../../../css/story.css?v=20260815a">
   <script defer src="../../../../js/app.js?v=20260814a"></script>
-  <script defer src="../../../../js/comments.js?v=20260814a"></script>
+  <script defer src="../../../../js/firebase-config.js?v=20260815a"></script>
+  <script defer src="../../../../js/comments.js?v=20260815b"></script>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"Article","headline":"남편의 3개월 비밀 카풀, 이건 불륜일까요?","description":"임신한 여직원과 3개월간 비밀 카풀을 한 남편을 둘러싼 부부 갈등 사연","datePublished":"2026-08-15T14:00:00+09:00","dateModified":"2026-08-15T14:00:00+09:00","author":{"@type":"Organization","name":"Nowfeed 편집팀"},"publisher":{"@type":"Organization","name":"Nowfeed","url":"https://nowfeed.co.kr/"},"mainEntityOfPage":"https://nowfeed.co.kr/articles/2026/08/secret-carpool-debate/","image":"https://nowfeed.co.kr/images/og-secret-carpool-debate.png","inLanguage":"ko-KR"}
   </script>
@@ -97,7 +98,7 @@
         <section class="comments-section story-comments" id="comments">
           <div class="comments-heading"><span class="kicker">REAL TALK</span><h2>당신의 생각은 어떤가요?</h2><p>사연 속 인물을 단정하거나 공격하지 말고, 서로 다른 관점을 존중하며 이야기해주세요.</p></div>
           <div class="comments-content">
-            <form class="comment-form" id="comment-form"><label for="comment-input">의견 남기기</label><textarea id="comment-input" maxlength="300" placeholder="이 사연에 대한 생각을 남겨주세요." required></textarea><div class="comment-form-bottom"><span><b id="comment-count">0</b>/300 · 작성한 댓글은 이 기기에 저장됩니다.</span><button type="submit">댓글 등록</button></div></form>
+            <form class="comment-form" id="comment-form"><label for="comment-input">의견 남기기</label><textarea id="comment-input" maxlength="300" placeholder="이 사연에 대한 생각을 남겨주세요." required></textarea><div class="comment-form-bottom"><span><b id="comment-count">0</b>/300 · <span id="comment-storage-status">댓글 서버 연결 중</span></span><button type="submit">댓글 등록</button></div></form>
             <div class="comment-toolbar"><h3>댓글 <span id="comments-total">3</span></h3><span>REAL TALK</span></div>
             <div class="comment-list" id="comment-list" aria-live="polite">
               <article class="comment" data-seed="true"><div class="avatar coral">신</div><div><div class="comment-head"><strong>신뢰가먼저</strong><time>14분 전</time></div><p>카풀 자체보다 석 달 동안 일부러 말하지 않은 점이 더 문제라고 봐요. 정말 떳떳한 배려였다면 배우자와 먼저 이야기했어야 합니다.</p><button class="like-button" type="button">공감 <span>103</span></button></div></article>
@@ -120,7 +121,7 @@
             <div class="result-row"><div><strong>부정 · 이해 못 한다</strong><span data-vote-percent="negative">0%</span></div><div class="result-track"><i data-vote-bar="negative"></i></div></div>
             <p><strong id="total-votes">0</strong>명의 이 기기 내 참여가 반영됐어요. <span id="my-vote"></span></p><button class="change-vote" id="change-vote" type="button">선택 바꾸기</button>
           </div>
-          <div class="vote-rule"><span>기기당 1표</span><span>익명 참여</span></div><p class="local-data-note">현재 정적 사이트에서는 투표와 댓글이 이 브라우저에 저장됩니다.</p>
+          <div class="vote-rule"><span>기기당 1표</span><span>익명 참여</span></div><p class="local-data-note">투표는 이 브라우저에 저장되며, 댓글은 모든 방문자에게 공개됩니다.</p>
         </section>
       </aside>
     </div>
