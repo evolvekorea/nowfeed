@@ -84,8 +84,23 @@
     const promptTitle = document.createElement('strong');
     promptTitle.textContent = 'Google 로그인 후 댓글을 남길 수 있어요.';
     const promptText = document.createElement('span');
-    promptText.textContent = '처음 로그인하면 댓글에 사용할 닉네임을 설정합니다.';
+    promptText.textContent = '처음 로그인하면 댓글에 사용할 닉네임을 설정합니다. 만 14세 이상만 이용할 수 있습니다.';
     promptCopy.append(promptTitle, promptText);
+    const consentLabel = document.createElement('label');
+    consentLabel.className = 'comment-auth-consent';
+    const privacyConsent = document.createElement('input');
+    privacyConsent.type = 'checkbox';
+    privacyConsent.required = true;
+    privacyConsent.setAttribute('aria-label', '개인정보 처리 및 댓글 공개 안내 동의');
+    const consentText = document.createElement('span');
+    consentText.append('만 14세 이상이며, Google 로그인 정보 처리와 닉네임·식별자·댓글의 공개에 관한 ');
+    const privacyLink = document.createElement('a');
+    privacyLink.href = '/privacy/';
+    privacyLink.target = '_blank';
+    privacyLink.rel = 'noopener noreferrer';
+    privacyLink.textContent = '개인정보처리방침';
+    consentText.append(privacyLink, '을 확인했으며 동의합니다.');
+    consentLabel.append(privacyConsent, consentText);
     const loginButton = document.createElement('button');
     loginButton.type = 'button';
     loginButton.className = 'google-login-button';
@@ -93,7 +108,7 @@
     const googleMark = document.createElement('b');
     googleMark.textContent = 'G';
     loginButton.append(googleMark, ' Google로 로그인');
-    prompt.append(promptCopy, loginButton);
+    prompt.append(promptCopy, consentLabel, loginButton);
 
     const account = document.createElement('div');
     account.className = 'comment-auth-account';
@@ -145,10 +160,18 @@
     profileEditor.append(profileCopy, profileControls);
 
     panel.append(prompt, account, profileEditor);
-    form.before(panel);
+    const publicNotice = document.createElement('p');
+    publicNotice.className = 'comment-public-notice';
+    publicNotice.append('댓글을 등록하면 닉네임, 작성자 식별자, 내용과 작성 시각이 공개됩니다. 삭제 요청은 ');
+    const contactLink = document.createElement('a');
+    contactLink.href = '/contact/';
+    contactLink.textContent = '문의하기';
+    publicNotice.append(contactLink, '에서 접수할 수 있습니다.');
+    form.before(panel, publicNotice);
     return {
       prompt,
       loginButton,
+      privacyConsent,
       account,
       accountTitle,
       nicknameButton,
@@ -285,7 +308,7 @@
         return { nickname };
       }
     };
-    if (authUi.loginButton) authUi.loginButton.disabled = false;
+    if (authUi.loginButton) authUi.loginButton.disabled = !authUi.privacyConsent?.checked;
     authModule.onAuthStateChanged(auth, async (user) => {
       currentUser = user;
       currentProfile = null;
@@ -331,6 +354,10 @@
     };
 
   };
+
+  authUi.privacyConsent?.addEventListener('change', () => {
+    if (authUi.loginButton && authApi) authUi.loginButton.disabled = !authUi.privacyConsent.checked;
+  });
 
   authUi.loginButton?.addEventListener('click', async () => {
     if (!authApi) return;
