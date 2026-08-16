@@ -21,7 +21,7 @@
   <!-- Google AdSense -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6532882266109488" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/portal.css?v=20260814b">
+  <link rel="stylesheet" href="css/portal.css?v=20260816a">
   <script defer src="js/app.js?v=20260814b"></script>
   <script defer src="js/weather.js?v=20260813d"></script>
   <script defer src="js/market.js?v=20260813b"></script>
@@ -63,9 +63,8 @@
     <nav class="main-nav" id="main-nav" aria-label="주요 메뉴">
       <div class="container nav-scroll">
         <a class="active" href="#hot">인기 사연</a>
-        <a href="#daily">오늘의 생활</a>
-        <a href="category/life/">생활정보</a>
-        <a href="#life-info">생활·청약</a>
+        <a href="#daily">오늘의 브리핑</a>
+        <a href="category/life/">생활정보 게시판</a>
         <a href="category/society/">사회</a>
         <a href="about/">Nowfeed 소개</a>
       </div>
@@ -97,7 +96,7 @@
 
     <section class="home-section daily-section" id="daily" aria-labelledby="daily-title">
       <div class="container">
-        <div class="section-head compact-head"><div><span class="kicker">DAILY BRIEF</span><h2 id="daily-title">오늘 필요한 생활 정보</h2></div><div class="rail-controls"><button type="button" data-rail-prev="daily-rail" aria-label="이전 정보">←</button><button type="button" data-rail-next="daily-rail" aria-label="다음 정보">→</button></div></div>
+        <div class="section-head compact-head"><div><span class="kicker">WEATHER · MARKET · HOUSING</span><h2 id="daily-title">오늘의 브리핑</h2><p class="daily-description">날씨, 증시와 환율, 청약 일정을 한곳에서 확인하세요.</p></div><div class="rail-controls"><button type="button" data-rail-prev="daily-rail" aria-label="이전 정보">←</button><button type="button" data-rail-next="daily-rail" aria-label="다음 정보">→</button></div></div>
         <div class="daily-rail scroll-rail" id="daily-rail">
       <section class="info-card weather-detail" aria-labelledby="weather-title">
         <div class="info-card-head"><div><span class="info-eyebrow">WEATHER</span><h2 id="weather-title">오늘의 서울</h2></div><span id="weather-card-icon" class="weather-card-icon" aria-hidden="true">☁</span></div>
@@ -118,7 +117,7 @@
         </ul>
         <small id="market-updated">시세 데이터를 불러오는 중입니다.</small>
         <p class="data-source">지수: NAVER 금융 · 환율: Coinbase<br>정보 제공용이며 투자 판단용이 아닙니다.</p>
-      </section><section class="info-card life-card" id="life-info" aria-labelledby="life-title">
+      </section><section class="info-card life-card" id="housing-info" aria-labelledby="life-title">
         <div class="info-card-head"><div><span class="info-eyebrow">APPLY HOME</span><h2 id="life-title">이번 주 청약 일정</h2></div><span class="life-badge">공식 API</span></div>
         <div class="housing-list" id="housing-list" data-limit="3" aria-live="polite"><p>청약 일정을 불러오는 중입니다.</p></div>
         <a class="housing-more" href="https://www.applyhome.co.kr/" target="_blank" rel="noopener noreferrer">청약홈에서 전체 공고 보기 ↗</a>
