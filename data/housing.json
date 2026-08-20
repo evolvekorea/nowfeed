@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-08-20T13:08:36.343Z",
-  "displayTime": "2026.08.20 22:08",
+  "updatedAt": "2026-08-20T18:56:12.605Z",
+  "displayTime": "2026.08.21 03:56",
   "items": [
     {
       "id": "2026820006-2026820006",
@@ -66,19 +66,6 @@
       "endDate": "2026-08-21",
       "status": "접수 중",
       "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000358&pblancNo=2026000358"
-    },
-    {
-      "id": "2026000376-2026000376",
-      "name": "달서자이 제니크",
-      "region": "대구",
-      "type": "민영",
-      "address": "대구광역시 달서구 본리동 661-9번지 일원",
-      "households": 360,
-      "publishedDate": "2026-08-06",
-      "startDate": "2026-08-18",
-      "endDate": "2026-08-20",
-      "status": "접수 중",
-      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000376&pblancNo=2026000376"
     },
     {
       "id": "2026000382-2026000382",
@@ -157,6 +144,19 @@
       "endDate": "2026-08-26",
       "status": "접수 예정",
       "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000342&pblancNo=2026000342"
+    },
+    {
+      "id": "2026000377-2026000377",
+      "name": "의왕역 한신더휴",
+      "region": "경기",
+      "type": "민영",
+      "address": "경기도 의왕시 삼동 244-1번지 일원",
+      "households": 108,
+      "publishedDate": "2026-08-13",
+      "startDate": "2026-08-24",
+      "endDate": "2026-08-27",
+      "status": "접수 예정",
+      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000377&pblancNo=2026000377"
     }
   ]
 }
