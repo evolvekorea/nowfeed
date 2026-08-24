@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-08-24T08:57:38.399Z",
-  "displayTime": "2026.08.24 17:56",
+  "updatedAt": "2026-08-24T09:54:28.322Z",
+  "displayTime": "2026.08.24 18:54",
   "marketStatus": "CLOSE",
   "kospi": {
     "price": "6,696.96",
@@ -15,7 +15,7 @@
     "direction": "RISING"
   },
   "usdkrw": {
-    "price": 1384.1264825,
+    "price": 1382.2854045,
     "base": "USD",
     "quote": "KRW"
   }
