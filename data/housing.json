@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-08-28T11:18:07.104Z",
-  "displayTime": "2026.08.28 20:18",
+  "updatedAt": "2026-08-28T22:14:44.648Z",
+  "displayTime": "2026.08.29 07:14",
   "items": [
     {
       "id": "2026000404-2026000404",
@@ -27,6 +27,32 @@
       "endDate": "2026-09-02",
       "status": "접수 예정",
       "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000388&pblancNo=2026000388"
+    },
+    {
+      "id": "2026000401-2026000401",
+      "name": "문수데시앙2단지 공가세대 일반공급",
+      "region": "울산",
+      "type": "국민",
+      "address": "울산광역시 울주군 청량읍 율리영해2길 7 (문수데시앙 2단지 아파트) ",
+      "households": 22,
+      "publishedDate": "2026-08-28",
+      "startDate": "2026-09-07",
+      "endDate": "2026-09-08",
+      "status": "접수 예정",
+      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000401&pblancNo=2026000401"
+    },
+    {
+      "id": "2026000399-2026000399",
+      "name": "브라운스톤 월곡 센트럴",
+      "region": "서울",
+      "type": "민영",
+      "address": "서울특별시 성북구 하월곡동 70-4번지 일원",
+      "households": 62,
+      "publishedDate": "2026-08-28",
+      "startDate": "2026-09-07",
+      "endDate": "2026-09-10",
+      "status": "접수 예정",
+      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000399&pblancNo=2026000399"
     },
     {
       "id": "2026000409-2026000409",
