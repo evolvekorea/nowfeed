@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-08-30T11:50:30.541Z",
-  "displayTime": "2026.08.30 20:50",
+  "updatedAt": "2026-08-30T16:37:37.181Z",
+  "displayTime": "2026.08.31 01:37",
   "items": [
     {
       "id": "2026000404-2026000404",
@@ -12,7 +12,7 @@
       "publishedDate": "2026-08-21",
       "startDate": "2026-08-31",
       "endDate": "2026-09-02",
-      "status": "접수 예정",
+      "status": "접수 중",
       "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000404&pblancNo=2026000404"
     },
     {
@@ -25,7 +25,7 @@
       "publishedDate": "2026-08-21",
       "startDate": "2026-08-31",
       "endDate": "2026-09-02",
-      "status": "접수 예정",
+      "status": "접수 중",
       "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000388&pblancNo=2026000388"
     },
     {
