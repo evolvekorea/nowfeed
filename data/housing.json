@@ -1,33 +1,7 @@
 {
-  "updatedAt": "2026-09-02T11:12:20.129Z",
-  "displayTime": "2026.09.02 20:12",
+  "updatedAt": "2026-09-02T16:31:14.414Z",
+  "displayTime": "2026.09.03 01:31",
   "items": [
-    {
-      "id": "2026000404-2026000404",
-      "name": "검암역 푸르지오 프라베뉴 (B-1BL) 공공분양주택",
-      "region": "인천",
-      "type": "국민",
-      "address": "인천광역시 서해구 인천검암역세권 공공주택지구 내 B-1BL",
-      "households": 441,
-      "publishedDate": "2026-08-21",
-      "startDate": "2026-08-31",
-      "endDate": "2026-09-02",
-      "status": "접수 중",
-      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000404&pblancNo=2026000404"
-    },
-    {
-      "id": "2026000388-2026000388",
-      "name": "시티오씨엘 9단지 오션파크뷰",
-      "region": "인천",
-      "type": "민영",
-      "address": "인천광역시 미추홀구 학익동 인천 용현·학익 1블록 도시개발구역 공동3BL",
-      "households": 1949,
-      "publishedDate": "2026-08-21",
-      "startDate": "2026-08-31",
-      "endDate": "2026-09-02",
-      "status": "접수 중",
-      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000388&pblancNo=2026000388"
-    },
     {
       "id": "2026000401-2026000401",
       "name": "문수데시앙2단지 공가세대 일반공급",
@@ -79,6 +53,32 @@
       "endDate": "2026-09-09",
       "status": "접수 예정",
       "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026820009&pblancNo=2026820009"
+    },
+    {
+      "id": "2026000419-2026000419",
+      "name": "올 뉴 챔피언스시티 1차",
+      "region": "광주",
+      "type": "민영",
+      "address": "전남광주통합특별시 북구 임동 100-1 일원",
+      "households": 3216,
+      "publishedDate": "2026-09-02",
+      "startDate": "2026-09-14",
+      "endDate": "2026-09-16",
+      "status": "접수 예정",
+      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000419&pblancNo=2026000419"
+    },
+    {
+      "id": "2026000403-2026000403",
+      "name": "그랑라크 에일린의 뜰",
+      "region": "울산",
+      "type": "민영",
+      "address": "울산광역시 남구 야음동 350-5번지 일원 ",
+      "households": 1153,
+      "publishedDate": "2026-09-02",
+      "startDate": "2026-09-14",
+      "endDate": "2026-09-16",
+      "status": "접수 예정",
+      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000403&pblancNo=2026000403"
     },
     {
       "id": "2026000416-2026000416",
