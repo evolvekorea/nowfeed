@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-09-04T11:11:58.492Z",
-  "displayTime": "2026.09.04 20:11",
+  "updatedAt": "2026-09-04T16:17:53.236Z",
+  "displayTime": "2026.09.05 01:17",
   "items": [
     {
       "id": "2026000401-2026000401",
@@ -68,6 +68,58 @@
       "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026820009&pblancNo=2026820009"
     },
     {
+      "id": "2026000426-2026000426",
+      "name": "천안 아이파크 시티 4단지",
+      "region": "충남",
+      "type": "민영",
+      "address": "충청남도 천안시 서북구 부대동 384-20번지 일원",
+      "households": 777,
+      "publishedDate": "2026-09-04",
+      "startDate": "2026-09-14",
+      "endDate": "2026-09-16",
+      "status": "접수 예정",
+      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000426&pblancNo=2026000426"
+    },
+    {
+      "id": "2026000423-2026000423",
+      "name": "두정역 푸르지오 그랑피크",
+      "region": "충남",
+      "type": "민영",
+      "address": "충청남도 천안시 서북구 성정동 511번지",
+      "households": 1438,
+      "publishedDate": "2026-09-04",
+      "startDate": "2026-09-14",
+      "endDate": "2026-09-16",
+      "status": "접수 예정",
+      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000423&pblancNo=2026000423"
+    },
+    {
+      "id": "2026000422-2026000422",
+      "name": "천안 아이파크 시티 3단지",
+      "region": "충남",
+      "type": "민영",
+      "address": "충청남도 천안시 서북구 부대동 394-2번지 일원",
+      "households": 851,
+      "publishedDate": "2026-09-04",
+      "startDate": "2026-09-14",
+      "endDate": "2026-09-16",
+      "status": "접수 예정",
+      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000422&pblancNo=2026000422"
+    },
+    {
+      "id": "2026000420-2026000420",
+      "name": "남울산 노르웨이숲(조합원 취소분)(2회차)",
+      "region": "울산",
+      "type": "민영",
+      "address": "울산광역시 울주군 온양읍 발리동상로 34",
+      "households": 52,
+      "publishedDate": "2026-09-04",
+      "startDate": "2026-09-14",
+      "endDate": "2026-09-16",
+      "status": "접수 예정",
+      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000420&pblancNo=2026000420"
+    },
+    {
       "id": "2026000394-2026000394",
       "name": "더샵 여주역더퍼스트",
       "region": "경기",
@@ -105,32 +157,6 @@
       "endDate": "2026-09-16",
       "status": "접수 예정",
       "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000403&pblancNo=2026000403"
-    },
-    {
-      "id": "2026000416-2026000416",
-      "name": "양주회천지구 A-26블록 공공분양주택",
-      "region": "경기",
-      "type": "국민",
-      "address": "경기도 양주시 덕정동 일원 양주신도시 택지개발지구 내 A-26블록",
-      "households": 792,
-      "publishedDate": "2026-08-27",
-      "startDate": "2026-09-14",
-      "endDate": "2026-09-17",
-      "status": "접수 예정",
-      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000416&pblancNo=2026000416"
-    },
-    {
-      "id": "2026000414-2026000414",
-      "name": "인천계양지구 A6블록 공공분양주택(본청약)",
-      "region": "인천",
-      "type": "국민",
-      "address": "인천광역시 계양구 귤현동, 동양동, 박촌동, 병방동, 상야동 및 경기도 부천시 대장동, 서울특별시 강서구 오곡동 일원 인천계양 테크노밸리 공공주택지구 내 A6블록",
-      "households": 663,
-      "publishedDate": "2026-08-31",
-      "startDate": "2026-09-17",
-      "endDate": "2026-10-02",
-      "status": "접수 예정",
-      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000414&pblancNo=2026000414"
     }
   ]
 }
