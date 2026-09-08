@@ -1,20 +1,7 @@
 {
-  "updatedAt": "2026-09-08T11:11:46.829Z",
-  "displayTime": "2026.09.08 20:11",
+  "updatedAt": "2026-09-08T16:34:45.724Z",
+  "displayTime": "2026.09.09 01:34",
   "items": [
-    {
-      "id": "2026000401-2026000401",
-      "name": "문수데시앙2단지 공가세대 일반공급",
-      "region": "울산",
-      "type": "국민",
-      "address": "울산광역시 울주군 청량읍 율리영해2길 7 (문수데시앙 2단지 아파트) ",
-      "households": 22,
-      "publishedDate": "2026-08-28",
-      "startDate": "2026-09-07",
-      "endDate": "2026-09-08",
-      "status": "접수 중",
-      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000401&pblancNo=2026000401"
-    },
     {
       "id": "2026000399-2026000399",
       "name": "브라운스톤 월곡 센트럴",
@@ -157,6 +144,19 @@
       "endDate": "2026-09-16",
       "status": "접수 예정",
       "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000403&pblancNo=2026000403"
+    },
+    {
+      "id": "2026000416-2026000416",
+      "name": "양주회천지구 A-26블록 공공분양주택",
+      "region": "경기",
+      "type": "국민",
+      "address": "경기도 양주시 덕정동 일원 양주신도시 택지개발지구 내 A-26블록",
+      "households": 792,
+      "publishedDate": "2026-08-27",
+      "startDate": "2026-09-14",
+      "endDate": "2026-09-17",
+      "status": "접수 예정",
+      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000416&pblancNo=2026000416"
     }
   ]
 }
