@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-09-11T11:13:29.422Z",
-  "displayTime": "2026.09.11 20:13",
+  "updatedAt": "2026-09-11T16:24:49.286Z",
+  "displayTime": "2026.09.12 01:24",
   "items": [
     {
       "id": "2026000426-2026000426",
@@ -120,30 +120,43 @@
       "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000414&pblancNo=2026000414"
     },
     {
-      "id": "2026000314-2026000314",
-      "name": "중동역 다채로움 더원",
+      "id": "2026000449-2026000449",
+      "name": "화서역 호수공원 아너스빌",
       "region": "경기",
       "type": "민영",
-      "address": "경기도 부천시 소사구 송내동 365-1번지 일원",
-      "households": 39,
-      "publishedDate": "2026-09-10",
+      "address": "경기도 수원시 권선구 서둔동 212-1번지 일원",
+      "households": 476,
+      "publishedDate": "2026-09-11",
       "startDate": "2026-09-21",
       "endDate": "2026-09-23",
       "status": "접수 예정",
-      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000314&pblancNo=2026000314"
+      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000449&pblancNo=2026000449"
     },
     {
-      "id": "2026000431-2026000431",
-      "name": "오남역 서희스타힐스 여의재 3단지 (조합원 취소분)",
-      "region": "경기",
+      "id": "2026000441-2026000441",
+      "name": "문수로 비스타 더파크",
+      "region": "울산",
       "type": "민영",
-      "address": "경기도 남양주시 오남읍 양지리 186-10번지 일원",
-      "households": 133,
-      "publishedDate": "2026-09-09",
+      "address": "울산광역시 남구 무거동 1615-1번지(무거삼호지구 11BL) 일원",
+      "households": 700,
+      "publishedDate": "2026-09-11",
       "startDate": "2026-09-21",
       "endDate": "2026-09-23",
       "status": "접수 예정",
-      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000431&pblancNo=2026000431"
+      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000441&pblancNo=2026000441"
+    },
+    {
+      "id": "2026000438-2026000438",
+      "name": "힐스테이트 고덕엘리스트 A65BL 공공분양주택",
+      "region": "경기",
+      "type": "국민",
+      "address": "경기도 평택시 고덕동 고덕면 일원(평택고덕국제화계획지구 A65BL)",
+      "households": 837,
+      "publishedDate": "2026-09-11",
+      "startDate": "2026-09-21",
+      "endDate": "2026-09-23",
+      "status": "접수 예정",
+      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000438&pblancNo=2026000438"
     }
   ]
 }
