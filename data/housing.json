@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-09-14T12:37:50.449Z",
-  "displayTime": "2026.09.14 21:37",
+  "updatedAt": "2026-09-14T21:46:00.584Z",
+  "displayTime": "2026.09.15 06:46",
   "items": [
     {
       "id": "2026000426-2026000426",
@@ -103,21 +103,8 @@
       "publishedDate": "2026-09-04",
       "startDate": "2026-09-15",
       "endDate": "2026-09-17",
-      "status": "접수 예정",
+      "status": "접수 중",
       "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000393&pblancNo=2026000393"
-    },
-    {
-      "id": "2026000414-2026000414",
-      "name": "인천계양지구 A6블록 공공분양주택(본청약)",
-      "region": "인천",
-      "type": "국민",
-      "address": "인천광역시 계양구 귤현동, 동양동, 박촌동, 병방동, 상야동 및 경기도 부천시 대장동, 서울특별시 강서구 오곡동 일원 인천계양 테크노밸리 공공주택지구 내 A6블록",
-      "households": 663,
-      "publishedDate": "2026-08-31",
-      "startDate": "2026-09-17",
-      "endDate": "2026-10-02",
-      "status": "접수 예정",
-      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000414&pblancNo=2026000414"
     },
     {
       "id": "2026000449-2026000449",
@@ -157,6 +144,19 @@
       "endDate": "2026-09-23",
       "status": "접수 예정",
       "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000438&pblancNo=2026000438"
+    },
+    {
+      "id": "2026000437-2026000437",
+      "name": "힐스테이트 고덕엘리스트 A12BL 공공분양주택",
+      "region": "경기",
+      "type": "국민",
+      "address": "경기도 평택시 고덕동 고덕면 일원(평택고덕국제화계획지구 A12BL)",
+      "households": 942,
+      "publishedDate": "2026-09-11",
+      "startDate": "2026-09-21",
+      "endDate": "2026-09-23",
+      "status": "접수 예정",
+      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000437&pblancNo=2026000437"
     }
   ]
 }
