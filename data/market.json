@@ -1,21 +1,21 @@
 {
-  "updatedAt": "2026-09-14T09:35:39.647Z",
-  "displayTime": "2026.09.14 16:15",
-  "marketStatus": "CLOSE",
+  "updatedAt": "2026-09-15T03:35:23.850Z",
+  "displayTime": "2026.09.15 12:34",
+  "marketStatus": "OPEN",
   "kospi": {
-    "price": "6,684.37",
-    "change": "-225.54",
-    "changePercent": "-3.26",
-    "direction": "FALLING"
+    "price": "6,687.60",
+    "change": "3.23",
+    "changePercent": "0.05",
+    "direction": "RISING"
   },
   "kosdaq": {
-    "price": "806.79",
-    "change": "-13.85",
-    "changePercent": "-1.69",
-    "direction": "FALLING"
+    "price": "821.26",
+    "change": "14.47",
+    "changePercent": "1.79",
+    "direction": "RISING"
   },
   "usdkrw": {
-    "price": 1346.40839,
+    "price": 1353.2352745,
     "base": "USD",
     "quote": "KRW"
   }
