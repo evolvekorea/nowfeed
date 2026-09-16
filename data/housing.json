@@ -1,98 +1,7 @@
 {
-  "updatedAt": "2026-09-16T11:25:52.525Z",
-  "displayTime": "2026.09.16 20:25",
+  "updatedAt": "2026-09-16T16:47:53.318Z",
+  "displayTime": "2026.09.17 01:47",
   "items": [
-    {
-      "id": "2026000426-2026000426",
-      "name": "천안 아이파크 시티 4단지",
-      "region": "충남",
-      "type": "민영",
-      "address": "충청남도 천안시 서북구 부대동 384-20번지 일원",
-      "households": 777,
-      "publishedDate": "2026-09-04",
-      "startDate": "2026-09-14",
-      "endDate": "2026-09-16",
-      "status": "접수 중",
-      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000426&pblancNo=2026000426"
-    },
-    {
-      "id": "2026000423-2026000423",
-      "name": "두정역 푸르지오 그랑피크",
-      "region": "충남",
-      "type": "민영",
-      "address": "충청남도 천안시 서북구 성정동 511번지",
-      "households": 1438,
-      "publishedDate": "2026-09-04",
-      "startDate": "2026-09-14",
-      "endDate": "2026-09-16",
-      "status": "접수 중",
-      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000423&pblancNo=2026000423"
-    },
-    {
-      "id": "2026000422-2026000422",
-      "name": "천안 아이파크 시티 3단지",
-      "region": "충남",
-      "type": "민영",
-      "address": "충청남도 천안시 서북구 부대동 394-2번지 일원",
-      "households": 851,
-      "publishedDate": "2026-09-04",
-      "startDate": "2026-09-14",
-      "endDate": "2026-09-16",
-      "status": "접수 중",
-      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000422&pblancNo=2026000422"
-    },
-    {
-      "id": "2026000420-2026000420",
-      "name": "남울산 노르웨이숲(조합원 취소분)(2회차)",
-      "region": "울산",
-      "type": "민영",
-      "address": "울산광역시 울주군 온양읍 발리동상로 34",
-      "households": 52,
-      "publishedDate": "2026-09-04",
-      "startDate": "2026-09-14",
-      "endDate": "2026-09-16",
-      "status": "접수 중",
-      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000420&pblancNo=2026000420"
-    },
-    {
-      "id": "2026000394-2026000394",
-      "name": "더샵 여주역더퍼스트",
-      "region": "경기",
-      "type": "민영",
-      "address": "경기도 여주시 홍문동 332-2번지 일원",
-      "households": 696,
-      "publishedDate": "2026-09-03",
-      "startDate": "2026-09-14",
-      "endDate": "2026-09-16",
-      "status": "접수 중",
-      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000394&pblancNo=2026000394"
-    },
-    {
-      "id": "2026000419-2026000419",
-      "name": "올 뉴 챔피언스시티 1차",
-      "region": "광주",
-      "type": "민영",
-      "address": "전남광주통합특별시 북구 임동 100-1 일원",
-      "households": 3216,
-      "publishedDate": "2026-09-02",
-      "startDate": "2026-09-14",
-      "endDate": "2026-09-16",
-      "status": "접수 중",
-      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000419&pblancNo=2026000419"
-    },
-    {
-      "id": "2026000403-2026000403",
-      "name": "그랑라크 에일린의 뜰",
-      "region": "울산",
-      "type": "민영",
-      "address": "울산광역시 남구 야음동 350-5번지 일원 ",
-      "households": 1153,
-      "publishedDate": "2026-09-02",
-      "startDate": "2026-09-14",
-      "endDate": "2026-09-16",
-      "status": "접수 중",
-      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000403&pblancNo=2026000403"
-    },
     {
       "id": "2026000393-2026000393",
       "name": "시흥 은계 에피트(조합원 취소분)",
@@ -157,6 +66,45 @@
       "endDate": "2026-09-23",
       "status": "접수 예정",
       "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000437&pblancNo=2026000437"
+    },
+    {
+      "id": "2026000103-2026000103",
+      "name": "더샵 분당하이스트",
+      "region": "경기",
+      "type": "민영",
+      "address": "경기도 성남시 분당구 정자동 90번지",
+      "households": 143,
+      "publishedDate": "2026-09-11",
+      "startDate": "2026-09-21",
+      "endDate": "2026-09-28",
+      "status": "접수 예정",
+      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000103&pblancNo=2026000103"
+    },
+    {
+      "id": "2026000314-2026000314",
+      "name": "중동역 다채로움 더원",
+      "region": "경기",
+      "type": "민영",
+      "address": "경기도 부천시 소사구 송내동 365-1번지 일원",
+      "households": 39,
+      "publishedDate": "2026-09-10",
+      "startDate": "2026-09-21",
+      "endDate": "2026-09-23",
+      "status": "접수 예정",
+      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000314&pblancNo=2026000314"
+    },
+    {
+      "id": "2026000431-2026000431",
+      "name": "오남역 서희스타힐스 여의재 3단지 (조합원 취소분)",
+      "region": "경기",
+      "type": "민영",
+      "address": "경기도 남양주시 오남읍 양지리 186-10번지 일원",
+      "households": 133,
+      "publishedDate": "2026-09-09",
+      "startDate": "2026-09-21",
+      "endDate": "2026-09-23",
+      "status": "접수 예정",
+      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000431&pblancNo=2026000431"
     }
   ]
 }
