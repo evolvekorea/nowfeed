@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-09-18T11:08:20.741Z",
-  "displayTime": "2026.09.18 20:08",
+  "updatedAt": "2026-09-18T16:20:37.312Z",
+  "displayTime": "2026.09.19 01:20",
   "items": [
     {
       "id": "2026000449-2026000449",
@@ -94,17 +94,69 @@
       "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000431&pblancNo=2026000431"
     },
     {
-      "id": "2026000454-2026000454",
-      "name": "천안 용곡 두산위브(조합원 취소분)",
-      "region": "충남",
-      "type": "민영",
-      "address": "충청남도 천안시 동남구 풍세로 801(용곡동 617번지)",
-      "households": 7,
-      "publishedDate": "2026-09-17",
+      "id": "2026820011-2026820011",
+      "name": "시흥하중지구 A-4블록 신혼희망타운(공공분양) 추가입주자모집",
+      "region": "경기",
+      "type": "국민",
+      "address": "경기도 시흥시 하중동 일원 (시흥하중 공공주택지구 내 A-4블록)",
+      "households": 61,
+      "publishedDate": "2026-09-18",
       "startDate": "2026-09-28",
       "endDate": "2026-09-29",
       "status": "접수 예정",
-      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000454&pblancNo=2026000454"
+      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026820011&pblancNo=2026820011"
+    },
+    {
+      "id": "2026000448-2026000448",
+      "name": "숭의역 노르웨이숲 더 스카이",
+      "region": "인천",
+      "type": "민영",
+      "address": "인천광역시 미추홀구 숭의동 350-1번지 일원",
+      "households": 35,
+      "publishedDate": "2026-09-18",
+      "startDate": "2026-09-28",
+      "endDate": "2026-09-30",
+      "status": "접수 예정",
+      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000448&pblancNo=2026000448"
+    },
+    {
+      "id": "2026000446-2026000446",
+      "name": "진주 판문지구 레이크써밋 웰가",
+      "region": "경남",
+      "type": "민영",
+      "address": "경상남도 진주시 판문동 241-1번지 일원",
+      "households": 690,
+      "publishedDate": "2026-09-18",
+      "startDate": "2026-09-28",
+      "endDate": "2026-09-30",
+      "status": "접수 예정",
+      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000446&pblancNo=2026000446"
+    },
+    {
+      "id": "2026000445-2026000445",
+      "name": "삼천 하늘채 라비엘",
+      "region": "전북",
+      "type": "민영",
+      "address": "전북특별자치도 전주시 완산구 삼천동1가 585-4번지 일원",
+      "households": 116,
+      "publishedDate": "2026-09-18",
+      "startDate": "2026-09-28",
+      "endDate": "2026-09-30",
+      "status": "접수 예정",
+      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000445&pblancNo=2026000445"
+    },
+    {
+      "id": "2026000443-2026000443",
+      "name": "에코델타시티 금강펜테리움 에코리버",
+      "region": "부산",
+      "type": "민영",
+      "address": "부산광역시 강서구 강동동 5048-5번지 일원 에코델타시티 공동6BL",
+      "households": 358,
+      "publishedDate": "2026-09-18",
+      "startDate": "2026-09-28",
+      "endDate": "2026-09-30",
+      "status": "접수 예정",
+      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000443&pblancNo=2026000443"
     }
   ]
 }
