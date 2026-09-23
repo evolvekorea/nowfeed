@@ -1,59 +1,7 @@
 {
-  "updatedAt": "2026-09-23T11:28:10.211Z",
-  "displayTime": "2026.09.23 20:28",
+  "updatedAt": "2026-09-23T16:51:46.498Z",
+  "displayTime": "2026.09.24 01:51",
   "items": [
-    {
-      "id": "2026000449-2026000449",
-      "name": "화서역 호수공원 아너스빌",
-      "region": "경기",
-      "type": "민영",
-      "address": "경기도 수원시 권선구 서둔동 212-1번지 일원",
-      "households": 476,
-      "publishedDate": "2026-09-11",
-      "startDate": "2026-09-21",
-      "endDate": "2026-09-23",
-      "status": "접수 중",
-      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000449&pblancNo=2026000449"
-    },
-    {
-      "id": "2026000441-2026000441",
-      "name": "문수로 비스타 더파크",
-      "region": "울산",
-      "type": "민영",
-      "address": "울산광역시 남구 무거동 1615-1번지(무거삼호지구 11BL) 일원",
-      "households": 700,
-      "publishedDate": "2026-09-11",
-      "startDate": "2026-09-21",
-      "endDate": "2026-09-23",
-      "status": "접수 중",
-      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000441&pblancNo=2026000441"
-    },
-    {
-      "id": "2026000438-2026000438",
-      "name": "힐스테이트 고덕엘리스트 A65BL 공공분양주택",
-      "region": "경기",
-      "type": "국민",
-      "address": "경기도 평택시 고덕동 고덕면 일원(평택고덕국제화계획지구 A65BL)",
-      "households": 837,
-      "publishedDate": "2026-09-11",
-      "startDate": "2026-09-21",
-      "endDate": "2026-09-23",
-      "status": "접수 중",
-      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000438&pblancNo=2026000438"
-    },
-    {
-      "id": "2026000437-2026000437",
-      "name": "힐스테이트 고덕엘리스트 A12BL 공공분양주택",
-      "region": "경기",
-      "type": "국민",
-      "address": "경기도 평택시 고덕동 고덕면 일원(평택고덕국제화계획지구 A12BL)",
-      "households": 942,
-      "publishedDate": "2026-09-11",
-      "startDate": "2026-09-21",
-      "endDate": "2026-09-23",
-      "status": "접수 중",
-      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000437&pblancNo=2026000437"
-    },
     {
       "id": "2026000103-2026000103",
       "name": "더샵 분당하이스트",
@@ -66,32 +14,6 @@
       "endDate": "2026-09-28",
       "status": "접수 중",
       "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000103&pblancNo=2026000103"
-    },
-    {
-      "id": "2026000314-2026000314",
-      "name": "중동역 다채로움 더원",
-      "region": "경기",
-      "type": "민영",
-      "address": "경기도 부천시 소사구 송내동 365-1번지 일원",
-      "households": 39,
-      "publishedDate": "2026-09-10",
-      "startDate": "2026-09-21",
-      "endDate": "2026-09-23",
-      "status": "접수 중",
-      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000314&pblancNo=2026000314"
-    },
-    {
-      "id": "2026000431-2026000431",
-      "name": "오남역 서희스타힐스 여의재 3단지 (조합원 취소분)",
-      "region": "경기",
-      "type": "민영",
-      "address": "경기도 남양주시 오남읍 양지리 186-10번지 일원",
-      "households": 133,
-      "publishedDate": "2026-09-09",
-      "startDate": "2026-09-21",
-      "endDate": "2026-09-23",
-      "status": "접수 중",
-      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000431&pblancNo=2026000431"
     },
     {
       "id": "2026820011-2026820011",
@@ -157,6 +79,58 @@
       "endDate": "2026-09-30",
       "status": "접수 예정",
       "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000443&pblancNo=2026000443"
+    },
+    {
+      "id": "2026000436-2026000436",
+      "name": "더샵 시에르네(조합원취소분)(2회차)",
+      "region": "울산",
+      "type": "민영",
+      "address": "울산광역시 중구 학성동 397-1번지 일원",
+      "households": 29,
+      "publishedDate": "2026-09-18",
+      "startDate": "2026-09-28",
+      "endDate": "2026-09-30",
+      "status": "접수 예정",
+      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000436&pblancNo=2026000436"
+    },
+    {
+      "id": "2026000424-2026000424",
+      "name": "쌍용 더 플래티넘 센텀",
+      "region": "부산",
+      "type": "민영",
+      "address": "부산광역시 수영구 망미동 253-1번지 일원",
+      "households": 53,
+      "publishedDate": "2026-09-18",
+      "startDate": "2026-09-28",
+      "endDate": "2026-09-30",
+      "status": "접수 예정",
+      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000424&pblancNo=2026000424"
+    },
+    {
+      "id": "2026000454-2026000454",
+      "name": "천안 용곡 두산위브(조합원 취소분)",
+      "region": "충남",
+      "type": "민영",
+      "address": "충청남도 천안시 동남구 풍세로 801(용곡동 617번지)",
+      "households": 7,
+      "publishedDate": "2026-09-17",
+      "startDate": "2026-09-28",
+      "endDate": "2026-09-29",
+      "status": "접수 예정",
+      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000454&pblancNo=2026000454"
+    },
+    {
+      "id": "2026000453-2026000453",
+      "name": "광명 시티프라디움 에듀하임",
+      "region": "경기",
+      "type": "민영",
+      "address": "경기도 광명시 소하동 광명 구름산지구 도시개발사업지구 A6BL",
+      "households": 426,
+      "publishedDate": "2026-09-18",
+      "startDate": "2026-09-29",
+      "endDate": "2026-10-02",
+      "status": "접수 예정",
+      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000453&pblancNo=2026000453"
     }
   ]
 }
