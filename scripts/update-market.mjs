@@ -1,42 +1,23 @@
-import { writeFile } from 'node:fs/promises';
+import {readFile, writeFile, rename} from 'node:fs/promises';
+import {collectMarket} from '../js/market-data.mjs';
 
-const sources = {
-  kospi: 'https://m.stock.naver.com/api/index/KOSPI/basic',
-  kosdaq: 'https://m.stock.naver.com/api/index/KOSDAQ/basic',
-  exchange: 'https://api.coinbase.com/v2/exchange-rates?currency=USD'
-};
-
-const getJson = async (url) => {
-  const response = await fetch(url, { headers: { Accept: 'application/json', 'User-Agent': 'Nowfeed market updater' } });
-  if (!response.ok) throw new Error(`${url} returned ${response.status}`);
-  return response.json();
-};
-
-const [kospi, kosdaq, exchange] = await Promise.all([
-  getJson(sources.kospi), getJson(sources.kosdaq), getJson(sources.exchange)
-]);
-
-const normalizeIndex = (item) => ({
-  price: item.closePrice,
-  change: item.compareToPreviousClosePrice,
-  changePercent: item.fluctuationsRatio,
-  direction: item.compareToPreviousPrice.name
-});
-
-const tradedAt = new Date(kospi.localTradedAt);
-const timeParts = new Intl.DateTimeFormat('ko-KR', {
-  timeZone: 'Asia/Seoul', year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', hour12: false
-}).formatToParts(tradedAt).reduce((parts, item) => ({ ...parts, [item.type]: item.value }), {});
-const displayTime = `${timeParts.year}.${timeParts.month}.${timeParts.day} ${timeParts.hour}:${timeParts.minute}`;
-
-const output = {
-  updatedAt: new Date().toISOString(),
-  displayTime,
-  marketStatus: kospi.marketStatus,
-  kospi: normalizeIndex(kospi),
-  kosdaq: normalizeIndex(kosdaq),
-  usdkrw: { price: Number(exchange.data.rates.KRW), base: 'USD', quote: 'KRW' }
-};
-
-await writeFile(new URL('../data/market.json', import.meta.url), `${JSON.stringify(output, null, 2)}\n`, 'utf8');
-console.log(`Updated market data at ${output.updatedAt}`);
+const file = new URL('../data/market.json', import.meta.url);
+let previous = {};
+try {previous=JSON.parse(await readFile(file,'utf8'));} catch (error) {if(error.code !== 'ENOENT') throw error;}
+async function getJson(url) {
+  let lastError;
+  for(let attempt=0;attempt<3;attempt++) {
+    try {
+      const response=await fetch(url,{headers:{Accept:'application/json','User-Agent':'Nowfeed market updater'},signal:AbortSignal.timeout(15_000)});
+      if(!response.ok) throw new Error(`HTTP ${response.status}`);
+      return await response.json();
+    } catch(error) {lastError=error;if(attempt<2) await new Promise(resolve=>setTimeout(resolve,1000*(attempt+1)));}
+  }
+  throw lastError;
+}
+const {output,failed}=await collectMarket(previous,getJson);
+const temporary=new URL('../data/market.json.tmp',import.meta.url);
+await writeFile(temporary,JSON.stringify(output,null,2)+'\n','utf8');
+await rename(temporary,file);
+console.log(`Market collection complete; retained previous quotes for: ${failed.join(', ') || 'none'}`);
+if(failed.length) process.exitCode=1;

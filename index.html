@@ -1,6 +1,5 @@
 <!doctype html>
-<html lang="ko">
-<head>
+<html lang="ko"><head>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-M99DTHDB7Z"></script>
 <script>
@@ -15,7 +14,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Nowfeed — 당신의 선택은?</title>
   <meta name="description" content="일상의 뜨거운 사연을 읽고, 투표하고, 서로의 생각을 나누는 선택형 커뮤니티 Nowfeed입니다.">
-  <meta name="keywords" content="Nowfeed, 나우피드, 오늘의 사연, 익명 투표, 댓글 토론, 생활정보, 영양제 정보, 다이어트 정보, 청약 일정, 날씨, 미세먼지">
+  <meta name="keywords" content="Nowfeed, 나우피드, 오늘의 사연, 익명 투표, 댓글 토론, 청약 일정, 날씨, 미세먼지">
   <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
   <link rel="canonical" href="https://nowfeed.co.kr/">
   <meta property="og:type" content="website">
@@ -26,16 +25,10 @@
   <meta property="og:locale" content="ko_KR">
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Nowfeed — 당신의 선택은?">
-  <meta name="twitter:description" content="사연을 읽고 선택하고, 생활에 필요한 정보를 확인하세요.">
+  <meta name="twitter:description" content="사연을 읽고 선택하고, 오늘의 브리핑을 확인하세요.">
   <meta name="theme-color" content="#ff5b45">
   <!-- Google AdSense -->
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6532882266109488" crossorigin="anonymous"></script>
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/portal.css?v=20260816a">
-  <script defer src="js/app.js?v=20260814b"></script>
-  <script defer src="js/weather.js?v=20260813d"></script>
-  <script defer src="js/market.js?v=20260813b"></script>
-  <script defer src="js/housing.js?v=20260814d"></script>
   <script type="application/ld+json">
   {
     "@context":"https://schema.org",
@@ -43,114 +36,24 @@
     "name":"Nowfeed",
     "alternateName":"나우피드",
     "url":"https://nowfeed.co.kr/",
-    "description":"사연 투표와 댓글 토론, 날씨·시장·청약·생활정보를 제공하는 콘텐츠 커뮤니티",
+    "description":"사연 투표와 댓글 토론, 날씨·시장·청약를 제공하는 콘텐츠 커뮤니티",
     "inLanguage":"ko-KR",
     "publisher":{"@type":"Organization","name":"Nowfeed","url":"https://nowfeed.co.kr/"}
   }
   </script>
-</head>
-<body class="home-page">
-  <a class="skip-link" href="#main-content">본문 바로가기</a>
 
-  <header class="site-header">
-    <div class="utility-bar">
-      <div class="container utility-inner">
-        <span>사연을 읽고 선택하는 커뮤니티</span>
-        <span><i></i> NOWFEED LIVE</span>
-      </div>
-    </div>
-    <div class="container header-inner">
-      <a class="brand" href="/" aria-label="Nowfeed 홈"><span class="brand-mark">N</span><span>nowfeed</span></a>
-      <p class="brand-copy">지금 사람들의 생각이 궁금하다면.</p>
-      <div class="weather-chip" id="weather-chip" aria-live="polite" title="Open-Meteo 제공 서울 날씨">
-        <span id="weather-icon" aria-hidden="true">☁</span>
-        <span><b>서울</b><small id="weather-status">날씨 확인 중</small></span>
-        <strong id="weather-temp">--°</strong>
-      </div>
-      <a class="story-submit" href="#hot">인기 사연 보기</a>
-      <button class="menu-toggle" id="menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav">메뉴</button>
-    </div>
-    <nav class="main-nav" id="main-nav" aria-label="주요 메뉴">
-      <div class="container nav-scroll">
-        <a class="active" href="#hot">인기 사연</a>
-        <a href="#daily">오늘의 브리핑</a>
-        <a href="category/life/">생활정보 게시판</a>
-        <a href="category/society/">사회</a>
-        <a href="about/">Nowfeed 소개</a>
-      </div>
-    </nav>
-  </header>
+<link rel="stylesheet" href="/css/home.css?v=20261014"><script defer src="/js/home.js?v=20261014"></script><script defer src="/js/weather.js?v=20261014"></script><script type="module" src="/js/market.js?v=20261014"></script><script defer src="/js/housing.js?v=20261014"></script>
+</head><body class="home-page"><a class="skip-link" href="#main-content">본문 바로가기</a>
 
-  <main id="main-content">
-    <section class="intro home-intro" id="hot">
-      <div class="container intro-inner">
-        <div>
-          <span class="kicker"><i></i> NOW TRENDING</span>
-          <h1>지금 뜨거운 이야기,<br><em>한눈에 골라보세요.</em></h1>
-        </div>
-        <p>관심 가는 사연을 열어 읽고,<br>두 가지 관점 중 하나를 선택해보세요.</p>
-      </div>
-    </section>
-    <section class="home-section hot-section" aria-labelledby="hot-title">
-      <div class="container">
-        <div class="section-head compact-head"><div><span class="kicker">HOT STORIES</span><h2 id="hot-title">지금 많이 보는 사연</h2></div><div class="rail-controls"><button type="button" data-rail-prev="hot-rail" aria-label="이전 사연">←</button><button type="button" data-rail-next="hot-rail" aria-label="다음 사연">→</button></div></div>
-        <div class="hot-rail scroll-rail" id="hot-rail">
-          <article class="hot-card"><a href="articles/2026/08/girlfriend-family-airport-pickup-debate/"><img src="images/og-girlfriend-family-airport-pickup-debate.png" alt="여자친구 가족 공항 픽업, 차 있는 남친이 두 번 왕복해야 할까요?" loading="eager"><div class="hot-card-copy"><span>연애 · 가족</span><h3>여자친구 가족 공항 픽업, 두 번 왕복해야 할까요?</h3><p>연인의 가족 부탁일까요, 차량과 시간을 당연하게 여긴 요구일까요?</p><b>사연 읽고 투표하기 →</b></div></a></article>
-          <article class="hot-card"><a href="articles/2026/08/orchard-in-laws-biweekly-visit-debate/"><img src="images/og-orchard-in-laws-biweekly-visit-debate.png" alt="친정 과수원은 돕고 시댁은 격주 방문, 공평한 요구일까요?" loading="eager"><div class="hot-card-copy"><span>결혼 · 가족</span><h3>친정 과수원은 돕고 시댁은 격주 방문, 공평한 요구일까요?</h3><p>상호 배려일까요, 원하지 않는 대리효도일까요?</p><b>사연 읽고 투표하기 →</b></div></a></article>
-          <article class="hot-card"><a href="articles/2026/08/secret-carpool-debate/"><img src="images/og-secret-carpool-debate.png" alt="3개월 비밀 카풀, 이건 불륜일까요?" loading="eager"><div class="hot-card-copy"><span>결혼 · 가족</span><h3>남편의 3개월 비밀 카풀, 이건 불륜일까요?</h3><p>임산부 동료를 위한 선의일까요, 부부의 신뢰를 깬 행동일까요?</p><b>사연 읽고 투표하기 →</b></div></a></article>
-          <article class="hot-card"><a href="articles/2026/08/liver-donation-in-laws-debate/"><img src="images/og-liver-donation-in-laws-debate.png" alt="" loading="eager"><div class="hot-card-copy"><span>결혼 · 가족</span><h3>시어머니에게 간을 공여했는데, 남편은 “계산적”이라 했습니다</h3><p>생명을 나눈 헌신을 가족이 당연하게 여겨도 될까요?</p><b>사연 읽고 투표하기 →</b></div></a></article>
-          <article class="hot-card"><a href="articles/2026/08/mother-in-law-visit-divorce/"><img src="images/og-mother-in-law-visit-divorce.png" alt="" loading="eager"><div class="hot-card-copy"><span>결혼 · 가족</span><h3>시어머니 방문을 미루자 했더니 남편은 이혼을 말했습니다</h3><p>가족 방문의 기준과 부부 사이의 공평함을 묻습니다.</p><b>사연 읽고 투표하기 →</b></div></a></article>
-          <article class="hot-card"><a href="articles/2026/08/long-term-jeonse-expiration-debate/"><img src="images/og-long-term-jeonse-expiration-debate.png" alt="" loading="eager"><div class="hot-card-copy"><span>사회 · 주거</span><h3>20년 장기전세 만기, 계약대로 퇴거해야 할까요?</h3><p>계약 원칙과 장기 거주자의 주거 안정이 충돌했습니다.</p><b>이슈 읽고 투표하기 →</b></div></a></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="home-section daily-section" id="daily" aria-labelledby="daily-title">
-      <div class="container">
-        <div class="section-head compact-head"><div><span class="kicker">WEATHER · MARKET · HOUSING</span><h2 id="daily-title">오늘의 브리핑</h2><p class="daily-description">날씨, 증시와 환율, 청약 일정을 한곳에서 확인하세요.</p></div><div class="rail-controls"><button type="button" data-rail-prev="daily-rail" aria-label="이전 정보">←</button><button type="button" data-rail-next="daily-rail" aria-label="다음 정보">→</button></div></div>
-        <div class="daily-rail scroll-rail" id="daily-rail">
-      <section class="info-card weather-detail" aria-labelledby="weather-title">
-        <div class="info-card-head"><div><span class="info-eyebrow">WEATHER</span><h2 id="weather-title">오늘의 서울</h2></div><span id="weather-card-icon" class="weather-card-icon" aria-hidden="true">☁</span></div>
-        <div class="weather-card-main"><strong id="weather-card-temp">--°</strong><div><b id="weather-card-label">날씨 확인 중</b><span id="weather-card-feels">체감 --°</span></div></div>
-        <div class="weather-card-stats"><span><b>최고</b><em id="weather-high">--°</em></span><span><b>최저</b><em id="weather-low">--°</em></span><span><b>습도</b><em id="weather-humidity">--%</em></span></div>
-        <div class="air-quality" aria-label="대기질 정보">
-          <div><span>미세먼지 <small>PM10</small></span><strong id="air-pm10">--</strong><em id="air-pm10-grade">확인 중</em></div>
-          <div><span>초미세먼지 <small>PM2.5</small></span><strong id="air-pm25">--</strong><em id="air-pm25-grade">확인 중</em></div>
-          <div><span>자외선 <small>UV</small></span><strong id="air-uv">--</strong><em id="air-uv-grade">확인 중</em></div>
-        </div>
-        <small id="weather-updated">Open-Meteo·CAMS 제공 · 불러오는 중</small>
-      </section><section class="info-card market-card" aria-labelledby="market-title">
-        <div class="info-card-head"><div><span class="info-eyebrow">MARKET</span><h2 id="market-title">시장 한눈에</h2></div><span class="market-state" id="market-state">확인 중</span></div>
-        <ul class="market-list">
-          <li><span>코스피</span><strong id="kospi-price">--</strong><em id="kospi-change">--</em></li>
-          <li><span>코스닥</span><strong id="kosdaq-price">--</strong><em id="kosdaq-change">--</em></li>
-          <li><span>원/달러</span><strong id="usdkrw-price">--</strong><em id="usdkrw-change">USD</em></li>
-        </ul>
-        <small id="market-updated">시세 데이터를 불러오는 중입니다.</small>
-        <p class="data-source">지수: NAVER 금융 · 환율: Coinbase<br>정보 제공용이며 투자 판단용이 아닙니다.</p>
-      </section><section class="info-card life-card" id="housing-info" aria-labelledby="life-title">
-        <div class="info-card-head"><div><span class="info-eyebrow">APPLY HOME</span><h2 id="life-title">이번 주 청약 일정</h2></div><span class="life-badge">공식 API</span></div>
-        <div class="housing-list" id="housing-list" data-limit="3" aria-live="polite"><p>청약 일정을 불러오는 중입니다.</p></div>
-        <a class="housing-more" href="https://www.applyhome.co.kr/" target="_blank" rel="noopener noreferrer">청약홈에서 전체 공고 보기 ↗</a>
-        <div class="life-links support-links">
-          <a href="https://www.gov.kr/portal/rcvfvrSvc/main/nonLogin" target="_blank" rel="noopener noreferrer"><span>지원</span><div><strong>보조금24 혜택 찾기</strong><small>내가 받을 수 있는 정부 지원</small></div><b>↗</b></a>
-          <a href="https://www.bokjiro.go.kr/" target="_blank" rel="noopener noreferrer"><span>복지</span><div><strong>복지로 서비스 찾기</strong><small>생애주기별 복지 정보</small></div><b>↗</b></a>
-        </div>
-        <p class="housing-note" id="housing-updated">한국부동산원 청약홈 공식 데이터</p>
-      </section>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <div><a class="brand" href="/"><span class="brand-mark">N</span><span>nowfeed</span></a><p>사연을 읽고, 선택하고, 생각을 나누는 곳.</p></div>
-      <div class="footer-links"><a href="about/">서비스 소개</a><a href="privacy/">개인정보처리방침</a><a href="terms/">이용약관</a><a href="contact/">문의하기</a></div>
-      <small>© 2026 Nowfeed. All rights reserved.</small>
-    </div>
-  </footer>
-
-  <div class="toast" id="toast" role="status" aria-live="polite"></div>
-</body>
-</html>
+<header><div class="wrap masthead"><a class="brand" href="#"><span>N</span>nowfeed<span class="brand-dot">.</span></a><span class="brand-note">사연을 읽고, 서로의 생각을 나누다.</span><a class="submit small" href="mailto:nowfeedkorea@gmail.com?subject=%5B%EB%82%98%EC%9A%B0%ED%94%BC%EB%93%9C%20%EC%82%AC%EC%97%B0%20%EC%A0%9C%EB%B3%B4%5D%20">사연을 제보해주세요 <span>↗</span></a></div><nav aria-label="주요 메뉴" class="wrap"><a class="active" href="#hot">인기 사연</a><a href="#briefing">오늘의 브리핑</a><a href="#stories">전체 사연</a><a href="/about/">나우피드 소개</a><span>READ. THINK. SHARE.</span></nav></header>
+<main id="main-content"><section class="wrap intro"><div><div class="eyebrow"><i></i> EVERY STORY HAS TWO SIDES</div><h1>같은 사연, <em>다른 생각.</em></h1><p>정답 없는 일상의 순간들. 여러분의 생각은 어떤가요?</p></div><a class="intro-link" href="#stories">모든 사연 둘러보기 <span>↓</span></a></section>
+<section class="wrap section" id="hot"><div class="section-head"><div><span class="eyebrow">NOW PICK</span><h2>지금 눈길이 가는 사연</h2></div><a class="text-link" href="#stories">전체 사연 보기 ↗</a></div><div class="hot-grid"><article class="hot-card"><a href="/articles/2026/08/girlfriend-family-airport-pickup-debate/"><div class="cover"><img alt="여자친구 가족 공항 픽업, 차 있는 남친이 두 번 왕복해야 할까요?" src="/images/og-girlfriend-family-airport-pickup-debate.png"/><span class="pick">NOW PICK 01</span></div><div class="hot-copy"><span class="tag">연애</span><h3>여자친구 가족 공항 픽업, 차 있는 남친이 두 번 왕복해야 할까요?</h3><p>여자친구 가족의 해외여행을 앞두고 자신의 차로 공항을 두 번 왕복해달라는 부탁을 받은 남성의 연애 갈등 사연입니다.</p><span class="read">사연 읽고 의견 나누기 <b>↗</b></span></div></a></article><article class="hot-card"><a href="/articles/2026/08/orchard-in-laws-biweekly-visit-debate/"><div class="cover"><img alt="친정 과수원은 돕고 시댁은 격주 방문, 공평한 요구일까요?" src="/images/og-orchard-in-laws-biweekly-visit-debate.png"/><span class="pick">NOW PICK 02</span></div><div class="hot-copy"><span class="tag">결혼·가족</span><h3>친정 과수원은 돕고 시댁은 격주 방문, 공평한 요구일까요?</h3><p>친정 과수원 일을 도와온 남편이 홀로 계신 어머니와 격주 식사를 요구하면서 벌어진 부부 갈등입니다.</p><span class="read">사연 읽고 의견 나누기 <b>↗</b></span></div></a></article><article class="hot-card"><a href="/articles/2026/08/secret-carpool-debate/"><div class="cover"><img alt="남편의 3개월 비밀 카풀, 이건 불륜일까요?" src="/images/og-secret-carpool-debate.png"/><span class="pick">NOW PICK 03</span></div><div class="hot-copy"><span class="tag">결혼·가족</span><h3>남편의 3개월 비밀 카풀, 이건 불륜일까요?</h3><p>임신한 여직원과 3개월간 비밀 카풀을 하고 아내가 준비한 아침까지 건넨 남편. 선의인지 신뢰를 깬 행동인지 묻습니다.</p><span class="read">사연 읽고 의견 나누기 <b>↗</b></span></div></a></article></div></section>
+<section class="briefing" id="briefing"><div class="wrap"><div class="section-head"><div><span class="eyebrow">DAILY BRIEF</span><h2>오늘의 브리핑<span class="title-dot">.</span></h2><p>외출 전 날씨부터 시장 흐름, 놓치기 쉬운 청약 일정까지.</p></div></div><div class="brief-grid">
+<article class="brief weather"><div class="brief-head"><h3>외출 전 날씨</h3><span class="location">서울</span></div><div class="weather-main"><div><span class="muted" id="weather-card-label">날씨 확인 중</span><strong id="weather-card-temp">--°</strong></div><span aria-hidden="true" class="weather-icon" id="weather-card-icon">☁</span></div><div class="weather-stats"><span>최고 / 최저<b><span id="weather-high">--°</span> / <span id="weather-low">--°</span></b></span><span>강수확률<b id="weather-rain">--%</b></span><span>미세먼지<b id="air-pm10-grade">확인 중</b></span></div><p class="weather-tip" id="weather-tip">날씨와 대기질을 불러오고 있습니다.</p><small class="source" id="weather-updated">Open-Meteo · CAMS</small></article>
+<article class="brief market"><div class="brief-head"><h3>시장 한눈에</h3><span class="status" id="market-state">확인 중</span></div><div class="market-row"><span>코스피<small id="kospi-time"></small></span><strong id="kospi-price">--</strong><b id="kospi-change"></b></div><div class="market-row"><span>코스닥<small id="kosdaq-time"></small></span><strong id="kosdaq-price">--</strong><b id="kosdaq-change"></b></div><div class="market-row"><span>원 / 달러<small id="usdkrw-time"></small></span><strong id="usdkrw-price">--</strong><span class="muted">1 USD</span></div><div aria-live="polite" class="data-note"><span id="market-updated">시세 확인 중</span><small id="market-message">항목별 기준 시각을 확인해 주세요.</small></div><div class="brief-bottom"><span class="source">NAVER 금융 · Coinbase</span><button class="quiet-button" id="market-refresh" type="button">새로고침 ↻</button></div></article>
+<article class="brief housing"><div class="brief-head"><h3>놓치지 말아야 할 청약</h3><span class="status blue">마감일 먼저</span></div><div data-limit="3" id="housing-list"><p class="notice">청약 일정을 불러오고 있습니다.</p></div><a class="housing-more" href="https://www.applyhome.co.kr/" rel="noopener noreferrer" target="_blank">청약홈에서 전체 공고 보기 ↗</a><small class="source" id="housing-updated">한국부동산원 청약홈</small></article>
+</div></div></section>
+<section class="wrap all-stories section" id="stories"><div class="section-head"><div><span class="eyebrow">ALL STORIES</span><h2>한 번 더, 다른 이야기</h2><p>인기 사연부터 놓쳤던 이야기까지 모두 만나보세요.</p></div><label class="search"><span>⌕</span><input aria-label="사연 검색" id="search" placeholder="궁금한 사연 검색" type="search"/></label></div><div class="filter-bar"><div aria-label="사연 분류" class="filters" role="group"><button aria-pressed="true" class="selected" data-filter="전체">전체</button><button aria-pressed="false" data-filter="연애">연애</button><button aria-pressed="false" data-filter="결혼·가족">결혼·가족</button><button aria-pressed="false" data-filter="일상·고민">일상·고민</button></div><span class="result-note"><b aria-live="polite" id="count">6</b>개의 사연 · 최신순</span></div><noscript>검색과 분류는 JavaScript를 켜면 이용하실 수 있습니다. 아래 사연은 바로 읽으실 수 있습니다.</noscript><div class="story-grid" id="story-grid"><a class="story" data-summary="여자친구 가족의 해외여행을 앞두고 자신의 차로 공항을 두 번 왕복해달라는 부탁을 받은 남성의 연애 갈등 사연입니다." data-topic="연애" href="/articles/2026/08/girlfriend-family-airport-pickup-debate/"><div><span class="tag">연애</span><h3>여자친구 가족 공항 픽업, 차 있는 남친이 두 번 왕복해야 할까요?</h3><small>2026.08.17<span>사연 읽기 ↗</span></small></div><img alt="" loading="lazy" src="/images/og-girlfriend-family-airport-pickup-debate.png"/></a><a class="story" data-summary="친정 과수원 일을 도와온 남편이 홀로 계신 어머니와 격주 식사를 요구하면서 벌어진 부부 갈등입니다." data-topic="결혼·가족" href="/articles/2026/08/orchard-in-laws-biweekly-visit-debate/"><div><span class="tag">결혼·가족</span><h3>친정 과수원은 돕고 시댁은 격주 방문, 공평한 요구일까요?</h3><small>2026.08.15<span>사연 읽기 ↗</span></small></div><img alt="" loading="lazy" src="/images/og-orchard-in-laws-biweekly-visit-debate.png"/></a><a class="story" data-summary="임신한 여직원과 3개월간 비밀 카풀을 하고 아내가 준비한 아침까지 건넨 남편. 선의인지 신뢰를 깬 행동인지 묻습니다." data-topic="결혼·가족" href="/articles/2026/08/secret-carpool-debate/"><div><span class="tag">결혼·가족</span><h3>남편의 3개월 비밀 카풀, 이건 불륜일까요?</h3><small>2026.08.15<span>사연 읽기 ↗</span></small></div><img alt="" loading="lazy" src="/images/og-secret-carpool-debate.png"/></a><a class="story" data-summary="시어머니를 위해 간을 공여한 뒤 가족의 태도에 상처받았다는 온라인 사연. 헌신을 당연하게 여겨도 되는지 묻습니다." data-topic="결혼·가족" href="/articles/2026/08/liver-donation-in-laws-debate/"><div><span class="tag">결혼·가족</span><h3>시어머니에게 간을 공여했는데, 남편은 ‘계산적’이라 했습니다</h3><small>2026.08.14<span>사연 읽기 ↗</span></small></div><img alt="" loading="lazy" src="/images/og-liver-donation-in-laws-debate.png"/></a><a class="story" data-summary="서울 장기전세주택의 첫 20년 만기가 다가오면서 계약 원칙과 장기 거주자의 주거 안정이 충돌하고 있습니다." data-topic="일상·고민" href="/articles/2026/08/long-term-jeonse-expiration-debate/"><div><span class="tag">일상·고민</span><h3>20년 장기전세 만기, 계약대로 퇴거해야 할까요?</h3><small>2026.08.14<span>사연 읽기 ↗</span></small></div><img alt="" loading="lazy" src="/images/og-long-term-jeonse-expiration-debate.png"/></a><a class="story" data-summary="시어머니 방문을 이번 한 번만 미루고 싶다는 아내와 불공평하다는 남편. 가족 방문과 육아 도움의 기준을 두고 벌어진 부부 갈등입니다." data-topic="결혼·가족" href="/articles/2026/08/mother-in-law-visit-divorce/"><div><span class="tag">결혼·가족</span><h3>시어머니 방문을 미루자 했더니 남편은 이혼을 말했습니다</h3><small>2026.08.14<span>사연 읽기 ↗</span></small></div><img alt="" loading="lazy" src="/images/og-mother-in-law-visit-divorce.png"/></a></div><p hidden="" id="empty" role="status">검색 결과가 없습니다. 다른 단어로 찾아보세요.</p><div class="list-end">지금까지 올라온 사연을 모두 보셨어요. <a href="mailto:nowfeedkorea@gmail.com?subject=%5B%EB%82%98%EC%9A%B0%ED%94%BC%EB%93%9C%20%EC%82%AC%EC%97%B0%20%EC%A0%9C%EB%B3%B4%5D%20">다음 이야기를 들려주세요 ↗</a></div></section>
+<section class="wrap tip-section" id="submit"><div class="tip-banner"><div aria-hidden="true" class="mail-icon">✉</div><div><span class="eyebrow">YOUR STORY, OUR CONVERSATION</span><h2>혼자 고민하던 이야기,<br/> 함께 이야기해 볼까요?</h2><p>연애, 가족, 직장, 일상 속 고민을 들려주세요.</p></div><div class="tip-action"><a class="submit" href="mailto:nowfeedkorea@gmail.com?subject=%5B%EB%82%98%EC%9A%B0%ED%94%BC%EB%93%9C%20%EC%82%AC%EC%97%B0%20%EC%A0%9C%EB%B3%B4%5D%20">사연을 제보해주세요 ↗</a><span>nowfeedkorea@gmail.com</span><small>버튼을 누르면 메일 앱이 열립니다.</small></div></div></section></main>
+<footer class="wrap"><a class="brand" href="#"><span>N</span>nowfeed</a><p>사연을 읽고, 선택하고, 생각을 나누는 곳.</p><div><a href="/privacy/">개인정보처리방침</a><a href="/terms/">이용약관</a><a href="mailto:nowfeedkorea@gmail.com?subject=%5B%EB%82%98%EC%9A%B0%ED%94%BC%EB%93%9C%20%EC%82%AC%EC%97%B0%20%EC%A0%9C%EB%B3%B4%5D%20">문의하기</a></div><small>© 2026 Nowfeed</small></footer>
+</body></html>

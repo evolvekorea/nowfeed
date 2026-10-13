@@ -1,90 +1,39 @@
 (() => {
-  const statusNode = document.querySelector('#weather-status');
-  const tempNode = document.querySelector('#weather-temp');
-  const iconNode = document.querySelector('#weather-icon');
-  if (!statusNode || !tempNode || !iconNode) return;
-
-  const descriptions = [
-    { codes: [0], label: '맑음', day: '☀', night: '☾' },
-    { codes: [1, 2], label: '구름 조금', day: '🌤', night: '☁' },
-    { codes: [3], label: '흐림', day: '☁', night: '☁' },
-    { codes: [45, 48], label: '안개', day: '🌫', night: '🌫' },
-    { codes: [51, 53, 55, 56, 57], label: '이슬비', day: '🌦', night: '🌧' },
-    { codes: [61, 63, 65, 66, 67, 80, 81, 82], label: '비', day: '🌧', night: '🌧' },
-    { codes: [71, 73, 75, 77, 85, 86], label: '눈', day: '🌨', night: '🌨' },
-    { codes: [95, 96, 99], label: '뇌우', day: '⛈', night: '⛈' }
-  ];
-
-  const setWeather = (current, daily) => {
-    const condition = descriptions.find((item) => item.codes.includes(current.weather_code)) || descriptions[2];
-    tempNode.textContent = `${Math.round(current.temperature_2m)}°`;
-    statusNode.textContent = `${condition.label} · 체감 ${Math.round(current.apparent_temperature)}°`;
-    iconNode.textContent = current.is_day ? condition.day : condition.night;
-    const cardIcon = document.querySelector('#weather-card-icon');
-    const cardTemp = document.querySelector('#weather-card-temp');
-    const cardLabel = document.querySelector('#weather-card-label');
-    const cardFeels = document.querySelector('#weather-card-feels');
-    const high = document.querySelector('#weather-high');
-    const low = document.querySelector('#weather-low');
-    const humidity = document.querySelector('#weather-humidity');
-    const updated = document.querySelector('#weather-updated');
-    if (cardIcon) cardIcon.textContent = current.is_day ? condition.day : condition.night;
-    if (cardTemp) cardTemp.textContent = `${Math.round(current.temperature_2m)}°`;
-    if (cardLabel) cardLabel.textContent = condition.label;
-    if (cardFeels) cardFeels.textContent = `체감 ${Math.round(current.apparent_temperature)}°`;
-    if (high) high.textContent = `${Math.round(daily.temperature_2m_max[0])}°`;
-    if (low) low.textContent = `${Math.round(daily.temperature_2m_min[0])}°`;
-    if (humidity) humidity.textContent = `${current.relative_humidity_2m}%`;
-    if (updated) updated.textContent = `Open-Meteo·CAMS 제공 · ${current.time.slice(11, 16)} 기준`;
-  };
-
-  const gradePm10 = (value) => value <= 30 ? ['좋음', 'good'] : value <= 80 ? ['보통', 'normal'] : value <= 150 ? ['나쁨', 'bad'] : ['매우 나쁨', 'very-bad'];
-  const gradePm25 = (value) => value <= 15 ? ['좋음', 'good'] : value <= 35 ? ['보통', 'normal'] : value <= 75 ? ['나쁨', 'bad'] : ['매우 나쁨', 'very-bad'];
-  const gradeUv = (value) => value < 3 ? ['낮음', 'good'] : value < 6 ? ['보통', 'normal'] : value < 8 ? ['높음', 'bad'] : ['매우 높음', 'very-bad'];
-
-  const setAirQuality = (current) => {
-    const fields = [
-      ['#air-pm10', '#air-pm10-grade', current.pm10, gradePm10],
-      ['#air-pm25', '#air-pm25-grade', current.pm2_5, gradePm25],
-      ['#air-uv', '#air-uv-grade', current.uv_index, gradeUv]
-    ];
-    fields.forEach(([valueSelector, gradeSelector, rawValue, grader]) => {
-      const valueNode = document.querySelector(valueSelector);
-      const gradeNode = document.querySelector(gradeSelector);
-      if (!valueNode || !gradeNode || !Number.isFinite(rawValue)) return;
-      const [label, className] = grader(rawValue);
-      valueNode.textContent = Number(rawValue).toFixed(valueSelector === '#air-uv' ? 1 : 0);
-      gradeNode.textContent = label;
-      gradeNode.className = className;
-    });
-  };
-
-  const loadWeather = async () => {
-    try {
-      const url = 'https://api.open-meteo.com/v1/forecast?latitude=37.5665&longitude=126.9780&current=temperature_2m,relative_humidity_2m,apparent_temperature,is_day,weather_code&daily=temperature_2m_max,temperature_2m_min&forecast_days=1&timezone=Asia%2FSeoul';
-      const airUrl = 'https://air-quality-api.open-meteo.com/v1/air-quality?latitude=37.5665&longitude=126.9780&current=pm10,pm2_5,uv_index&timezone=Asia%2FSeoul';
-      const [weatherResponse, airResponse] = await Promise.all([
-        fetch(url, { headers: { Accept: 'application/json' } }),
-        fetch(airUrl, { headers: { Accept: 'application/json' } })
-      ]);
-      if (!weatherResponse.ok) throw new Error(`Weather request failed: ${weatherResponse.status}`);
-      const data = await weatherResponse.json();
-      if (!data.current || !data.daily) throw new Error('Weather data is missing');
-      setWeather(data.current, data.daily);
-      if (airResponse.ok) {
-        const airData = await airResponse.json();
-        if (airData.current) setAirQuality(airData.current);
+  if(!document.querySelector('#weather-card-temp'))return;
+  const set=(id,value)=>{const node=document.getElementById(id);if(node)node.textContent=value;};
+  const get=async url=>{const r=await fetch(url,{signal:AbortSignal.timeout(12_000)});if(!r.ok)throw Error('Weather source unavailable');return r.json();};
+  let weatherSeen=false,airSeen=false,busy=false;
+  const weatherUrl='https://api.open-meteo.com/v1/forecast?latitude=37.5665&longitude=126.9780&current=temperature_2m,apparent_temperature,is_day,weather_code&daily=temperature_2m_max,temperature_2m_min,precipitation_probability_max&forecast_days=1&timezone=Asia%2FSeoul';
+  const airUrl='https://air-quality-api.open-meteo.com/v1/air-quality?latitude=37.5665&longitude=126.9780&current=pm10,pm2_5&timezone=Asia%2FSeoul';
+  async function load() {
+    if(busy)return;busy=true;
+    const [weather,air]=await Promise.allSettled([get(weatherUrl),get(airUrl)]);
+    let weatherOk=false,airOk=false;
+    if(weather.status==='fulfilled') {
+      const {current:c,daily:d}=weather.value;
+      if(Number.isFinite(c?.temperature_2m)&&typeof c.time==='string'&&d?.temperature_2m_max&&d?.temperature_2m_min){
+        const code=c.weather_code;
+        const label=code===0?'맑음':code<3?'구름 조금':code===3?'흐림':code<50?'안개':code>=95?'뇌우':[71,73,75,77,85,86].includes(code)?'눈':'비';
+        set('weather-card-temp',`${Math.round(c.temperature_2m)}°`);
+        set('weather-card-label',`${label} · 체감 ${Math.round(c.apparent_temperature)}°`);
+        set('weather-card-icon',code===0?(c.is_day?'☀':'☾'):label==='비'?'☂':label==='눈'?'❄':'☁');
+        set('weather-high',`${Math.round(d.temperature_2m_max[0])}°`);set('weather-low',`${Math.round(d.temperature_2m_min[0])}°`);
+        const rain=d.precipitation_probability_max?.[0];
+        set('weather-rain',Number.isFinite(rain)?`${rain}%`:'확인 중');
+        set('weather-tip',Number.isFinite(rain)?rain>=50?'☂ 비 예보가 있으니 우산을 챙겨보세요.':'오늘의 강수확률과 대기질을 확인하세요.':'강수확률을 확인하고 있습니다.');
+        set('weather-updated',`Open-Meteo · CAMS · ${c.time.replace('T',' ')} KST 기준`);
+        weatherSeen=weatherOk=true;
       }
-    } catch {
-      statusNode.textContent = '날씨를 불러올 수 없음';
-      tempNode.textContent = '--°';
-      iconNode.textContent = '☁';
-      const cardLabel = document.querySelector('#weather-card-label');
-      const updated = document.querySelector('#weather-updated');
-      if (cardLabel) cardLabel.textContent = '날씨를 불러올 수 없음';
-      if (updated) updated.textContent = '잠시 후 다시 확인해 주세요.';
     }
-  };
-
-  loadWeather();
+    if(air.status==='fulfilled'&&Number.isFinite(air.value.current?.pm10)) {
+      const n=air.value.current.pm10;
+      const [label,level]=n<=30?['좋음','good']:n<=80?['보통','normal']:n<=150?['나쁨','bad']:['매우 나쁨','very-bad'];
+      set('air-pm10-grade',label);document.querySelector('#air-pm10-grade').className=level;airSeen=airOk=true;
+    }
+    if(!weatherOk){if(!weatherSeen)set('weather-card-label','날씨 수신 지연');set('weather-tip',weatherSeen?'날씨 갱신이 지연되어 마지막 확인 값을 표시합니다.':'날씨를 불러오지 못했습니다. 잠시 후 다시 확인합니다.');}
+    if(!airOk)set('air-pm10-grade',airSeen?'갱신 지연':'수신 지연');
+    busy=false;
+  }
+  load();setInterval(()=>{if(!document.hidden)load();},15*60_000);
+  document.addEventListener('visibilitychange',()=>{if(!document.hidden)load();});
 })();
