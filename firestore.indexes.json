@@ -1,0 +1,7 @@
+{
+  "indexes": [],
+  "fieldOverrides": [
+    { "collectionGroup": "oauthRequests", "fieldPath": "expiresAt", "ttl": true, "indexes": [] },
+    { "collectionGroup": "oauthExchanges", "fieldPath": "expiresAt", "ttl": true, "indexes": [] }
+  ]
+}

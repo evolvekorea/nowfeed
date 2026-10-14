@@ -1,0 +1,4 @@
+{
+  "functions": [{ "source": "functions", "codebase": "community", "ignore": ["node_modules", "test", ".env*", "*.log"] }],
+  "firestore": { "rules": "firestore.rules", "indexes": "firestore.indexes.json" }
+}

@@ -1,61 +1,81 @@
 (() => {
   const storyId = document.body.dataset.storyId || 'husband-001';
-  const voteKey = `nowfeed-vote-${storyId}`;
   const actions = document.querySelector('#vote-actions');
   const results = document.querySelector('#vote-results');
   const voteButtons = [...document.querySelectorAll('[data-vote]')];
+  const voteOptions = voteButtons.map(button => ({ id: button.dataset.vote, label: button.dataset.label || button.textContent.trim() }));
+  let voteApi = null;
+  let voteCounts = null;
+  let myChoice = null;
+  let voteBusy = false;
+  let authReady = false;
+  let ballotReady = false;
+  let unsubscribeBallot = null;
+  let authGeneration = 0;
+  const voteStatus = document.createElement('p');
+  voteStatus.className = 'vote-status';
+  voteStatus.setAttribute('role', 'status');
+  actions?.before(voteStatus);
+  const loginForVote = document.createElement('button');
+  loginForVote.type = 'button';
+  loginForVote.className = 'vote-login-button';
+  loginForVote.textContent = '로그인하고 참여하기';
+  actions?.after(loginForVote);
 
-  const voteOptions = voteButtons.map((button) => ({
-    id: button.dataset.vote,
-    label: button.dataset.label || button.querySelector('strong')?.textContent?.trim() || button.dataset.vote,
-    base: Number(button.dataset.base || 0)
-  }));
-
-  const renderVote = (choice) => {
-    if (!actions || !results || !voteOptions.length) return;
-    if (!choice || !voteOptions.some((option) => option.id === choice)) {
-      actions.hidden = false;
-      results.hidden = true;
-      return;
-    }
-
-    const votes = Object.fromEntries(voteOptions.map((option) => [option.id, option.base + (option.id === choice ? 1 : 0)]));
-    const total = Object.values(votes).reduce((sum, value) => sum + value, 0);
-    let allocated = 0;
-
-    voteOptions.forEach((option, index) => {
-      const isLast = index === voteOptions.length - 1;
-      const percent = isLast ? 100 - allocated : Math.round((votes[option.id] / total) * 100);
-      allocated += percent;
-      const percentNode = document.querySelector(`[data-vote-percent="${option.id}"]`);
-      const barNode = document.querySelector(`[data-vote-bar="${option.id}"]`);
-      if (percentNode) percentNode.textContent = `${percent}%`;
-      if (barNode) window.requestAnimationFrame(() => { barNode.style.width = `${percent}%`; });
-    });
-
-    actions.hidden = true;
-    results.hidden = false;
-    const totalNode = document.querySelector('#total-votes');
-    const myVoteNode = document.querySelector('#my-vote');
-    if (totalNode) totalNode.textContent = total.toLocaleString('ko-KR');
-    if (myVoteNode) myVoteNode.textContent = `나의 선택: ${voteOptions.find((option) => option.id === choice).label}`;
+  const showLogin = () => {
+    authUi.panel?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    authUi.privacyConsent?.focus({ preventScroll: true });
   };
-
-  voteButtons.forEach((button) => {
-    button.addEventListener('click', () => {
-      const choice = button.dataset.vote;
-      localStorage.setItem(voteKey, choice);
-      renderVote(choice);
-      window.nowfeedToast?.('투표가 반영됐어요.');
+  loginForVote.addEventListener('click', showLogin);
+  const renderVote = () => {
+    if (!actions || !results) return;
+    const hasVote = Boolean(currentUser && myChoice);
+    actions.hidden = !currentUser || hasVote;
+    results.hidden = !voteCounts;
+    loginForVote.hidden = Boolean(currentUser);
+    loginForVote.disabled = !authReady;
+    voteButtons.forEach(button => { button.disabled = !authReady || !currentUser || voteBusy || !ballotReady; });
+    const change = document.querySelector('#change-vote');
+    if (change) { change.hidden = !hasVote; change.disabled = voteBusy; }
+    voteStatus.textContent = !authReady ? '로그인 상태 확인 중…' : !currentUser ? '투표와 댓글은 로그인 후 참여할 수 있어요.' : !ballotReady ? '내 투표를 확인하고 있습니다.' : voteBusy ? '투표를 저장하고 있습니다.' : hasVote ? '투표 완료 · 선택을 바꿀 수 있어요.' : '한 가지 의견을 선택해 주세요.';
+    if (!voteCounts) return;
+    const total = voteOptions.reduce((sum, option) => sum + (voteCounts[option.id] || 0), 0);
+    let allocated = 0;
+    voteOptions.forEach((option, index) => {
+      const percent = total === 0 ? 0 : index === voteOptions.length - 1 ? 100 - allocated : Math.round((voteCounts[option.id] || 0) / total * 100);
+      allocated += percent;
+      const label = document.querySelector(`[data-vote-percent="${option.id}"]`);
+      const bar = document.querySelector(`[data-vote-bar="${option.id}"]`);
+      if (label) label.textContent = `${percent}%`;
+      if (bar) bar.style.width = `${percent}%`;
     });
-  });
-
+    const totalNode = document.querySelector('#total-votes');
+    if (totalNode) totalNode.textContent = total.toLocaleString('ko-KR');
+    const mine = document.querySelector('#my-vote');
+    if (mine) mine.textContent = hasVote ? `나의 선택: ${voteOptions.find(option => option.id === myChoice)?.label || ''}` : total ? '전체 참여자의 투표 결과입니다.' : '아직 투표가 없습니다. 첫 의견을 남겨주세요.';
+  };
+  voteButtons.forEach(button => button.addEventListener('click', async () => {
+    if (!currentUser) { showLogin(); return; }
+    if (!voteApi || !ballotReady || voteBusy) return;
+    const uid = currentUser.uid;
+    voteBusy = true;
+    renderVote();
+    try {
+      const response = await voteApi.cast(button.dataset.vote);
+      if (currentUser?.uid !== uid) return;
+      myChoice = response.data.choice;
+      voteCounts = response.data.counts;
+      window.nowfeedToast?.('투표가 저장됐어요.');
+    } catch {
+      window.nowfeedToast?.('투표를 저장하지 못했습니다. 잠시 후 다시 시도해 주세요.');
+    } finally { voteBusy = false; renderVote(); }
+  }));
   document.querySelector('#change-vote')?.addEventListener('click', () => {
-    localStorage.removeItem(voteKey);
-    renderVote(null);
+    if (!currentUser || voteBusy) return;
+    actions.hidden = false;
+    voteStatus.textContent = '새 의견을 선택하면 기존 투표가 변경됩니다.';
+    voteButtons[0]?.focus();
   });
-
-  renderVote(localStorage.getItem(voteKey));
 
   const form = document.querySelector('#comment-form');
   const input = document.querySelector('#comment-input');
@@ -77,14 +97,15 @@
     if (!form?.parentNode) return {};
     const panel = document.createElement('div');
     panel.className = 'comment-auth';
+    panel.id = 'participation-login';
 
     const prompt = document.createElement('div');
     prompt.className = 'comment-auth-prompt';
     const promptCopy = document.createElement('div');
     const promptTitle = document.createElement('strong');
-    promptTitle.textContent = 'Google 로그인 후 댓글을 남길 수 있어요.';
+    promptTitle.textContent = '로그인하고 투표·토론에 참여하세요.';
     const promptText = document.createElement('span');
-    promptText.textContent = '처음 로그인하면 댓글에 사용할 닉네임을 설정합니다. 만 14세 이상만 이용할 수 있습니다.';
+    promptText.textContent = '한 번 로그인하면 투표와 댓글을 모두 이용할 수 있어요. 댓글은 닉네임 설정 후 작성합니다.';
     promptCopy.append(promptTitle, promptText);
     const consentLabel = document.createElement('label');
     consentLabel.className = 'comment-auth-consent';
@@ -93,7 +114,7 @@
     privacyConsent.required = true;
     privacyConsent.setAttribute('aria-label', '개인정보 처리 및 댓글 공개 안내 동의');
     const consentText = document.createElement('span');
-    consentText.append('만 14세 이상이며, Google 로그인 정보 처리와 닉네임·식별자·댓글의 공개에 관한 ');
+    consentText.append('만 14세 이상이며, 소셜 로그인·투표 정보 처리 및 닉네임·식별자·댓글 공개에 관한 ');
     const privacyLink = document.createElement('a');
     privacyLink.href = '/privacy/';
     privacyLink.target = '_blank';
@@ -101,14 +122,39 @@
     privacyLink.textContent = '개인정보처리방침';
     consentText.append(privacyLink, '을 확인했으며 동의합니다.');
     consentLabel.append(privacyConsent, consentText);
-    const loginButton = document.createElement('button');
-    loginButton.type = 'button';
-    loginButton.className = 'google-login-button';
-    loginButton.disabled = true;
-    const googleMark = document.createElement('b');
-    googleMark.textContent = 'G';
-    loginButton.append(googleMark, ' Google로 로그인');
-    prompt.append(promptCopy, consentLabel, loginButton);
+    const loginButtons = [];
+    const providers = document.createElement('div');
+    providers.className = 'social-login-buttons';
+    for (const [id, name, mark] of [['naver', '네이버', 'N'], ['kakao', '카카오', '●'], ['google', 'Google', 'G']]) {
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = `social-login-button provider-${id}`;
+      button.dataset.provider = id;
+      button.disabled = true;
+      const enabled = window.NOWFEED_COMMUNITY_CONFIG?.providers[id];
+      button.setAttribute('aria-label', `${name}로 로그인${enabled ? '' : ' · 준비 중'}`);
+      if (id === 'google') {
+        const icon = document.createElement('b');
+        icon.textContent = mark;
+        icon.setAttribute('aria-hidden', 'true');
+        button.append(icon, `${name}로 로그인`);
+      } else {
+        const image = document.createElement('img');
+        image.src = `/images/auth/${id}-login.png`;
+        image.alt = '';
+        button.append(image);
+      }
+      providers.append(button);
+      loginButtons.push(button);
+    }
+    prompt.append(promptCopy, consentLabel, providers);
+    const unavailable = [['naver', '네이버'], ['kakao', '카카오']].filter(([id]) => !window.NOWFEED_COMMUNITY_CONFIG?.providers[id]);
+    if (unavailable.length) {
+      const notice = document.createElement('p');
+      notice.className = 'provider-notice';
+      notice.textContent = `${unavailable.map(([, name]) => name).join('·')} 로그인은 준비 중입니다.`;
+      prompt.append(notice);
+    }
 
     const account = document.createElement('div');
     account.className = 'comment-auth-account';
@@ -170,7 +216,8 @@
     form.before(panel, publicNotice);
     return {
       prompt,
-      loginButton,
+      panel,
+      loginButtons,
       privacyConsent,
       account,
       accountTitle,
@@ -196,7 +243,7 @@
     return new Intl.DateTimeFormat('ko-KR', { dateStyle: 'medium' }).format(date);
   };
 
-  const visibleAuthorId = (uid) => `#${String(uid || '------').slice(0, 6).toUpperCase()}`;
+  const visibleAuthorId = (uid) => `#${String(uid || '------').replace(/^(naver|kakao)_/, '').slice(0, 6).toUpperCase()}`;
 
   const createCommentNode = ({ text, createdAt, authorUid, authorNickname }) => {
     const article = document.createElement('article');
@@ -205,13 +252,13 @@
 
     const avatar = document.createElement('div');
     avatar.className = 'avatar user';
-    avatar.textContent = 'G';
+    avatar.textContent = (authorNickname || '회원').slice(0, 1);
 
     const body = document.createElement('div');
     const head = document.createElement('div');
     head.className = 'comment-head';
     const author = document.createElement('strong');
-    author.textContent = `${authorNickname || 'Google 사용자'} ${visibleAuthorId(authorUid)}`;
+    author.textContent = `${authorNickname || '회원'} ${visibleAuthorId(authorUid)}`;
     const time = document.createElement('time');
     time.textContent = formatTime(createdAt);
     head.append(author, time);
@@ -248,6 +295,7 @@
   const updateAuthUi = (user, profile = currentProfile, editing = false) => {
     currentUser = user;
     const hasProfile = Boolean(user && profile?.nickname);
+    renderVote();
     if (form) form.hidden = !hasProfile || editing;
     if (authUi.prompt) authUi.prompt.hidden = Boolean(user);
     if (authUi.account) authUi.account.hidden = !hasProfile || editing;
@@ -260,7 +308,7 @@
     } else if (user) {
       setStorageStatus('닉네임 설정 필요', 'login');
     } else {
-      setStorageStatus('Google 로그인 필요', 'login');
+      setStorageStatus('로그인 후 댓글 작성', 'login');
     }
   };
 
@@ -269,10 +317,11 @@
     if (!config) throw new Error('Firebase configuration is missing.');
 
     const version = '12.17.1';
-    const [{ initializeApp, getApp, getApps }, authModule, firestore] = await Promise.all([
+    const [{ initializeApp, getApp, getApps }, authModule, firestore, functions] = await Promise.all([
       import(`https://www.gstatic.com/firebasejs/${version}/firebase-app.js`),
       import(`https://www.gstatic.com/firebasejs/${version}/firebase-auth.js`),
-      import(`https://www.gstatic.com/firebasejs/${version}/firebase-firestore.js`)
+      import(`https://www.gstatic.com/firebasejs/${version}/firebase-firestore.js`),
+      import(`https://www.gstatic.com/firebasejs/${version}/firebase-functions.js`)
     ]);
 
     const app = getApps().length ? getApp() : initializeApp(config);
@@ -284,7 +333,7 @@
     const commentsQuery = firestore.query(commentsRef, firestore.orderBy('createdAt', 'desc'), firestore.limit(100));
 
     authApi = {
-      login: () => authModule.signInWithPopup(auth, provider),
+      login: id => id === 'google' ? authModule.signInWithPopup(auth, provider) : window.nowfeedSocialLogin(id),
       logout: () => authModule.signOut(auth)
     };
     profileApi = {
@@ -308,20 +357,45 @@
         return { nickname };
       }
     };
-    if (authUi.loginButton) authUi.loginButton.disabled = !authUi.privacyConsent?.checked;
-    authModule.onAuthStateChanged(auth, async (user) => {
+    const callableVote = functions.httpsCallable(functions.getFunctions(app, window.NOWFEED_COMMUNITY_CONFIG.region), 'castVote');
+    voteApi = { cast: choice => callableVote({ storyId, choice }) };
+    refreshLoginButtons();
+    firestore.onSnapshot(firestore.doc(db, 'polls', storyId), snapshot => {
+      voteCounts = snapshot.exists() ? snapshot.data().counts : Object.fromEntries(voteOptions.map(option => [option.id, 0]));
+      renderVote();
+    }, () => {
+      voteCounts = null;
+      renderVote();
+      voteStatus.textContent = '투표 결과를 불러오지 못했습니다. 잠시 후 새로고침해 주세요.';
+    });
+    authModule.onAuthStateChanged(auth, async user => {
+      const generation = ++authGeneration;
+      unsubscribeBallot?.();
       currentUser = user;
       currentProfile = null;
-      if (!user) {
-        updateAuthUi(null, null);
-        return;
-      }
+      myChoice = null;
+      ballotReady = false;
+      authReady = true;
       updateAuthUi(user, null);
+      if (!user) return;
+      unsubscribeBallot = firestore.onSnapshot(firestore.doc(db, 'stories', storyId, 'votes', user.uid), snapshot => {
+        if (generation !== authGeneration) return;
+        myChoice = snapshot.data()?.choice || null;
+        ballotReady = true;
+        renderVote();
+      }, () => {
+        if (generation !== authGeneration) return;
+        ballotReady = false;
+        renderVote();
+        voteStatus.textContent = '내 투표 확인에 실패했습니다. 새로고침 후 다시 시도해 주세요.';
+      });
       try {
-        currentProfile = await profileApi.load(user.uid);
+        const profile = await profileApi.load(user.uid);
+        if (generation !== authGeneration) return;
+        currentProfile = profile;
         updateAuthUi(user, currentProfile);
       } catch {
-        setStorageStatus('프로필을 불러오지 못했습니다', 'offline');
+        if (generation === authGeneration) setStorageStatus('프로필을 불러오지 못했습니다', 'offline');
       }
     });
 
@@ -355,26 +429,24 @@
 
   };
 
-  authUi.privacyConsent?.addEventListener('change', () => {
-    if (authUi.loginButton && authApi) authUi.loginButton.disabled = !authUi.privacyConsent.checked;
-  });
-
-  authUi.loginButton?.addEventListener('click', async () => {
-    if (!authApi) return;
-    authUi.loginButton.disabled = true;
+  let loginBusy = false;
+  const refreshLoginButtons = () => {
+    authUi.loginButtons?.forEach(button => {
+      button.disabled = loginBusy || !authApi || !authUi.privacyConsent?.checked || !window.NOWFEED_COMMUNITY_CONFIG?.providers[button.dataset.provider];
+    });
+  };
+  authUi.privacyConsent?.addEventListener('change', refreshLoginButtons);
+  authUi.loginButtons?.forEach(button => button.addEventListener('click', async () => {
+    if (!authApi || loginBusy || !authUi.privacyConsent?.checked) return;
+    loginBusy = true;
+    refreshLoginButtons();
     try {
-      await authApi.login();
-      window.nowfeedToast?.('Google 로그인이 완료됐어요.');
+      await authApi.login(button.dataset.provider);
+      if (button.dataset.provider === 'google') window.nowfeedToast?.('로그인이 완료됐어요.');
     } catch (error) {
-      if (error?.code === 'auth/unauthorized-domain') {
-        window.nowfeedToast?.('Firebase 승인된 도메인에 nowfeed.co.kr를 추가해주세요.');
-      } else if (error?.code !== 'auth/popup-closed-by-user') {
-        window.nowfeedToast?.('Google 로그인에 실패했습니다. 잠시 후 다시 시도해주세요.');
-      }
-    } finally {
-      authUi.loginButton.disabled = false;
-    }
-  });
+      if (error?.code !== 'auth/popup-closed-by-user') window.nowfeedToast?.('로그인에 실패했습니다. 잠시 후 다시 시도해 주세요.');
+    } finally { loginBusy = false; refreshLoginButtons(); }
+  }));
 
   authUi.logoutButton?.addEventListener('click', async () => {
     try {
@@ -402,9 +474,13 @@
       return;
     }
     if (!currentUser || !profileApi) return;
+    const generation = authGeneration;
+    const uid = currentUser.uid;
     authUi.profileSaveButton.disabled = true;
     try {
-      currentProfile = await profileApi.save(currentUser.uid, nickname);
+      const savedProfile = await profileApi.save(uid, nickname);
+      if (generation !== authGeneration) return;
+      currentProfile = savedProfile;
       updateAuthUi(currentUser, currentProfile);
       window.nowfeedToast?.('닉네임이 저장됐어요.');
     } catch {
@@ -447,7 +523,8 @@
   renderComments();
   updateAuthUi(null);
   connectFirebase().catch(() => {
-    if (authUi.loginButton) authUi.loginButton.disabled = true;
+    authUi.loginButtons?.forEach(button => { button.disabled = true; });
+    voteStatus.textContent = '참여 서비스를 연결하지 못했습니다. 잠시 후 새로고침해 주세요.';
     setStorageStatus('댓글 서비스 연결 오류', 'offline');
   });
 })();

@@ -2,15 +2,27 @@ rules_version = '2';
 
 service cloud.firestore {
   match /databases/{database}/documents {
-    function googleUser() {
+    function signedInMember() {
       return request.auth != null
-        && request.auth.token.firebase.sign_in_provider == 'google.com';
+        && (request.auth.token.firebase.sign_in_provider == 'google.com'
+          || (request.auth.token.firebase.sign_in_provider == 'custom'
+            && request.auth.token.loginProvider in ['naver', 'kakao']));
+    }
+
+    // Aggregate counts are public; individual choices are private. Only the server writes.
+    match /polls/{storyId} {
+      allow read: if true;
+      allow write: if false;
+    }
+    match /stories/{storyId}/votes/{userId} {
+      allow get: if signedInMember() && request.auth.uid == userId;
+      allow list, write: if false;
     }
 
     match /users/{userId} {
-      allow read: if googleUser() && request.auth.uid == userId;
+      allow read: if signedInMember() && request.auth.uid == userId;
 
-      allow create: if googleUser()
+      allow create: if signedInMember()
         && request.auth.uid == userId
         && request.resource.data.keys().hasAll(['nickname', 'createdAt', 'updatedAt'])
         && request.resource.data.keys().hasOnly(['nickname', 'createdAt', 'updatedAt'])
@@ -21,7 +33,7 @@ service cloud.firestore {
         && request.resource.data.createdAt == request.time
         && request.resource.data.updatedAt == request.time;
 
-      allow update: if googleUser()
+      allow update: if signedInMember()
         && request.auth.uid == userId
         && request.resource.data.keys().hasAll(['nickname', 'createdAt', 'updatedAt'])
         && request.resource.data.keys().hasOnly(['nickname', 'createdAt', 'updatedAt'])
@@ -38,7 +50,7 @@ service cloud.firestore {
     match /stories/{storyId}/comments/{commentId} {
       allow read: if true;
 
-      allow create: if googleUser()
+      allow create: if signedInMember()
         && request.resource.data.keys().hasAll(['body', 'authorUid', 'authorNickname', 'createdAt'])
         && request.resource.data.keys().hasOnly(['body', 'authorUid', 'authorNickname', 'createdAt'])
         && request.resource.data.authorUid == request.auth.uid

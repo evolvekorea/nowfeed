@@ -38,7 +38,10 @@
   <link rel="stylesheet" href="../../../../css/story.css?v=20260817a">
   <script defer src="../../../../js/app.js?v=20260814a"></script>
   <script defer src="../../../../js/firebase-config.js?v=20260815a"></script>
-  <script defer src="../../../../js/comments.js?v=20260815d"></script>
+  <link rel="stylesheet" href="/css/community.css?v=20261014auth">
+  <script defer src="/js/community-config.js?v=20261014auth"></script>
+  <script defer src="/js/social-login.js?v=20261014auth"></script>
+  <script defer src="../../../../js/comments.js?v=20261014auth"></script>
   <script type="application/ld+json">
   {"@context":"https://schema.org","@type":"Article","headline":"여자친구 가족 공항 픽업, 차 있는 남친이 두 번 왕복해야 할까요?","description":"여자친구 가족의 해외여행을 위해 자신의 차로 공항을 두 번 왕복해달라는 부탁을 받은 남성의 연애 갈등 사연","datePublished":"2026-08-17T11:30:00+09:00","dateModified":"2026-08-17T11:30:00+09:00","author":{"@type":"Organization","name":"Nowfeed 편집팀"},"publisher":{"@type":"Organization","name":"Nowfeed","url":"https://nowfeed.co.kr/"},"mainEntityOfPage":"https://nowfeed.co.kr/articles/2026/08/girlfriend-family-airport-pickup-debate/","image":"https://nowfeed.co.kr/images/og-girlfriend-family-airport-pickup-debate.png","inLanguage":"ko-KR"}
   </script>
@@ -110,7 +113,7 @@
         <section class="comments-section story-comments" id="comments">
           <div class="comments-heading"><span class="kicker">REAL TALK</span><h2>당신의 생각은 어떤가요?</h2><p>사연 속 인물을 단정하거나 공격하지 말고, 서로 다른 관점을 존중하며 이야기해주세요.</p></div>
           <div class="comments-content">
-            <form class="comment-form" id="comment-form"><label for="comment-input">의견 남기기</label><textarea id="comment-input" maxlength="300" placeholder="이 사연에 대한 생각을 남겨주세요." required></textarea><div class="comment-form-bottom"><span><b id="comment-count">0</b>/300 · <span id="comment-storage-status">댓글 서버 연결 중</span></span><button type="submit">댓글 등록</button></div></form>
+            <form class="comment-form" id="comment-form" hidden><label for="comment-input">의견 남기기</label><textarea id="comment-input" maxlength="300" placeholder="이 사연에 대한 생각을 남겨주세요." required></textarea><div class="comment-form-bottom"><span><b id="comment-count">0</b>/300 · <span id="comment-storage-status">댓글 서버 연결 중</span></span><button type="submit">댓글 등록</button></div></form>
             <div class="comment-toolbar"><h3>댓글 <span id="comments-total">0</span></h3><span>REAL TALK</span></div>
             <div class="comment-list" id="comment-list" aria-live="polite"></div>
           </div>
@@ -120,16 +123,17 @@
       <aside class="right-rail" aria-label="사연 투표">
         <section class="vote-panel" aria-labelledby="vote-title">
           <span class="vote-label">NOW VOTE</span><h2 id="vote-title">공항 두 번 왕복 부탁,<br>어떻게 보시나요?</h2><p class="vote-prompt">긍정 또는 부정 중 하나를 선택하세요.</p>
+          <noscript><p>투표와 댓글 참여에는 JavaScript를 켜고 로그인해 주세요.</p></noscript>
           <div class="vote-actions" id="vote-actions">
-            <button class="vote-button leave" type="button" data-vote="positive" data-label="긍정 · 부탁할 수 있다" data-base="0"><span class="vote-icon">A</span><span><strong>긍정 · 부탁할 수 있다</strong><small>연인의 가족 여행을 돕는 배려로 볼 수 있어요</small></span></button>
-            <button class="vote-button stay" type="button" data-vote="negative" data-label="부정 · 당연한 요구는 아니다" data-base="0"><span class="vote-icon">B</span><span><strong>부정 · 당연한 요구는 아니다</strong><small>차량과 시간을 일방적으로 기대해선 안 돼요</small></span></button>
+            <button disabled class="vote-button leave" type="button" data-vote="positive" data-label="긍정 · 부탁할 수 있다"><span class="vote-icon">A</span><span><strong>긍정 · 부탁할 수 있다</strong><small>연인의 가족 여행을 돕는 배려로 볼 수 있어요</small></span></button>
+            <button disabled class="vote-button stay" type="button" data-vote="negative" data-label="부정 · 당연한 요구는 아니다"><span class="vote-icon">B</span><span><strong>부정 · 당연한 요구는 아니다</strong><small>차량과 시간을 일방적으로 기대해선 안 돼요</small></span></button>
           </div>
           <div class="vote-results" id="vote-results" hidden aria-live="polite">
             <div class="result-row"><div><strong>긍정 · 부탁할 수 있다</strong><span data-vote-percent="positive">0%</span></div><div class="result-track"><i data-vote-bar="positive"></i></div></div>
             <div class="result-row"><div><strong>부정 · 당연한 요구는 아니다</strong><span data-vote-percent="negative">0%</span></div><div class="result-track"><i data-vote-bar="negative"></i></div></div>
-            <p><strong id="total-votes">0</strong>명의 이 기기 내 참여가 반영됐어요. <span id="my-vote"></span></p><button class="change-vote" id="change-vote" type="button">선택 바꾸기</button>
+            <p><strong id="total-votes">0</strong>개의 투표가 모였어요. <span id="my-vote"></span></p><button class="change-vote" id="change-vote" type="button">선택 바꾸기</button>
           </div>
-          <div class="vote-rule"><span>기기당 1표</span><span>익명 참여</span></div><p class="local-data-note">투표는 이 브라우저에 저장되며, 댓글은 모든 방문자에게 공개됩니다.</p>
+          <div class="vote-rule"><span>계정당 한 표</span><span>로그인 후 참여</span></div><p class="local-data-note">투표와 댓글은 로그인 후 참여할 수 있습니다. 투표 결과는 합계로, 댓글은 닉네임과 함께 공개됩니다. 로그인 수단이 다르면 별도 계정으로 처리됩니다.</p>
         </section>
       </aside>
     </div>
