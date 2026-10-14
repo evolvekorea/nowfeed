@@ -35,9 +35,9 @@ export const castVote = onCall({ region, maxInstances: 3, cors: [ORIGIN, 'https:
   });
 });
 
-async function getJson(url, options) {
+async function getJson(url, options, stage) {
   const response = await fetch(url, { ...options, signal: AbortSignal.timeout(12000) });
-  if (!response.ok) throw new Error('Provider request failed');
+  if (!response.ok) throw new Error(`${stage} HTTP ${response.status}`);
   return response.json();
 }
 
@@ -51,11 +51,11 @@ async function verifiedIdentity(provider, code, state) {
   });
   const tokens = await getJson(kakao ? 'https://kauth.kakao.com/oauth/token' : 'https://nid.naver.com/oauth2.0/token', {
     method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body
-  });
-  if (!tokens.access_token) throw new Error('Missing provider token');
+  }, `${provider} token`);
+  if (!tokens.access_token) throw new Error(`Missing provider token: ${['invalid_request', 'invalid_client', 'invalid_grant', 'unauthorized_client', 'unsupported_grant_type', 'server_error'].includes(tokens.error) ? tokens.error : 'unknown'}`);
   const data = await getJson(kakao ? 'https://kapi.kakao.com/v2/user/me' : 'https://openapi.naver.com/v1/nid/me', {
     headers: { Authorization: `Bearer ${tokens.access_token}` }
-  });
+  }, `${provider} profile`);
   // Only retain the provider-scoped identifier, never names, email or access tokens.
   const id = kakao ? data.id : data.resultcode === '00' ? data.response?.id : null;
   if (!id) throw new Error('Invalid provider profile');
@@ -120,8 +120,10 @@ export const communityAuth = onRequest({ region, maxInstances: 3, secrets: [kaka
       return res.redirect(302, `${ORIGIN}/auth/callback/#code=${handoff}&state=${session.clientState}`);
     }
     return res.status(404).send('Not found');
-  } catch {
-    // Never return provider tokens or raw upstream errors to the browser or logs.
+  } catch (error) {
+    // Log only fixed local reasons, never tokens, identifiers or upstream payloads.
+    const reason = /^(Invalid state|Expired state|Invalid exchange|Invalid provider profile|Missing provider token: [a-z_]+|(naver|kakao) (token|profile) HTTP [0-9]{3})$/.test(error?.message || '') ? error.message : 'Internal authentication error';
+    console.warn(JSON.stringify({ event: 'oauth_failure', reason }));
     return res.status(400).send('로그인을 완료하지 못했습니다. 나우피드로 돌아가 다시 시도해 주세요.');
   }
 });
