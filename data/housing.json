@@ -1,72 +1,7 @@
 {
-  "updatedAt": "2026-10-14T11:44:41.782Z",
-  "displayTime": "2026.10.14 20:44",
+  "updatedAt": "2026-10-14T17:05:28.818Z",
+  "displayTime": "2026.10.15 02:05",
   "items": [
-    {
-      "id": "2026000498-2026000498",
-      "name": "천안 아이파크 시티 2단지(2회차)",
-      "region": "충남",
-      "type": "민영",
-      "address": "충청남도 천안시 서북구 부대동 409-1 외 46필지",
-      "households": 61,
-      "publishedDate": "2026-10-02",
-      "startDate": "2026-10-12",
-      "endDate": "2026-10-14",
-      "status": "접수 중",
-      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000498&pblancNo=2026000498"
-    },
-    {
-      "id": "2026000494-2026000494",
-      "name": "더샵 동인센트리체",
-      "region": "대구",
-      "type": "민영",
-      "address": "대구광역시 중구 동인동1가 9 일원",
-      "households": 314,
-      "publishedDate": "2026-10-02",
-      "startDate": "2026-10-12",
-      "endDate": "2026-10-14",
-      "status": "접수 중",
-      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000494&pblancNo=2026000494"
-    },
-    {
-      "id": "2026000468-2026000468",
-      "name": "쌍용 더 플래티넘 한강",
-      "region": "경기",
-      "type": "민영",
-      "address": "경기도 양평군 양서면 용담리 212-3번지 일원",
-      "households": 333,
-      "publishedDate": "2026-10-02",
-      "startDate": "2026-10-12",
-      "endDate": "2026-10-14",
-      "status": "접수 중",
-      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000468&pblancNo=2026000468"
-    },
-    {
-      "id": "2026000463-2026000463",
-      "name": "향남역 그로브 스위첸",
-      "region": "경기",
-      "type": "민영",
-      "address": "경기도 화성특례시 만세구 향남읍 하길리 404-2번지 일원",
-      "households": 933,
-      "publishedDate": "2026-10-02",
-      "startDate": "2026-10-12",
-      "endDate": "2026-10-14",
-      "status": "접수 중",
-      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000463&pblancNo=2026000463"
-    },
-    {
-      "id": "2026000386-2026000386",
-      "name": "용인 양지 서희스타힐스 하이뷰 (조합원 취소분)",
-      "region": "경기",
-      "type": "민영",
-      "address": "경기도 용인시 처인구 양지읍 양지리 산105-8번지 일원",
-      "households": 48,
-      "publishedDate": "2026-10-02",
-      "startDate": "2026-10-12",
-      "endDate": "2026-10-14",
-      "status": "접수 중",
-      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000386&pblancNo=2026000386"
-    },
     {
       "id": "2026000466-2026000466",
       "name": "진도 승원팰리체 더 테라스",
@@ -157,6 +92,32 @@
       "endDate": "2026-10-21",
       "status": "접수 예정",
       "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000458&pblancNo=2026000458"
+    },
+    {
+      "id": "2026000267-2026000267",
+      "name": "아산 그랑시티필하우스",
+      "region": "충남",
+      "type": "민영",
+      "address": "충청남도 아산시 배방읍 휴대리 143번지 일원 (휴대지구 도시개발사업구역 내 공동주택 1블럭)",
+      "households": 1380,
+      "publishedDate": "2026-10-08",
+      "startDate": "2026-10-19",
+      "endDate": "2026-10-21",
+      "status": "접수 예정",
+      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000267&pblancNo=2026000267"
+    },
+    {
+      "id": "2026000402-2026000402",
+      "name": "익산 부송에코르 10년 공공임대주택",
+      "region": "전북",
+      "type": "국민",
+      "address": "전북특별자치도 익산시 부송동 1421(익산 부송4지구 A블록)",
+      "households": 300,
+      "publishedDate": "2026-10-08",
+      "startDate": "2026-10-22",
+      "endDate": "2026-10-26",
+      "status": "접수 예정",
+      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000402&pblancNo=2026000402"
     }
   ]
 }
