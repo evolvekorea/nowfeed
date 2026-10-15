@@ -1,20 +1,7 @@
 {
-  "updatedAt": "2026-10-15T11:20:43.549Z",
-  "displayTime": "2026.10.15 20:20",
+  "updatedAt": "2026-10-15T16:54:05.135Z",
+  "displayTime": "2026.10.16 01:54",
   "items": [
-    {
-      "id": "2026000466-2026000466",
-      "name": "진도 승원팰리체 더 테라스",
-      "region": "전남",
-      "type": "민영",
-      "address": "전남광주통합특별시 진도군 진도읍 교동리 618번지 일원",
-      "households": 58,
-      "publishedDate": "2026-10-08",
-      "startDate": "2026-10-13",
-      "endDate": "2026-10-15",
-      "status": "접수 중",
-      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000466&pblancNo=2026000466"
-    },
     {
       "id": "2026000492-2026000492",
       "name": "청주 가경 아이파크 8단지",
@@ -118,6 +105,19 @@
       "endDate": "2026-10-26",
       "status": "접수 예정",
       "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000402&pblancNo=2026000402"
+    },
+    {
+      "id": "2026000455-2026000455",
+      "name": "신분평 에피트 더웨이시티",
+      "region": "충북",
+      "type": "민영",
+      "address": "충청북도 청주시 서원구 장성동 135번지 일원(장성지구 A2블럭)",
+      "households": 992,
+      "publishedDate": "2026-10-15",
+      "startDate": "2026-10-27",
+      "endDate": "2026-10-29",
+      "status": "접수 예정",
+      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000455&pblancNo=2026000455"
     }
   ]
 }
