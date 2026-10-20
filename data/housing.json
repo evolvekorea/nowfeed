@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-10-20T11:28:31.279Z",
-  "displayTime": "2026.10.20 20:28",
+  "updatedAt": "2026-10-20T16:55:47.311Z",
+  "displayTime": "2026.10.21 01:55",
   "items": [
     {
       "id": "2026000492-2026000492",
@@ -27,19 +27,6 @@
       "endDate": "2026-10-21",
       "status": "접수 중",
       "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000491&pblancNo=2026000491"
-    },
-    {
-      "id": "2026000471-2026000471",
-      "name": "한양립스 에듀포레(조합원 취소분)",
-      "region": "광주",
-      "type": "민영",
-      "address": "전남광주통합특별시 광산구 하산동 269번지 일원",
-      "households": 19,
-      "publishedDate": "2026-10-08",
-      "startDate": "2026-10-19",
-      "endDate": "2026-10-20",
-      "status": "접수 중",
-      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000471&pblancNo=2026000471"
     },
     {
       "id": "2026000469-2026000469",
@@ -157,6 +144,19 @@
       "endDate": "2026-10-28",
       "status": "접수 예정",
       "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000508&pblancNo=2026000508"
+    },
+    {
+      "id": "2026000507-2026000507",
+      "name": "광안센텀 비스타동원(조합원 취소분)",
+      "region": "부산",
+      "type": "민영",
+      "address": "부산광역시 수영구 광안동 971",
+      "households": 39,
+      "publishedDate": "2026-10-16",
+      "startDate": "2026-10-26",
+      "endDate": "2026-10-27",
+      "status": "접수 예정",
+      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000507&pblancNo=2026000507"
     }
   ]
 }
