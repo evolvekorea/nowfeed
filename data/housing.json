@@ -1,20 +1,7 @@
 {
-  "updatedAt": "2026-10-22T11:43:31.750Z",
-  "displayTime": "2026.10.22 20:43",
+  "updatedAt": "2026-10-22T17:05:43.660Z",
+  "displayTime": "2026.10.23 02:05",
   "items": [
-    {
-      "id": "2026000402-2026000402",
-      "name": "익산 부송에코르 10년 공공임대주택",
-      "region": "전북",
-      "type": "국민",
-      "address": "전북특별자치도 익산시 부송동 1421(익산 부송4지구 A블록)",
-      "households": 300,
-      "publishedDate": "2026-10-08",
-      "startDate": "2026-10-22",
-      "endDate": "2026-10-26",
-      "status": "접수 중",
-      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000402&pblancNo=2026000402"
-    },
     {
       "id": "2026000514-2026000514",
       "name": "트리븐센텀 2단지",
@@ -105,6 +92,19 @@
       "endDate": "2026-10-29",
       "status": "접수 예정",
       "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000455&pblancNo=2026000455"
+    },
+    {
+      "id": "2026000496-2026000496",
+      "name": "청라 아크원 푸르지오",
+      "region": "인천",
+      "type": "민영",
+      "address": "인천광역시 서해구 청라동 86-1번지 (청라국제업무단지 M5BL)",
+      "households": 868,
+      "publishedDate": "2026-10-22",
+      "startDate": "2026-11-02",
+      "endDate": "2026-11-04",
+      "status": "접수 예정",
+      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000496&pblancNo=2026000496"
     },
     {
       "id": "2026000502-2026000502",
