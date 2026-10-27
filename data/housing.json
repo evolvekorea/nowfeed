@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-10-27T12:02:56.232Z",
-  "displayTime": "2026.10.27 21:02",
+  "updatedAt": "2026-10-27T17:56:02.318Z",
+  "displayTime": "2026.10.28 02:56",
   "items": [
     {
       "id": "2026000514-2026000514",
@@ -53,19 +53,6 @@
       "endDate": "2026-10-28",
       "status": "접수 중",
       "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000508&pblancNo=2026000508"
-    },
-    {
-      "id": "2026000507-2026000507",
-      "name": "광안센텀 비스타동원(조합원 취소분)",
-      "region": "부산",
-      "type": "민영",
-      "address": "부산광역시 수영구 광안동 971",
-      "households": 39,
-      "publishedDate": "2026-10-16",
-      "startDate": "2026-10-26",
-      "endDate": "2026-10-27",
-      "status": "접수 중",
-      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000507&pblancNo=2026000507"
     },
     {
       "id": "2026000495-2026000495",
@@ -157,6 +144,19 @@
       "endDate": "2026-11-04",
       "status": "접수 예정",
       "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000518&pblancNo=2026000518"
+    },
+    {
+      "id": "2026000517-2026000517",
+      "name": "GTX운정중앙역 시티프라디움 3단지(후속사업)",
+      "region": "경기",
+      "type": "민영",
+      "address": "경기도 파주시 파주운정3지구 주상복합 3블록(경기도 파주시 동패동 1673번지 일원)",
+      "households": 337,
+      "publishedDate": "2026-10-23",
+      "startDate": "2026-11-02",
+      "endDate": "2026-11-04",
+      "status": "접수 예정",
+      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000517&pblancNo=2026000517"
     }
   ]
 }
