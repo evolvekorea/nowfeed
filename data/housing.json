@@ -1,72 +1,7 @@
 {
-  "updatedAt": "2026-10-28T12:43:31.124Z",
-  "displayTime": "2026.10.28 21:43",
+  "updatedAt": "2026-10-28T22:30:19.504Z",
+  "displayTime": "2026.10.29 07:30",
   "items": [
-    {
-      "id": "2026000514-2026000514",
-      "name": "트리븐센텀 2단지",
-      "region": "부산",
-      "type": "민영",
-      "address": "부산광역시 해운대구 반여동 610-5번지 일원",
-      "households": 792,
-      "publishedDate": "2026-10-16",
-      "startDate": "2026-10-26",
-      "endDate": "2026-10-28",
-      "status": "접수 중",
-      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000514&pblancNo=2026000514"
-    },
-    {
-      "id": "2026000513-2026000513",
-      "name": "트리븐센텀 1단지",
-      "region": "부산",
-      "type": "민영",
-      "address": "부산광역시 해운대구 반여동 1167-3번지 일원",
-      "households": 852,
-      "publishedDate": "2026-10-16",
-      "startDate": "2026-10-26",
-      "endDate": "2026-10-28",
-      "status": "접수 중",
-      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000513&pblancNo=2026000513"
-    },
-    {
-      "id": "2026000509-2026000509",
-      "name": "아크메르 동탄 99",
-      "region": "경기",
-      "type": "민영",
-      "address": "경기도 화성특례시 동탄구 반송동 99번지[동탄(1) M1-2-2블록]",
-      "households": 996,
-      "publishedDate": "2026-10-16",
-      "startDate": "2026-10-26",
-      "endDate": "2026-10-28",
-      "status": "접수 중",
-      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000509&pblancNo=2026000509"
-    },
-    {
-      "id": "2026000508-2026000508",
-      "name": "아크메르 동탄 95",
-      "region": "경기",
-      "type": "민영",
-      "address": "경기도 화성특례시 동탄구 반송동 95번지[동탄(1) M1-1-2블록]",
-      "households": 812,
-      "publishedDate": "2026-10-16",
-      "startDate": "2026-10-26",
-      "endDate": "2026-10-28",
-      "status": "접수 중",
-      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000508&pblancNo=2026000508"
-    },
-    {
-      "id": "2026000495-2026000495",
-      "name": "연산 센텀 월드메르디앙",
-      "region": "부산",
-      "type": "민영",
-      "address": "부산광역시 연제구 연산동 418-8(외1필지)",
-      "households": 144,
-      "publishedDate": "2026-10-16",
-      "startDate": "2026-10-26",
-      "endDate": "2026-10-28",
-      "status": "접수 중",
-      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000495&pblancNo=2026000495"
-    },
     {
       "id": "2026000455-2026000455",
       "name": "신분평 에피트 더웨이시티",
@@ -157,6 +92,71 @@
       "endDate": "2026-11-04",
       "status": "접수 예정",
       "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000517&pblancNo=2026000517"
+    },
+    {
+      "id": "2026000496-2026000496",
+      "name": "청라 아크원 푸르지오",
+      "region": "인천",
+      "type": "민영",
+      "address": "인천광역시 서해구 청라동 86-1번지 (청라국제업무단지 M5BL)",
+      "households": 868,
+      "publishedDate": "2026-10-22",
+      "startDate": "2026-11-02",
+      "endDate": "2026-11-04",
+      "status": "접수 예정",
+      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000496&pblancNo=2026000496"
+    },
+    {
+      "id": "2026000502-2026000502",
+      "name": "화성 향남 롯데캐슬 시그니처",
+      "region": "경기",
+      "type": "민영",
+      "address": "경기도 화성시 만세구 향남읍 상신리 산 13-13 일원",
+      "households": 1542,
+      "publishedDate": "2026-10-21",
+      "startDate": "2026-11-02",
+      "endDate": "2026-11-04",
+      "status": "접수 예정",
+      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000502&pblancNo=2026000502"
+    },
+    {
+      "id": "2026000373-2026000373",
+      "name": "고덕강일지구 3단지 토지임대부(본청약)",
+      "region": "서울",
+      "type": "국민",
+      "address": "서울특별시 강동구 강일동 174 일원(고덕강일공공주택지구 3단지)",
+      "households": 1305,
+      "publishedDate": "2026-10-16",
+      "startDate": "2026-11-02",
+      "endDate": "2026-11-06",
+      "status": "접수 예정",
+      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000373&pblancNo=2026000373"
+    },
+    {
+      "id": "2026000435-2026000435",
+      "name": "삼도이동 2지구 토지임대부 공공분양주택",
+      "region": "제주",
+      "type": "국민",
+      "address": "제주특별자치도 제주시 삼도이동 1246-1 외 4필지",
+      "households": 40,
+      "publishedDate": "2026-10-27",
+      "startDate": "2026-11-16",
+      "endDate": "2026-11-18",
+      "status": "접수 예정",
+      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000435&pblancNo=2026000435"
+    },
+    {
+      "id": "2026000434-2026000434",
+      "name": "삼도이동 1지구 토지임대부 공공분양주택",
+      "region": "제주",
+      "type": "국민",
+      "address": "제주특별자치도 제주시 삼도이동 1244-1 ",
+      "households": 32,
+      "publishedDate": "2026-10-27",
+      "startDate": "2026-11-16",
+      "endDate": "2026-11-18",
+      "status": "접수 예정",
+      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000434&pblancNo=2026000434"
     }
   ]
 }
