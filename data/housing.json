@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-10-30T12:45:52.879Z",
-  "displayTime": "2026.10.30 21:45",
+  "updatedAt": "2026-10-30T22:14:31.686Z",
+  "displayTime": "2026.10.31 07:14",
   "items": [
     {
       "id": "2026820012-2026820012",
@@ -107,56 +107,56 @@
       "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000502&pblancNo=2026000502"
     },
     {
-      "id": "2026000373-2026000373",
-      "name": "고덕강일지구 3단지 토지임대부(본청약)",
-      "region": "서울",
+      "id": "2026000539-2026000539",
+      "name": "남춘천 센트레빌",
+      "region": "강원",
+      "type": "민영",
+      "address": "강원특별자치도 춘천시 효자동 681-12 일원",
+      "households": 264,
+      "publishedDate": "2026-10-30",
+      "startDate": "2026-11-09",
+      "endDate": "2026-11-11",
+      "status": "접수 예정",
+      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000539&pblancNo=2026000539"
+    },
+    {
+      "id": "2026000533-2026000533",
+      "name": "안산신길2지구 B-1블록 공공분양주택(본청약)",
+      "region": "경기",
       "type": "국민",
-      "address": "서울특별시 강동구 강일동 174 일원(고덕강일공공주택지구 3단지)",
-      "households": 1305,
-      "publishedDate": "2026-10-16",
-      "startDate": "2026-11-02",
-      "endDate": "2026-11-06",
-      "status": "접수 예정",
-      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000373&pblancNo=2026000373"
-    },
-    {
-      "id": "2026000535-2026000535",
-      "name": "중앙하이츠 구성 플랫폼시티",
-      "region": "경기",
-      "type": "민영",
-      "address": "경기도 용인시 기흥구 마북동 298-1번지 일원",
-      "households": 76,
-      "publishedDate": "2026-10-29",
+      "address": "경기도 안산시 단원구 신길동 일원 안산신길2 공공주택지구 내 B-1블록",
+      "households": 387,
+      "publishedDate": "2026-10-30",
       "startDate": "2026-11-09",
-      "endDate": "2026-11-12",
+      "endDate": "2026-11-18",
       "status": "접수 예정",
-      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000535&pblancNo=2026000535"
+      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000533&pblancNo=2026000533"
     },
     {
-      "id": "2026000525-2026000525",
-      "name": "엘리프 시흥 더프라임",
+      "id": "2026000528-2026000528",
+      "name": "광교 자연앤 센트레빌(A17BL) 공공분양주택",
       "region": "경기",
-      "type": "민영",
-      "address": "경기도 시흥시 거모동 시흥거모지구 B-5블록",
-      "households": 304,
-      "publishedDate": "2026-10-29",
+      "type": "국민",
+      "address": "경기도 수원시 영통구 원천동 633번지 일원",
+      "households": 360,
+      "publishedDate": "2026-10-30",
       "startDate": "2026-11-09",
       "endDate": "2026-11-11",
       "status": "접수 예정",
-      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000525&pblancNo=2026000525"
+      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000528&pblancNo=2026000528"
     },
     {
-      "id": "2026000499-2026000499",
-      "name": "한화포레나 지제역",
+      "id": "2026000527-2026000527",
+      "name": "광교 자연앤 센트레빌(A17BL) 지분적립형 분양주택",
       "region": "경기",
-      "type": "민영",
-      "address": "경기도 평택시 세교동 725번지 일원",
-      "households": 1098,
-      "publishedDate": "2026-10-29",
+      "type": "국민",
+      "address": "경기도 수원시 영통구 원천동 633번지 일원",
+      "households": 240,
+      "publishedDate": "2026-10-30",
       "startDate": "2026-11-09",
       "endDate": "2026-11-11",
       "status": "접수 예정",
-      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000499&pblancNo=2026000499"
+      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000527&pblancNo=2026000527"
     }
   ]
 }
