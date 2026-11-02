@@ -1,33 +1,33 @@
 {
-  "updatedAt": "2026-11-02T01:47:01.537Z",
-  "displayTime": "11. 02. 10:46",
-  "marketStatus": "OPEN",
+  "updatedAt": "2026-11-02T09:21:12.824Z",
+  "displayTime": "11. 02. 16:15",
+  "marketStatus": "CLOSE",
   "kospi": {
-    "price": "5,757.23",
-    "change": "26.49",
-    "changePercent": "0.46",
+    "price": "5,859.08",
+    "change": "128.34",
+    "changePercent": "2.24",
     "direction": "RISING",
-    "marketStatus": "OPEN",
-    "tradedAt": "2026-11-02T01:46:00.000Z",
-    "fetchedAt": "2026-11-02T01:47:01.537Z",
+    "marketStatus": "CLOSE",
+    "tradedAt": "2026-11-02T07:15:00.000Z",
+    "fetchedAt": "2026-11-02T09:21:12.824Z",
     "sourceStatus": "ok"
   },
   "kosdaq": {
-    "price": "726.40",
-    "change": "2.02",
-    "changePercent": "0.28",
+    "price": "734.36",
+    "change": "9.98",
+    "changePercent": "1.38",
     "direction": "RISING",
-    "marketStatus": "OPEN",
-    "tradedAt": "2026-11-02T01:46:00.000Z",
-    "fetchedAt": "2026-11-02T01:47:01.537Z",
+    "marketStatus": "CLOSE",
+    "tradedAt": "2026-11-02T07:15:00.000Z",
+    "fetchedAt": "2026-11-02T09:21:12.824Z",
     "sourceStatus": "ok"
   },
   "usdkrw": {
-    "price": 1338.072301,
+    "price": 1340.401408,
     "base": "USD",
     "quote": "KRW",
-    "fetchedAt": "2026-11-02T01:47:01.537Z",
+    "fetchedAt": "2026-11-02T09:21:12.824Z",
     "sourceStatus": "ok"
   },
-  "lastAttemptAt": "2026-11-02T01:47:01.537Z"
+  "lastAttemptAt": "2026-11-02T09:21:12.824Z"
 }
