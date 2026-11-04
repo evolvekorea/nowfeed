@@ -1,20 +1,7 @@
 {
-  "updatedAt": "2026-11-04T14:23:36.500Z",
-  "displayTime": "2026.11.04 23:23",
+  "updatedAt": "2026-11-04T23:37:04.038Z",
+  "displayTime": "2026.11.05 08:37",
   "items": [
-    {
-      "id": "2026000532-2026000532",
-      "name": "계양신도시 카이브 유보라(AC4BL)",
-      "region": "인천",
-      "type": "민영",
-      "address": "인천광역시 계양구 동양동 420-3번지 일원 (인천계양 테크노밸리 공공주택지구 AC4블록)",
-      "households": 496,
-      "publishedDate": "2026-10-23",
-      "startDate": "2026-11-02",
-      "endDate": "2026-11-04",
-      "status": "접수 중",
-      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000532&pblancNo=2026000532"
-    },
     {
       "id": "2026000531-2026000531",
       "name": "시흥거모지구 S-1블록 공공분양(본청약)",
@@ -27,71 +14,6 @@
       "endDate": "2026-11-17",
       "status": "접수 중",
       "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000531&pblancNo=2026000531"
-    },
-    {
-      "id": "2026000530-2026000530",
-      "name": "계양신도시 카이브 유보라(AC3BL)",
-      "region": "인천",
-      "type": "민영",
-      "address": "인천광역시 계양구 동양동 458-3번지 일원 (인천계양 테크노밸리 공공주택지구 AC3블록)",
-      "households": 614,
-      "publishedDate": "2026-10-23",
-      "startDate": "2026-11-02",
-      "endDate": "2026-11-04",
-      "status": "접수 중",
-      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000530&pblancNo=2026000530"
-    },
-    {
-      "id": "2026000518-2026000518",
-      "name": "GTX운정중앙역 시티프라디움 4단지(후속사업)",
-      "region": "경기",
-      "type": "민영",
-      "address": "경기도 파주시 파주운정3지구 주상복합 4블록(경기도 파주시 동패동 400-7번지 일원)",
-      "households": 358,
-      "publishedDate": "2026-10-23",
-      "startDate": "2026-11-02",
-      "endDate": "2026-11-04",
-      "status": "접수 중",
-      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000518&pblancNo=2026000518"
-    },
-    {
-      "id": "2026000517-2026000517",
-      "name": "GTX운정중앙역 시티프라디움 3단지(후속사업)",
-      "region": "경기",
-      "type": "민영",
-      "address": "경기도 파주시 파주운정3지구 주상복합 3블록(경기도 파주시 동패동 1673번지 일원)",
-      "households": 337,
-      "publishedDate": "2026-10-23",
-      "startDate": "2026-11-02",
-      "endDate": "2026-11-04",
-      "status": "접수 중",
-      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000517&pblancNo=2026000517"
-    },
-    {
-      "id": "2026000496-2026000496",
-      "name": "청라 아크원 푸르지오",
-      "region": "인천",
-      "type": "민영",
-      "address": "인천광역시 서해구 청라동 86-1번지 (청라국제업무단지 M5BL)",
-      "households": 868,
-      "publishedDate": "2026-10-22",
-      "startDate": "2026-11-02",
-      "endDate": "2026-11-04",
-      "status": "접수 중",
-      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000496&pblancNo=2026000496"
-    },
-    {
-      "id": "2026000502-2026000502",
-      "name": "화성 향남 롯데캐슬 시그니처",
-      "region": "경기",
-      "type": "민영",
-      "address": "경기도 화성시 만세구 향남읍 상신리 산 13-13 일원",
-      "households": 1542,
-      "publishedDate": "2026-10-21",
-      "startDate": "2026-11-02",
-      "endDate": "2026-11-04",
-      "status": "접수 중",
-      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000502&pblancNo=2026000502"
     },
     {
       "id": "2026000539-2026000539",
@@ -157,6 +79,84 @@
       "endDate": "2026-11-11",
       "status": "접수 예정",
       "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000523&pblancNo=2026000523"
+    },
+    {
+      "id": "2026000515-2026000515",
+      "name": "평택 고덕 우미 린 더 프리미어",
+      "region": "경기",
+      "type": "민영",
+      "address": "경기도 평택시 고덕 국제화계획지구 내 Abc-33블록",
+      "households": 623,
+      "publishedDate": "2026-10-30",
+      "startDate": "2026-11-09",
+      "endDate": "2026-11-11",
+      "status": "접수 예정",
+      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000515&pblancNo=2026000515"
+    },
+    {
+      "id": "2026000472-2026000472",
+      "name": "구리갈매역세권 B-1블록 신안인스빌 디센트",
+      "region": "경기",
+      "type": "민영",
+      "address": "경기도 구리시 구리갈매역세권 B-1블록",
+      "households": 213,
+      "publishedDate": "2026-10-30",
+      "startDate": "2026-11-09",
+      "endDate": "2026-11-11",
+      "status": "접수 예정",
+      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000472&pblancNo=2026000472"
+    },
+    {
+      "id": "2026000535-2026000535",
+      "name": "중앙하이츠 구성 플랫폼시티",
+      "region": "경기",
+      "type": "민영",
+      "address": "경기도 용인시 기흥구 마북동 298-1번지 일원",
+      "households": 76,
+      "publishedDate": "2026-10-29",
+      "startDate": "2026-11-09",
+      "endDate": "2026-11-12",
+      "status": "접수 예정",
+      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000535&pblancNo=2026000535"
+    },
+    {
+      "id": "2026000525-2026000525",
+      "name": "엘리프 시흥 더프라임",
+      "region": "경기",
+      "type": "민영",
+      "address": "경기도 시흥시 거모동 시흥거모지구 B-5블록",
+      "households": 304,
+      "publishedDate": "2026-10-29",
+      "startDate": "2026-11-09",
+      "endDate": "2026-11-11",
+      "status": "접수 예정",
+      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000525&pblancNo=2026000525"
+    },
+    {
+      "id": "2026000499-2026000499",
+      "name": "한화포레나 지제역",
+      "region": "경기",
+      "type": "민영",
+      "address": "경기도 평택시 세교동 725번지 일원",
+      "households": 1098,
+      "publishedDate": "2026-10-29",
+      "startDate": "2026-11-09",
+      "endDate": "2026-11-11",
+      "status": "접수 예정",
+      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000499&pblancNo=2026000499"
+    },
+    {
+      "id": "2026820014-2026820014",
+      "name": "남양주왕숙 A-2블록 신혼희망타운(공공분양) 잔여세대 추가입주자모집공고",
+      "region": "경기",
+      "type": "국민",
+      "address": "경기도 남양주시 진접읍, 진건읍, 퇴계원읍 일원, 남양주왕숙 공공주택지구 내 A-2블록",
+      "households": 32,
+      "publishedDate": "2026-11-03",
+      "startDate": "2026-11-11",
+      "endDate": "2026-11-12",
+      "status": "접수 예정",
+      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026820014&pblancNo=2026820014"
     }
   ]
 }
