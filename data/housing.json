@@ -1,20 +1,7 @@
 {
-  "updatedAt": "2026-11-06T06:31:31.729Z",
-  "displayTime": "2026.11.06 15:31",
+  "updatedAt": "2026-11-06T19:18:18.957Z",
+  "displayTime": "2026.11.07 04:18",
   "items": [
-    {
-      "id": "2026000531-2026000531",
-      "name": "시흥거모지구 S-1블록 공공분양(본청약)",
-      "region": "경기",
-      "type": "국민",
-      "address": "경기도 시흥시 거모동, 군자동 일원 시흥거모 공공주택지구 내 S-1블록",
-      "households": 300,
-      "publishedDate": "2026-10-23",
-      "startDate": "2026-11-02",
-      "endDate": "2026-11-17",
-      "status": "접수 중",
-      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000531&pblancNo=2026000531"
-    },
     {
       "id": "2026000539-2026000539",
       "name": "남춘천 센트레빌",
@@ -157,6 +144,19 @@
       "endDate": "2026-11-12",
       "status": "접수 예정",
       "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026820014&pblancNo=2026820014"
+    },
+    {
+      "id": "2026000554-2026000554",
+      "name": "리첼 에듀포레 경산역",
+      "region": "경북",
+      "type": "민영",
+      "address": "경상북도 경산시 사정동 301-22번지 일원",
+      "households": 201,
+      "publishedDate": "2026-11-03",
+      "startDate": "2026-11-13",
+      "endDate": "2026-11-17",
+      "status": "접수 예정",
+      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000554&pblancNo=2026000554"
     }
   ]
 }
