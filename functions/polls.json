@@ -22,5 +22,9 @@
   "secret-carpool-20260815": [
     "positive",
     "negative"
+  ],
+  "shellfish-allergy-first-meeting": [
+    "positive",
+    "negative"
   ]
 }
