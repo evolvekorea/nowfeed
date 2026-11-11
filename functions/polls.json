@@ -34,5 +34,9 @@
   "last-day-work-revision": [
     "positive",
     "negative"
+  ],
+  "housework-one-week-couple": [
+    "positive",
+    "negative"
   ]
 }
