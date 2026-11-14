@@ -46,11 +46,13 @@
     meta.append(element('span',topic(post),'tag'),date);
 
     const copy=element('div','','hot-copy');
-    const read=element('span','사연 읽고 투표하기 ','read');
+    const read=element('span','사연 읽기 ','read');
     const arrow=element('b','↗');
     arrow.setAttribute('aria-hidden','true');
     read.append(arrow);
-    copy.append(meta,element('h3',post.title),element('p',post.summary||''),read);
+    const stats=element('div','','story-stats');
+    stats.dataset.communityId=post.communityId||post.id;
+    copy.append(meta,element('h3',post.title),stats,read);
     link.append(cover,copy);
     card.append(link);
     return card;
@@ -61,7 +63,9 @@
     const body=element('div','');
     const date=element('small',post.publishedAt.slice(0,10).replaceAll('-','.'));
     date.append(element('span','사연 읽기 ↗'));
-    body.append(element('span',topic(post),'tag'),element('h3',post.title),date);
+    const stats=element('div','','story-stats');
+    stats.dataset.communityId=post.communityId||post.id;
+    body.append(element('span',topic(post),'tag'),element('h3',post.title),date,stats);
     a.append(body,storyImage(post));return a;
   }
   // Both story sections keep their server-rendered links if fetching fails.
@@ -77,7 +81,38 @@
       latest?.replaceChildren(...posts.slice(0,3).map(latestCard));
       grid.replaceChildren(...posts.map(storyCard));
       filter();
+      loadCommunityStats(posts);
     }catch{/* Preserve the server-rendered stories. */}
+  }
+  async function loadCommunityStats(posts) {
+    try {
+      const version='12.17.1';
+      const [{initializeApp,getApp,getApps},firestore]=await Promise.all([
+        import(`https://www.gstatic.com/firebasejs/${version}/firebase-app.js`),
+        import(`https://www.gstatic.com/firebasejs/${version}/firebase-firestore.js`)
+      ]);
+      const app=getApps().length?getApp():initializeApp(window.NOWFEED_FIREBASE_CONFIG);
+      const db=firestore.getFirestore(app);
+      await Promise.allSettled(posts.map(async post=>{
+        const id=post.communityId||post.id;
+        if(!/^[a-z0-9-]+$/.test(id))return;
+        const [comments,poll]=await Promise.allSettled([
+          firestore.getCountFromServer(firestore.collection(db,'stories',id,'comments')),
+          firestore.getDoc(firestore.doc(db,'polls',id))
+        ]);
+        const pieces=[];
+        if(comments.status==='fulfilled')pieces.push(`댓글 ${comments.value.data().count}`);
+        if(poll.status==='fulfilled') {
+          const counts=poll.value.data()?.counts||{};
+          const a=Number(counts.positive)||0,b=Number(counts.negative)||0,total=a+b;
+          if(total>0){const percent=Math.round(a*100/total);pieces.push(`투표 ${total} · A ${percent}% / B ${100-percent}%`);}
+          else pieces.push('투표 0');
+        }
+        if(pieces.length)document.querySelectorAll('.story-stats').forEach(el=>{
+          if(el.dataset.communityId===id)el.textContent=pieces.join(' · ');
+        });
+      }));
+    } catch {/* Leave counts hidden if the service is unavailable. */}
   }
   refreshStories();
 })();

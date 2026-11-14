@@ -60,7 +60,8 @@
     "category": "연애·가족",
     "publishedAt": "2026-08-17T11:30:00+09:00",
     "updatedAt": "2026-08-17T11:30:00+09:00",
-    "url": "articles/2026/08/girlfriend-family-airport-pickup-debate/"
+    "url": "articles/2026/08/girlfriend-family-airport-pickup-debate/",
+    "communityId": "girlfriend-family-airport-pickup-20260817"
   },
   {
     "id": "orchard-in-laws-biweekly-visit-debate",
@@ -69,7 +70,8 @@
     "category": "결혼·가족",
     "publishedAt": "2026-08-15T16:00:00+09:00",
     "updatedAt": "2026-08-15T16:00:00+09:00",
-    "url": "articles/2026/08/orchard-in-laws-biweekly-visit-debate/"
+    "url": "articles/2026/08/orchard-in-laws-biweekly-visit-debate/",
+    "communityId": "orchard-in-laws-visit-20260815"
   },
   {
     "id": "secret-carpool-debate",
@@ -78,7 +80,8 @@
     "category": "결혼·가족",
     "publishedAt": "2026-08-15T14:00:00+09:00",
     "updatedAt": "2026-08-15T14:00:00+09:00",
-    "url": "articles/2026/08/secret-carpool-debate/"
+    "url": "articles/2026/08/secret-carpool-debate/",
+    "communityId": "secret-carpool-20260815"
   },
   {
     "id": "liver-donation-in-laws-debate",
@@ -87,7 +90,8 @@
     "category": "결혼·가족",
     "publishedAt": "2026-08-14T17:00:00+09:00",
     "updatedAt": "2026-08-14T17:00:00+09:00",
-    "url": "articles/2026/08/liver-donation-in-laws-debate/"
+    "url": "articles/2026/08/liver-donation-in-laws-debate/",
+    "communityId": "liver-donation-in-laws-20260814"
   },
   {
     "id": "long-term-jeonse-expiration-debate",
@@ -96,7 +100,8 @@
     "category": "사회·주거",
     "publishedAt": "2026-08-14T15:00:00+09:00",
     "updatedAt": "2026-08-14T15:00:00+09:00",
-    "url": "articles/2026/08/long-term-jeonse-expiration-debate/"
+    "url": "articles/2026/08/long-term-jeonse-expiration-debate/",
+    "communityId": "long-term-jeonse-20260814"
   },
   {
     "id": "mother-in-law-visit-divorce",
@@ -105,7 +110,8 @@
     "category": "결혼·가족",
     "publishedAt": "2026-08-14T11:00:00+09:00",
     "updatedAt": "2026-08-14T11:00:00+09:00",
-    "url": "articles/2026/08/mother-in-law-visit-divorce/"
+    "url": "articles/2026/08/mother-in-law-visit-divorce/",
+    "communityId": "mother-in-law-visit-20260814"
   },
   {
     "id": "nowfeed-preview",
