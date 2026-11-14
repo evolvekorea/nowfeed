@@ -35,6 +35,26 @@ export const castVote = onCall({ region, maxInstances: 3, cors: [ORIGIN, 'https:
   });
 });
 
+export const postComment = onCall({ region, maxInstances: 3, cors: [ORIGIN, 'https://www.nowfeed.co.kr'] }, async request => {
+  if (!allowedUser(request.auth)) throw new HttpsError('unauthenticated', '참여 연결이 필요합니다.');
+  const { storyId, body } = request.data || {};
+  if (typeof storyId !== 'string' || !Object.hasOwn(polls, storyId) || typeof body !== 'string' || !body.trim() || body.trim().length > 300) throw new HttpsError('invalid-argument', '댓글 내용을 확인해 주세요.');
+  const uid = request.auth.uid;
+  const guest = request.auth.token.firebase.sign_in_provider === 'anonymous';
+  const profileRef = db.doc(`users/${uid}`);
+  const limitRef = db.doc(`commentLimits/${uid}`);
+  const commentRef = db.collection(`stories/${storyId}/comments`).doc();
+  await db.runTransaction(async transaction => {
+    const [profile, limit] = await transaction.getAll(profileRef, limitRef);
+    if (limit.data()?.updatedAt?.toMillis() > Date.now() - 15000) throw new HttpsError('resource-exhausted', '잠시 후 다시 작성해 주세요.');
+    const nickname = guest ? '익명' : profile.data()?.nickname;
+    if (!nickname || !/^[가-힣a-zA-Z0-9_]{2,12}$/u.test(nickname)) throw new HttpsError('failed-precondition', '닉네임을 설정해 주세요.');
+    transaction.set(commentRef, { body: body.trim(), authorUid: uid, authorNickname: nickname, createdAt: FieldValue.serverTimestamp() });
+    transaction.set(limitRef, { updatedAt: FieldValue.serverTimestamp() });
+  });
+  return { ok: true };
+});
+
 async function getJson(url, options, stage) {
   const response = await fetch(url, { ...options, signal: AbortSignal.timeout(12000) });
   if (!response.ok) throw new Error(`${stage} HTTP ${response.status}`);

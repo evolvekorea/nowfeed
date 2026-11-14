@@ -2,9 +2,9 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { allowedUser, providerUid, sha256, equal, tokenPattern, randomToken, nextVote } from '../security.js';
 
-test('rejects anonymous sessions and untrusted custom providers', () => {
+test('permits anonymous participants and rejects untrusted custom providers', () => {
   assert.equal(allowedUser(null), false);
-  assert.equal(allowedUser({ token: { firebase: { sign_in_provider: 'anonymous' } } }), false);
+  assert.equal(allowedUser({ token: { firebase: { sign_in_provider: 'anonymous' } } }), true);
   assert.equal(allowedUser({ token: { firebase: { sign_in_provider: 'custom' }, loginProvider: 'unknown' } }), false);
   for (const provider of ['naver', 'kakao']) assert.equal(allowedUser({ token: { firebase: { sign_in_provider: 'custom' }, loginProvider: provider } }), true);
   assert.equal(allowedUser({ token: { firebase: { sign_in_provider: 'google.com' } } }), true);

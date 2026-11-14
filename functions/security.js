@@ -6,7 +6,7 @@ export const sha256 = value => createHash('sha256').update(value).digest('base64
 export const randomToken = () => randomBytes(32).toString('base64url');
 export const tokenPattern = /^[A-Za-z0-9_-]{43}$/;
 export const equal = (a, b) => typeof a === 'string' && typeof b === 'string' && a.length === b.length && timingSafeEqual(Buffer.from(a), Buffer.from(b));
-export const allowedUser = auth => Boolean(auth && (auth.token?.firebase?.sign_in_provider === 'google.com' || (auth.token?.firebase?.sign_in_provider === 'custom' && ['naver', 'kakao'].includes(auth.token?.loginProvider))));
+export const allowedUser = auth => Boolean(auth && (['anonymous', 'google.com'].includes(auth.token?.firebase?.sign_in_provider) || (auth.token?.firebase?.sign_in_provider === 'custom' && ['naver', 'kakao'].includes(auth.token?.loginProvider))));
 
 export function providerUid(provider, id) {
   if (!['naver', 'kakao'].includes(provider) || !id) throw new Error('Invalid identity');

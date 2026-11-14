@@ -32,12 +32,12 @@
     const hasVote = Boolean(currentUser && myChoice);
     actions.hidden = !currentUser || hasVote;
     results.hidden = !voteCounts;
-    loginForVote.hidden = Boolean(currentUser);
+    loginForVote.hidden = true;
     loginForVote.disabled = !authReady;
     voteButtons.forEach(button => { button.disabled = !authReady || !currentUser || voteBusy || !ballotReady; });
     const change = document.querySelector('#change-vote');
     if (change) { change.hidden = !hasVote; change.disabled = voteBusy; }
-    voteStatus.textContent = !authReady ? '로그인 상태 확인 중…' : !currentUser ? '투표와 댓글은 로그인 후 참여할 수 있어요.' : !ballotReady ? '내 투표를 확인하고 있습니다.' : voteBusy ? '투표를 저장하고 있습니다.' : hasVote ? '투표 완료 · 선택을 바꿀 수 있어요.' : '한 가지 의견을 선택해 주세요.';
+    voteStatus.textContent = !authReady ? '참여 연결 중…' : !currentUser ? '참여 서비스를 연결하지 못했습니다.' : !ballotReady ? '내 투표를 확인하고 있습니다.' : voteBusy ? '투표를 저장하고 있습니다.' : hasVote ? '투표 완료 · 선택을 바꿀 수 있어요.' : '로그인 없이 의견을 선택해 주세요.';
     if (!voteCounts) return;
     const total = voteOptions.reduce((sum, option) => sum + (voteCounts[option.id] || 0), 0);
     let allocated = 0;
@@ -103,9 +103,9 @@
     prompt.className = 'comment-auth-prompt';
     const promptCopy = document.createElement('div');
     const promptTitle = document.createElement('strong');
-    promptTitle.textContent = '로그인하고 투표·토론에 참여하세요.';
+    promptTitle.textContent = '로그인하고 고정 닉네임으로 활동하세요.';
     const promptText = document.createElement('span');
-    promptText.textContent = '한 번 로그인하면 투표와 댓글을 모두 이용할 수 있어요. 댓글은 닉네임 설정 후 작성합니다.';
+    promptText.textContent = '로그인 없이도 익명으로 투표하고 댓글을 남길 수 있습니다.';
     promptCopy.append(promptTitle, promptText);
     const consentLabel = document.createElement('label');
     consentLabel.className = 'comment-auth-consent';
@@ -294,21 +294,24 @@
 
   const updateAuthUi = (user, profile = currentProfile, editing = false) => {
     currentUser = user;
-    const hasProfile = Boolean(user && profile?.nickname);
+    const guest = Boolean(user?.isAnonymous);
+    const hasProfile = Boolean(user && !guest && profile?.nickname);
     renderVote();
-    if (form) form.hidden = !hasProfile || editing;
-    if (authUi.prompt) authUi.prompt.hidden = Boolean(user);
+    if (form) form.hidden = (!guest && !hasProfile) || editing;
+    if (authUi.prompt) authUi.prompt.hidden = Boolean(user && !guest);
     if (authUi.account) authUi.account.hidden = !hasProfile || editing;
-    if (authUi.profileEditor) authUi.profileEditor.hidden = !user || (hasProfile && !editing);
+    if (authUi.profileEditor) authUi.profileEditor.hidden = !user || guest || (hasProfile && !editing);
     if (authUi.profileCancelButton) authUi.profileCancelButton.hidden = !hasProfile;
     if (hasProfile) {
       authUi.accountTitle.textContent = `${profile.nickname} ${visibleAuthorId(user.uid)}`;
       authUi.nicknameInput.value = profile.nickname;
       setStorageStatus(commentsConnected ? '공용 댓글 연결됨' : '댓글 서버 연결 중', commentsConnected ? 'connected' : 'connecting');
+    } else if (guest) {
+      setStorageStatus(commentsConnected ? '익명으로 참여 중' : '댓글 서버 연결 중', commentsConnected ? 'connected' : 'connecting');
     } else if (user) {
       setStorageStatus('닉네임 설정 필요', 'login');
     } else {
-      setStorageStatus('로그인 후 댓글 작성', 'login');
+      setStorageStatus('참여 연결 중', 'connecting');
     }
   };
 
@@ -358,6 +361,7 @@
       }
     };
     const callableVote = functions.httpsCallable(functions.getFunctions(app, window.NOWFEED_COMMUNITY_CONFIG.region), 'castVote');
+    const callableComment = functions.httpsCallable(functions.getFunctions(app, window.NOWFEED_COMMUNITY_CONFIG.region), 'postComment');
     voteApi = { cast: choice => callableVote({ storyId, choice }) };
     refreshLoginButtons();
     firestore.onSnapshot(firestore.doc(db, 'polls', storyId), snapshot => {
@@ -377,7 +381,11 @@
       ballotReady = false;
       authReady = true;
       updateAuthUi(user, null);
-      if (!user) return;
+      if (!user) {
+        try { await authModule.signInAnonymously(auth); }
+        catch { if (generation === authGeneration) { voteStatus.textContent = '익명 참여를 연결하지 못했습니다.'; setStorageStatus('익명 참여 연결 오류', 'offline'); } }
+        return;
+      }
       unsubscribeBallot = firestore.onSnapshot(firestore.doc(db, 'stories', storyId, 'votes', user.uid), snapshot => {
         if (generation !== authGeneration) return;
         myChoice = snapshot.data()?.choice || null;
@@ -389,6 +397,7 @@
         renderVote();
         voteStatus.textContent = '내 투표 확인에 실패했습니다. 새로고침 후 다시 시도해 주세요.';
       });
+      if (user.isAnonymous) return;
       try {
         const profile = await profileApi.load(user.uid);
         if (generation !== authGeneration) return;
@@ -419,12 +428,7 @@
     });
 
     firestoreApi = {
-      add: (text, user, profile) => firestore.addDoc(commentsRef, {
-        body: text,
-        authorUid: user.uid,
-        authorNickname: profile.nickname,
-        createdAt: firestore.serverTimestamp()
-      })
+      add: (text) => callableComment({ storyId, body: text })
     };
 
   };
@@ -497,7 +501,7 @@
   form?.addEventListener('submit', async (event) => {
     event.preventDefault();
     const text = input.value.trim();
-    if (!text || !currentUser || !currentProfile || !firestoreApi) return;
+    if (!text || !currentUser || (!currentUser.isAnonymous && !currentProfile) || !firestoreApi) return;
     if (submitButton) submitButton.disabled = true;
 
     try {

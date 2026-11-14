@@ -42,5 +42,9 @@
   "first-commute-older-car": [
     "positive",
     "negative"
+  ],
+  "postpartum-parental-leave-story": [
+    "positive",
+    "negative"
   ]
 }
