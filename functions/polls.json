@@ -46,5 +46,17 @@
   "postpartum-parental-leave-story": [
     "positive",
     "negative"
+  ],
+  "parents-eightieth-birthday-dispute": [
+    "positive",
+    "negative"
+  ],
+  "empty-fridge-couple-meals": [
+    "positive",
+    "negative"
+  ],
+  "former-future-sister-in-law-advice": [
+    "positive",
+    "negative"
   ]
 }
