@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-11-18T07:16:14.431Z",
-  "displayTime": "2026.11.18 16:16",
+  "updatedAt": "2026-11-18T20:25:35.378Z",
+  "displayTime": "2026.11.19 05:25",
   "items": [
     {
       "id": "2026820015-2026820015",
@@ -16,32 +16,6 @@
       "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026820015&pblancNo=2026820015"
     },
     {
-      "id": "2026000557-2026000557",
-      "name": "제일풍경채 광주 포에듀",
-      "region": "경기",
-      "type": "민영",
-      "address": "경기도 광주시 탄벌동 203-4번지 일원 (탄벌A지구 A5블럭)",
-      "households": 572,
-      "publishedDate": "2026-11-06",
-      "startDate": "2026-11-16",
-      "endDate": "2026-11-18",
-      "status": "접수 중",
-      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000557&pblancNo=2026000557"
-    },
-    {
-      "id": "2026000553-2026000553",
-      "name": "의정부역 펠리스타워 양우내안애",
-      "region": "경기",
-      "type": "민영",
-      "address": "경기도 의정부시 의정부동 424번지 일원 ",
-      "households": 414,
-      "publishedDate": "2026-11-06",
-      "startDate": "2026-11-16",
-      "endDate": "2026-11-18",
-      "status": "접수 중",
-      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000553&pblancNo=2026000553"
-    },
-    {
       "id": "2026000497-2026000497",
       "name": "중화역 라온프라이빗 센트로",
       "region": "서울",
@@ -53,6 +27,32 @@
       "endDate": "2026-11-19",
       "status": "접수 중",
       "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000497&pblancNo=2026000497"
+    },
+    {
+      "id": "2026000559-2026000559",
+      "name": "두산위브 트레지움 익산",
+      "region": "전북",
+      "type": "민영",
+      "address": "전북특별자치도 익산시 동산동 1057번지 일원",
+      "households": 251,
+      "publishedDate": "2026-11-18",
+      "startDate": "2026-11-23",
+      "endDate": "2026-11-25",
+      "status": "접수 예정",
+      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000559&pblancNo=2026000559"
+    },
+    {
+      "id": "2026000536-2026000536",
+      "name": "구미 파크원 데시앙",
+      "region": "경북",
+      "type": "민영",
+      "address": "경상북도 구미시 도량동 산40-4번지 일원",
+      "households": 1355,
+      "publishedDate": "2026-11-18",
+      "startDate": "2026-11-23",
+      "endDate": "2026-11-25",
+      "status": "접수 예정",
+      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000536&pblancNo=2026000536"
     },
     {
       "id": "2026000566-2026000566",
