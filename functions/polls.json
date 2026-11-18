@@ -70,5 +70,17 @@
   "parents-trip-mother-in-law-disappointment": [
     "positive",
     "negative"
+  ],
+  "wedding-last-minute-friend-absence": [
+    "positive",
+    "negative"
+  ],
+  "laundry-basket-missing-socks": [
+    "positive",
+    "negative"
+  ],
+  "newlywed-home-frequent-inlaw-visits": [
+    "positive",
+    "negative"
   ]
 }
