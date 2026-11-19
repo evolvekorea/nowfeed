@@ -1,6 +1,6 @@
 {
-  "updatedAt": "2026-11-19T07:15:34.927Z",
-  "displayTime": "2026.11.19 16:15",
+  "updatedAt": "2026-11-19T20:28:47.292Z",
+  "displayTime": "2026.11.20 05:28",
   "items": [
     {
       "id": "2026820015-2026820015",
@@ -14,19 +14,6 @@
       "endDate": "2026-11-27",
       "status": "접수 중",
       "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026820015&pblancNo=2026820015"
-    },
-    {
-      "id": "2026000497-2026000497",
-      "name": "중화역 라온프라이빗 센트로",
-      "region": "서울",
-      "type": "민영",
-      "address": "서울특별시 중랑구 중화동 303-9번지 일원",
-      "households": 113,
-      "publishedDate": "2026-11-06",
-      "startDate": "2026-11-16",
-      "endDate": "2026-11-19",
-      "status": "접수 중",
-      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000497&pblancNo=2026000497"
     },
     {
       "id": "2026000559-2026000559",
@@ -157,6 +144,19 @@
       "endDate": "2026-11-30",
       "status": "접수 예정",
       "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000505&pblancNo=2026000505"
+    },
+    {
+      "id": "2026000585-2026000585",
+      "name": "고양 한신더휴 퍼스트원",
+      "region": "경기",
+      "type": "민영",
+      "address": "경기도 고양시 덕양구 행신동 173-1번지 일원",
+      "households": 102,
+      "publishedDate": "2026-11-19",
+      "startDate": "2026-11-30",
+      "endDate": "2026-12-02",
+      "status": "접수 예정",
+      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000585&pblancNo=2026000585"
     }
   ]
 }
