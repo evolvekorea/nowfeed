@@ -82,5 +82,17 @@
   "newlywed-home-frequent-inlaw-visits": [
     "positive",
     "negative"
+  ],
+  "brother-late-family-weddings": [
+    "positive",
+    "negative"
+  ],
+  "deleted-message-mothers-nickname": [
+    "positive",
+    "negative"
+  ],
+  "bouquet-favor-missing-invitation": [
+    "positive",
+    "negative"
   ]
 }
