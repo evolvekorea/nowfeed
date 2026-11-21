@@ -94,5 +94,17 @@
   "bouquet-favor-missing-invitation": [
     "positive",
     "negative"
+  ],
+  "holiday-allowance-gift-disagreement": [
+    "positive",
+    "negative"
+  ],
+  "inlaw-visits-holidays-only": [
+    "positive",
+    "negative"
+  ],
+  "chuseok-next-day-family-trip": [
+    "positive",
+    "negative"
   ]
 }
