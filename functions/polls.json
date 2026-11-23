@@ -106,5 +106,17 @@
   "chuseok-next-day-family-trip": [
     "positive",
     "negative"
+  ],
+  "birthday-call-after-shoe-gift": [
+    "positive",
+    "negative"
+  ],
+  "eight-year-friend-wedding-invitation": [
+    "positive",
+    "negative"
+  ],
+  "three-year-inlaw-visit-dishes": [
+    "positive",
+    "negative"
   ]
 }
