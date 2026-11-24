@@ -118,5 +118,17 @@
   "three-year-inlaw-visit-dishes": [
     "positive",
     "negative"
+  ],
+  "friend-wants-newlywed-husband-introduction": [
+    "positive",
+    "negative"
+  ],
+  "longtime-friend-sister-in-law-same-wedding-day": [
+    "positive",
+    "negative"
+  ],
+  "old-wedding-album-former-girlfriend-apology": [
+    "positive",
+    "negative"
   ]
 }
