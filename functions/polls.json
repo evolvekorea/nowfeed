@@ -130,5 +130,17 @@
   "old-wedding-album-former-girlfriend-apology": [
     "positive",
     "negative"
+  ],
+  "cousin-wedding-close-friend-separate-attendance": [
+    "positive",
+    "negative"
+  ],
+  "lunar-birthday-before-new-year-change-request": [
+    "positive",
+    "negative"
+  ],
+  "own-family-events-and-kimchi-making": [
+    "positive",
+    "negative"
   ]
 }
