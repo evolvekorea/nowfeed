@@ -1,20 +1,7 @@
 {
-  "updatedAt": "2026-11-27T08:16:01.194Z",
-  "displayTime": "2026.11.27 17:16",
+  "updatedAt": "2026-11-27T21:08:48.589Z",
+  "displayTime": "2026.11.28 06:08",
   "items": [
-    {
-      "id": "2026000505-2026000505",
-      "name": "경희궁 에피트",
-      "region": "서울",
-      "type": "민영",
-      "address": "서울특별시 종로구 교남동 28번지 일원",
-      "households": 134,
-      "publishedDate": "2026-11-13",
-      "startDate": "2026-11-25",
-      "endDate": "2026-11-30",
-      "status": "접수 중",
-      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000505&pblancNo=2026000505"
-    },
     {
       "id": "2026000598-2026000598",
       "name": "고창 데시앙 2블록(공공분양)",
@@ -133,30 +120,43 @@
       "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000521&pblancNo=2026000521"
     },
     {
-      "id": "2026000611-2026000611",
-      "name": "병점복합타운 주복1블록 공공분양",
+      "id": "2026000589-2026000589",
+      "name": "트리븐 가흥",
+      "region": "경북",
+      "type": "민영",
+      "address": "경상북도 영주시 가흥동 1059-10 일원",
+      "households": 765,
+      "publishedDate": "2026-11-27",
+      "startDate": "2026-12-02",
+      "endDate": "2026-12-04",
+      "status": "접수 예정",
+      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000589&pblancNo=2026000589"
+    },
+    {
+      "id": "2026000612-2026000612",
+      "name": "용인반도체클러스터 동일하이빌 파크밸리 2단지(D1-2블록)",
       "region": "경기",
-      "type": "국민",
-      "address": "경기도 화성시 병점구 병점동, 진안동 일원 병점복합타운 내 주복1블록",
-      "households": 726,
-      "publishedDate": "2026-11-26",
+      "type": "민영",
+      "address": "경기도 용인시 처인구 원삼면 용인 반도체 클러스터 일반산업단지 D1-2BL",
+      "households": 661,
+      "publishedDate": "2026-11-27",
       "startDate": "2026-12-07",
       "endDate": "2026-12-10",
       "status": "접수 예정",
-      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000611&pblancNo=2026000611"
+      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000612&pblancNo=2026000612"
     },
     {
-      "id": "2026000568-2026000568",
-      "name": "사천선인지구 S4블록(한림풀에버)",
-      "region": "경남",
+      "id": "2026000592-2026000592",
+      "name": "경북도청 푸르지오 퍼스티온",
+      "region": "경북",
       "type": "민영",
-      "address": "경상남도 사천시 사천선인 공공주택지구 S-4BL",
-      "households": 562,
-      "publishedDate": "2026-11-26",
+      "address": "경상북도 예천군 호명읍 경북도청신도시 2단계 B-10BL ",
+      "households": 1165,
+      "publishedDate": "2026-11-27",
       "startDate": "2026-12-07",
       "endDate": "2026-12-09",
       "status": "접수 예정",
-      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000568&pblancNo=2026000568"
+      "url": "https://www.applyhome.co.kr/ai/aia/selectAPTLttotPblancDetail.do?houseManageNo=2026000592&pblancNo=2026000592"
     }
   ]
 }
