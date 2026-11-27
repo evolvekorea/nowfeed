@@ -142,5 +142,17 @@
   "own-family-events-and-kimchi-making": [
     "positive",
     "negative"
+  ],
+  "frequent-family-meals-and-weekend-plans": [
+    "positive",
+    "negative"
+  ],
+  "mother-daughter-trip-and-inlaws-visit-frequency": [
+    "positive",
+    "negative"
+  ],
+  "father-new-partner-and-adult-son-objection": [
+    "positive",
+    "negative"
   ]
 }
