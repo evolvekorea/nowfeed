@@ -154,5 +154,17 @@
   "father-new-partner-and-adult-son-objection": [
     "positive",
     "negative"
+  ],
+  "six-day-holiday-inlaw-trip-and-parents-visit": [
+    "positive",
+    "negative"
+  ],
+  "first-holiday-promised-parents-dinner-return": [
+    "positive",
+    "negative"
+  ],
+  "newlywed-home-support-budget-and-broken-engagement": [
+    "positive",
+    "negative"
   ]
 }
